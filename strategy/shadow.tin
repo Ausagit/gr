@@ -1,0 +1,40 @@
+#nop shadow skill line strategies
+
+#alias {check_strat_shadow_rupture} {
+    #nop check for the shadow mark debuff;
+
+    #nop execute when there's a mob and it's low health only;
+    #if {$enemy[hp] == 0 || $enemy[hp] > 10} {
+        #return;
+    };
+
+    #if {"$enemy[buffs][list][smark]" == ""} {
+        #return;
+    };
+
+    #nop check to see if the ability is on cooldown;
+    #if {$my[cooldowns][list][rupture][duration] > 0} {
+        #return;
+    };
+
+    #send !rupture;
+}
+
+#alias {check_strat_shadow_reckoning} {
+
+    #nop execute when there's a mob;
+    #if {$enemy[hp] == 0} {
+        #return;
+    };
+
+    #nop check to see if the ability is on cooldown;
+    #if {$my[cooldowns][list][reckoning][duration] > 0} {
+        #return;
+    };
+
+    #if {$my[stagger][perc] < 10 || $my[hp][perc] > 80} {
+        #return;
+    };
+
+    #send !reckoning;
+}

@@ -1,0 +1,24 @@
+#class {gags} {open}
+
+/* Blank Line */
+#nop #gag {^ $}
+
+#alias {uhp} {
+    #ungag {^CD[};
+    #ungag {^HP[};
+    #ungag {^BU[};
+    #ungag {^EN[};
+    #ungag {^MI[};
+}
+
+#alias {ghp} {
+    #gag {^CD[};
+    #gag {^HP[};
+    #gag {^BU[};
+    #gag {^EN[};
+    #gag {^MI[};
+}
+
+ghp
+
+#class {gags} {close}

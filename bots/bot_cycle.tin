@@ -1,0 +1,122 @@
+#class {botcycle} {kill}
+#class {botcycle} {open}
+#NOP REQUIRED:  draw.tin  //canvas dimensions
+
+#variable cycle 0
+
+#alias {ba} {
+	#list botcycle add {%1};
+	#nop variable event unreliable;
+	sidedraw
+}
+
+#alias {br} {
+	#list botcycle delete {%1};
+	#if {%1 < $cycle} {
+		#math cycle {$cycle - 1}
+	};
+	#nop variable event unreliable;
+	sidedraw
+}
+
+#alias {thisarea} {
+	#list botcycle get {$cycle} {currentarea};
+	go $currentarea;
+	#delay {1} {- $currentarea};
+	#delay {2} {..}
+}
+
+#alias {nextarea} {
+	#if {$cycle < &{botcycle[]}} {
+		#math cycle {$cycle+1}
+	} {
+		#variable cycle 1
+	};
+	#list botcycle get {$cycle} {currentarea};
+	go $currentarea;
+	#delay {1} {- $currentarea};
+	#delay {2} {..}
+}
+
+#alias {botclear} {
+	#variable botcycle {};
+	#variable cycle 0
+}
+
+#alias {bc} {
+	#echo {<228> +-------------------+<088>};
+	#echo {<228> |<138>    Area Cycler    <228>|<088>};
+	#echo {<228> +-------------------+<088>};
+	#if {&{botcycle[]} == 0} {
+		#echo {<228> |<178>  No areas loaded  <228>|<088>};
+		#echo {<228> +-------------------+<088>}
+	} {
+		#variable cnt 0;
+		#while {$cnt < &{botcycle[]}} {
+			#math cnt {$cnt + 1};
+			#if {$cnt == $cycle} {
+				#format cntnum {%+4s} {<128>$cnt\.<088>};
+				#format area_display {%-13s} {<128>$botcycle[$cnt]<088>}
+			} {
+				#format cntnum {%+4s} {<178>$cnt\.<088>};
+				#format area_display {%-13s} {<148>$botcycle[$cnt]<088>}
+			};
+			#echo { <228>| $cntnum $area_display <228>|<088>}
+		};
+		#echo { <228>+-------------------+<088>}
+	}
+}
+
+#alias {botdraw2} {
+	#if {"$draw[canvas]" == "on"} {
+		#NOP Clear previous drawing;
+
+		#if {&{botcycle[]} == 0} {
+			#variable botareas {<088>No areas loaded};
+			#variable botheight 1
+		} {
+			#variable botheight &{botcycle[]};
+			#variable botareas {};
+			#variable cnt 0;
+			#while {$cnt < &{botcycle[]}} {
+				#math {cnt} {$cnt + 1};
+				#if {$cnt == $cycle} {
+					#format cntnum {%-2s} {<128>$cnt.<088>};
+					#format area_display {%-12s} {<128>$botcycle[$cnt]<088>}
+				} {
+					#format cntnum {%-2s} {<088>$cnt.<088>};
+					#format area_display {%-12s} {<088>$botcycle[$cnt]<088>}
+				};
+				#if {$cnt == 1} {
+					#variable botareas {$cntnum $area_display}
+				} {
+					#variable botareas {$botareas\n$cntnum $area_display}
+				}
+			}
+		};
+		
+		#nop upper left and bottom right corner using row, col, row, col syntax;
+		#screen clear square $chat[height]+$caption[height]+1 -$canvas[width]+1 $chat[height]+$caption[height]+4+$botheight+1 -1;
+
+		#draw tile $chat[height]+$caption[height]+1 -$canvas[width]+1 $chat[height]+$caption[height]+4 -1 {
+			$gthemes[$gset[theme]][headings]Area Cycler<088>
+		};
+		#draw tile $chat[height]+$caption[height]+2 -$canvas[width]+1 $chat[height]+$caption[height]+4+$botheight -1 {
+			$botareas
+		}
+	}
+}
+
+#alias {cycle} {
+	#variable cycle %1
+}
+
+#event {VARIABLE UPDATE cycle} {
+	#delay 0 sidedraw
+}
+
+#event {VARIABLE UPDATE botcycle} {
+	#delay 0 sidedraw
+}
+
+#class {botcycle} {close}

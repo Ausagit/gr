@@ -1,0 +1,19 @@
+#class funcs open
+
+#nop helper functions
+#function {alias_exists} {
+	#info aliases save;
+	#list info[ALIASES] indexate arg1;
+	#list info[ALIASES] find %0 result;
+	#if {$result > 0} {
+		#variable result 1
+	} {
+		#variable result 0
+	}
+}
+
+#function {to_lower} {
+	#format result {%l} {%1}
+}
+
+#class funcs close

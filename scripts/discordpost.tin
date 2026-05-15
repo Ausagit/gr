@@ -1,0 +1,121 @@
+#nop discordpost.tin
+/*
+
+Add these variables to your char (or a common char file and populate with the webhook url from your discord server)
+	#variable discord[tell][url]  {}
+	#variable discord[tellp][url] {}
+	#variable discord[guild][url] {}
+	#variable discord[bot][url]   {}
+	#variable discord[party][url] {}
+
+Add the following line to the end of #alias {.mipProcessBAB} in mip.tin
+	#if {$discord[enabled]} {
+		#line sub var #delay 0 {discordpost tell $mip[comm][source] $mip[comm][data]}
+	}
+*/
+
+#class discordpost kill
+#class discordpost open
+
+#variable discord[tell][url]  {}
+#variable discord[tellp][url] {}
+#variable discord[guild][url] {}
+#variable discord[bot][url]   {}
+#variable discord[party][url] {}
+
+#variable discord[enabled] 1;
+#variable discord[tell][enabled] 1
+#variable discord[tellp][enabled] 1
+#variable discord[guild][enabled] 0
+#variable discord[bot][enabled] 1
+#variable discord[party][enabled] 0
+
+#alias {dp} {
+	#if {"%1" == "tell"} {
+		#if {"%2" == "off"} {
+			#variable discord[tell][enabled] 0
+		} {
+			#variable discord[tell][enabled] 1
+		}
+	};
+	#elseif {"%1" == "guild"} {
+		#if {"%2" == "off"} {
+			#variable discord[guild][enabled] 0
+		} {
+			#variable discord[guild][enabled] 1
+		}
+	};
+	#elseif {"%1" == "bot"} {
+		#if {"%2" == "off"} {
+			#variable discord[bot][enabled] 0
+		} {
+			#variable discord[bot][enabled] 1
+		}
+	};
+	#elseif {"%1" == "party"} {
+		#if {"%2" == "off"} {
+			#variable discord[party][enabled] 0
+		} {
+			#variable discord[party][enabled] 1
+		}
+	};
+
+	#echo {Discord posts: %s} {$discord[enabled]};
+	#echo {Channel tell : %s} {$discord[tell][enabled]};
+	#echo {Channel tellp: %s} {$discord[tellp][enabled]};
+	#echo {Channel guild: %s} {$discord[guild][enabled]};
+	#echo {Channel bot  : %s} {$discord[bot][enabled]}
+}
+
+#alias {discordpost} {
+    #if {$discord[enabled]} {
+        #regexp {%0} {{(tell|party|guild|clan|bot|party) ([a-zA-Z]+) (.*)}} {
+            #local lname {};
+            #local dchan {&2};
+            #format lname {%l} {&3};
+            #if {"$dchan" == "tell"} {
+                #regexp {$lname} {{adalius|frank|turnhold|flaxen|crolack|rastafan|tensor|revelation|mimic|kikipopo|thor}} {
+                    #variable dchan {tellp}
+                }
+            };
+            #if {"$discord[$dchan][url]" != "" && $discord[$dchan][enabled]} {
+                #format dscript {python3 .tt/scripts/discordpost.py '%s' '%n' '%s'} {$discord[$dchan][url]} {&3} {@sanitizePayload{&4}};
+                #script {$dscript}
+            }
+        } {
+            #echo {Invalid arguments to discordpost.}
+        }
+    }
+}
+
+#alias {discordresult} {
+	#echo Result: %0
+}
+
+#function sanitizePayload {
+	#NOP -- Function to remove potentially problematic characters from the payload;
+	#NOP -- Maybe we can replace these with char or ascii representations to pass the desired character;
+	#nop thanks to 3kdb;
+	#var tempString {%0};
+	#replace tempString {#} {};
+	#replace tempString {$} {};
+	#replace tempString {*} {};
+	#replace tempString {;} {};
+	#replace tempString {"} {};
+	#replace tempString {`} {};
+	#replace tempString {'} {};
+	#replace tempString {"} {};
+	#replace tempString {\} {};
+	#replace tempString {/} {};
+	#replace tempString {(} {[};
+	#replace tempString {)} {]};
+	#replace tempString {-} {_};
+	#replace tempString {<} {[};
+	#replace tempString {>} {]};
+	#replace tempString {&} { and };
+	#replace tempString {|} { or };
+    #line strip #var {_santized_payload} {$tempString};
+    #return $_santized_payload;
+}
+
+#class discordpost close

@@ -1,0 +1,163 @@
+#nop hp stuff, split into the right files later
+
+#class hp kill
+#class hp open
+
+#nop TODO: optional prefix/thing in non-regexp action, it's possible, find the syntax;
+#action {HP[%d/%d +%d/%d ~%d/%d] FC[%d/%d] SS[%w] [%w] CR[%d] EH[%*]}
+{
+    #nop #line gag;
+    #var my[hp][current] %1;
+    #var my[hp][max] %2;
+    #math my[hp][perc] {%1 * 100 / %2};
+    #var my[barrier][current] %3;
+    #var my[barrier][max] %4;
+    #var my[stagger][current] %5;
+    #var my[stagger][max] %6;
+    #math my[stagger][perc] {%5 * 100 / %6};
+    #var my[focus][current] %7;
+    #var my[focus][max] %8;
+    #math my[focus][perc] {%7 * 100 / %8};
+    #var my[shapeshift] {%9};
+    #var my[round] %11;
+
+    #regexp {%12} {%w:%d} {
+        #var enemy[name] {&1};
+        #var enemy[hp] {&2};
+    } {
+        #var enemy[name] {};
+        #var enemy[hp] 0;
+    };
+}
+
+#action {^MI[%*]} {
+    #nop #line gag;
+    #variable my[minions] @parse_buffs{%1};
+}
+
+#variable durations {}
+
+#nop %1 = raw buff string;
+#nop %2 = type reference for cooldown lengths;
+#nop %3 = colour direction;
+#nop returns a table result[list], result[string]
+#function {parse_buffs} {
+    #local buffs {};
+    #local tok {%1};
+    #list tok explode { };
+    #local bstr {};
+  
+    #foreach {$tok[]} {item} {
+        #if {"$bstr" != ""} {
+            #variable bstr {$bstr };
+        };
+
+        #regexp {$item} {{^([a-z]+)(?:\((\d+)\))?(?:\:(\d+))?}} {
+            #nop &2 name, &3 stacks, &4 duration;
+            #variable buffs[&2][stacks] 0;
+
+            #if {"&4" != ""} {
+                #nop has a duration;
+                #variable buffs[&2][duration] {&4};
+
+                #if {"&3" != ""} {
+                    #variable buffs[&2][stacks] &3
+                };
+
+                #if {"$durations[%2][&2]" == ""} {
+                    #variable durations[%2][&2] &4;
+                };
+
+                #elseif {&4 > $durations[%2][&2]} {
+                    #variable durations[%2][&2] &4;
+                };
+
+                #if {"%3" == "1"} {
+                    #nop for cooldowns, lower numbers are better;
+                    #variable bstr {${bstr}@colscaleinv2{&4;$durations[%2][&2];&1}};
+                } {
+                    #nop for buffs, higher numbers are better;
+                    #variable bstr {${bstr}@colscale2{&4;$durations[%2][&2];&1}};
+                }
+            } {
+                #nop no duration;
+                #variable buffs[&2][duration] {0};
+                #variable bstr {${bstr}<aff>&2<088>};
+            };
+        } {
+            #nop error;
+            #echo {failed to match};
+        };       
+    };
+
+    #variable result {{string} {$bstr} {list} {$buffs}};
+}
+
+#action {^BU[%*]$} {
+    #nop #line gag;
+    #variable my[buffs] @parse_buffs{%1;buffs};
+}
+
+#action {^EN[%*]$} {
+    #nop #line gag;
+    #variable enemy[buffs] @parse_buffs{%1;enemy};
+}
+
+#action {^CD[%*]} {
+    #nop #line gag;
+    #variable my[cooldowns] @parse_buffs{%1;cooldowns;1};
+    update_status;
+    heart_beat;
+}
+
+#alias {update_status} {
+    #var scol $gthemes[$gset[theme]][slabels];
+	#var	my[hp][graph]		{@graph{$my[hp][current];${my[hp][max]}}};
+	#var	my[focus][graph]		{@graph{$my[focus][current];$my[focus][max]}};
+	#var	enemy[graph]		{@graph{$enemy[hp];100}};
+	#format hp			{%+4s} {@colscale{$my[hp][current];$my[hp][max]}};
+	#format hp_max		{%+4s} {<128>$my[hp][max]<088>};
+	#format focus			{%+4s} {@colscale{$my[focus][current];$my[focus][max]}};
+	#format focus_max		{%-4s} {<128>$my[focus][max]<088>};
+    #if {"$enemy[name]" != ""} {
+        #format ehealth		{%-3s} {$enemy[name] @colscale{$enemy[hp];100;%}};
+    } {
+        #variable ehealth	{};
+    };	
+    #format round       {%-7d} {$my[round]};
+    #format barrier     {%-4s} {@colscale{$my[barrier][current];$my[barrier][max]}};
+    #format stagger     {%-4s} {@colscaleinv{$my[stagger][current];$my[stagger][max]}};
+
+    #line ignore #showme {${scol}MI<088> $my[minions][string] $scol| BU<088> $my[buffs][string] $scol| CD<088> $my[cooldowns][string]${scol}                                                    } {-6} {0};
+	#line ignore #showme {${scol}HP $hp/$hp_max  ${scol}BA <088>$barrier ${scol}FC $focus/$focus_max  ${scol}CR <088>$round ${scol}EH <088>$ehealth                 } {-4} {0};
+	#line ignore #showme {${scol}   $my[hp][graph] ${scol}ST <088>$stagger ${scol}   $my[focus][graph] ${scol}BS <088>435/153 ${scol}EB <088>$enemy[buffs][string]                             } {-3} {0};
+}
+
+#alias {update_status2} {
+    #var scol $gthemes[$gset[theme]][slabels];
+	#var	my[hp][graph]		{@graph{$my[hp][current];${my[hp][max]}}};
+	#var	my[focus][graph]		{@graph{$my[focus][current];$my[focus][max]}};
+	#nop #var	enemy[graph]		{@graph{$enemy[hp];100}};
+	#format hp			{%+4s} {@colscale{$my[hp][current];$my[hp][max]}};
+	#format hp_max		{%+4s} {<128>$my[hp][max]<088>};
+	#format focus			{%+4s} {@colscale{$my[focus][current];$my[focus][max]}};
+	#format focus_max		{%-4s} {<128>$my[focus][max]<088>};
+	#format ehealth		{%-3s} {$enemy[name] @colscale{$enemy[hp];100;%}};
+    #format round       {%-7d} {$my[round]};
+    #format barrier     {%-4s} {@colscale{$my[barrier][current];$my[barrier][max]}};
+    #format stagger     {%-4s} {@colscaleinv{$my[stagger][current];$my[stagger][max]}};
+
+    #line ignore #showme {${scol}cooldowns<088> $my[cooldowns][string]${scol} $scol| minions<088> $my[minions][string] $scol| buffs<088> $my[buffs][string] ${scol}|<088>                                                    } {-6} {0};
+	#line ignore #showme {${scol}health $hp/$hp_max  ${scol}barrier <088>$barrier  ${scol}rnd <088>$round  ${scol}target <088>$ehealth                 } {-4} {0};
+	#line ignore #showme {${scol} focus $focus/$focus_max  ${scol}stagger <088>$stagger  ${scol}bot <088>435/153  ${scol}tbuffs <088>$enemy[buffs][string]                              } {-3} {0};
+}
+
+#alias {heart_beat} {
+    #foreach {*active_strategies[]} {$cst} {
+        #if {$gset_strats[$cst]} {
+            check_strat_$cst;
+        }
+    }
+}
+
+#class hp close

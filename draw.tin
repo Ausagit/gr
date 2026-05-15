@@ -1,0 +1,336 @@
+#class draw {open}
+#NOP REQUIRED:  mapper.tin		//map dimensions
+#NOP REQUIRED:  mip.tin			//chat and caption values
+#NOP REQUIRED:  bot_cycle.tin	//botdraw
+#nop REQUIRED:  strategy.tin
+
+/* Load draw variables */
+#read .tt/vars/draw.var
+
+#variable line_colour {$gthemes[$gset[theme]][bordercolour]}
+#variable line_type {$gthemes[$gset[theme]][bordertype]}
+
+#if {"$line_colour" == ""} {
+	#variable line_colour {$gthemes[default][bordercolour]}
+}
+
+#if {"$line_type" == ""} {
+	#variable line_type {$gthemes[default][bordertype]}
+}
+
+#if {"$line_type" == "single"} {
+	#variable line_type {}
+};
+#elseif {"$line_type" == "none"} {
+	#variable line_colour <aaa>
+}
+
+#function {get_symbol} {
+	#local symboltype %1${line_type};
+
+	#switch {"$symboltype"} {
+		#case "topleft"				{#variable result $line_colour┌};
+		#case "toplefttubed"		{#variable result $line_colour╔};
+		#case "topright"			{#variable result $line_colour┐};
+		#case "toprighttubed"		{#variable result $line_colour╗};
+		#case "bottomeft"			{#variable result $line_colour└};
+		#case "bottomlefttubed"		{#variable result $line_colour╚};
+		#case "bottomright"			{#variable result $line_colour┘};
+		#case "bottomrighttubed"	{#variable result $line_colour╝};
+		#case "left"				{#variable result $line_colour├};
+		#case "lefttubed"			{#variable result $line_colour╠};
+		#case "right"				{#variable result $line_colour┤};
+		#case "righttubed"			{#variable result $line_colour╣};
+		#case "top"					{#variable result $line_colour┬};
+		#case "toptubed"			{#variable result $line_colour╦};
+		#case "bottom"				{#variable result $line_colour┴};
+		#case "bottomtubed"			{#variable result $line_colour╩};
+		#case "centre"				{#variable result $line_colour┼};
+		#case "centretubed"			{#variable result $line_colour╬};
+		#default 					{#variable result { }};
+	}
+}
+
+/* Determine Dimensions */
+#if {"$draw[alert]" == "on"} {
+	#var alert[width] 1
+} {
+	#var alert[width] 0
+}
+
+#if {"$draw[canvas]" == "on"} {
+	#math canvas[width] {$map[width] + 1};
+	#if {"$map[position]" == "bottom"} {
+		#if {$map[width] + 1 < $canvas[width]} {
+			#math {canvas[width]} {$map[width] + 1}
+		}
+	}
+} {
+	#var canvas[width] 0
+}
+
+#if {"$draw[caption]" == "on"} {
+	#var caption[height] 2
+} {
+	#var caption[height] 0
+}
+
+#if {"$draw[chat]" == "on"} {
+	#math chat[height] {$chat[rows] + 1};
+	#if {"$draw[map]" == "on" && "$map[position]" == "top"} {
+		#math {chat[right]} {-$map[width]-2}
+	} {
+		#var chat[right] -3
+	}
+} {
+	#var chat[height] 0
+}
+
+#if {"$draw[gline]" == "on"} {
+	#var gline[height] 2
+} {
+	#var gline[height] 0
+}
+
+#if {"$draw[hpbar]" == "on"} {
+	#var hpbar[height] 3
+} {
+	#var hpbar[height] 0
+}
+
+#NOP map dimensions set in mapper.tin
+
+#math status[height] {$hpbar[height] + $gline[height] + 1}
+
+#math split[top]	{$chat[height] + $caption[height]}
+#var split[bottom]	$status[height]
+#nop #var split[left]	$alert[width]
+#var split[left]	0
+#var split[right]	$canvas[width]+1
+
+/* Perform Split */
+#split $split[top] $split[bottom] $split[left] $split[right]
+
+/* Clear any previous drawings */
+#screen clear split
+#buffer end
+
+
+/* Perform Drawings */
+#if {"$draw[caption]" == "on"} {
+	#draw $line_colour $line_type line $chat[height]+$caption[height] 1 $chat[height]+$caption[height] -1;
+	update_caption
+}
+
+#if {"$draw[chat]" == "on"} {
+	#draw $line_colour $line_type line $chat[height] 1 $chat[height] -1;
+	chatend
+}
+
+#if {"$draw[gline]" == "on"} {
+	#draw $line_colour $line_type line -$hpbar[height]-$gline[height]-2 1 -$hpbar[height]-$gline[height]-2 -1;
+}
+
+#if {"$draw[hpbar]" == "on"} {
+	#draw $line_colour $line_type line -$hpbar[height]-2 1 -$hpbar[height]-2 -1;
+	update_status
+}
+
+
+#nop line just above the text input
+#draw $line_colour $line_type line -2 1 -2 -1
+
+#alias {sidedraw} {
+	#if {"$draw[canvas]" == "on"} {
+		#NOP Clear previous drawing - upper left and bottom right corner using row, col, row, col syntax;
+		#screen clear square $chat[height]+$caption[height]+1 -$canvas[width]+1 -$canvas[width]+1 -8 -1;
+	
+		#local st_row 0;
+        
+        #nop TODO: bugs when there's no strategies;
+	    #local strategies {@get_strategies{}};
+        
+        #if {&{strategies[]} == 0} {
+			#variable botareas {
+				<088>No strategies<088>
+			};
+			#variable st_row 2;
+		} {
+			#local botareas {};
+			#variable st_row 1;
+			#local st_max_width 0;
+			#local st_cur_width 0;
+			#local st_cur_line {};
+
+			#math st_max_width $canvas[width] - 2;
+
+			#foreach {*strategies[]} {index} {
+				#format st_ind_width {%L} {$strategies[$index][name]};
+
+				#if {$st_cur_width + $st_ind_width < $st_max_width} {
+					#variable st_cur_line {${st_cur_line}@strategy_colour{$strategies[$index][id]}${strategies[$index][name]} };
+					#math st_cur_width {$st_cur_width + $st_ind_width + 1};
+				} {
+					#variable botareas {${botareas}${st_cur_line}\n};
+					#variable st_cur_line {@strategy_colour{$strategies[$index][id]}${strategies[$index][name]} };
+					#math st_cur_width {$st_ind_width + 1};
+					#math st_row {$st_row + 1}
+				}
+			};
+			#if {$st_cur_width} {
+				#variable botareas {${botareas}${st_cur_line}};
+			}
+		};
+
+		#nop #local sidetop;
+		#math sidetop {$chat[height]+$caption[height]+1};
+
+		#nop #delay 0 #draw {tile} -$status[height]-$map[height]-3 -$map[width] -$status[height]-$map[height]-3 -1 {<020>$roomarea <140>(<120>$room_cnt<140>)<099>};
+		#nop #draw $gthemes[$gset[theme]][bordercolour] line -10-$st_row -$canvas[width]+1 -10-$st_row -1;
+		#draw tile $sidetop -$canvas[width]+1 $sidetop+1 -1 {$gthemes[$gset[theme]][headings]Strategies [groups @onofftext{$group_strat_on}$gthemes[$gset[theme]][headings]]<088>};
+		#draw $gthemes[$gset[theme]][bordercolour] line $sidetop+1 -$canvas[width]+1 $sidetop+1 -1;
+		#draw tile $sidetop+2 -$canvas[width]+1 $sidetop+$st_row+2 -1 {$botareas};
+		#showme {@get_symbol{left}} $sidetop+1 -$canvas[width];
+		#draw $gthemes[$gset[theme]][bordercolour] line $sidetop+$st_row+2 -$canvas[width]+1 $sidetop+$st_row+2 -1;
+		#showme {@get_symbol{left}} $sidetop+$st_row+2 -$canvas[width];
+		#math sidetop {$sidetop + $st_row + 3};
+
+
+		#nop draw bot cycler;
+		#if {&{botcycle[]} == 0} {
+			#variable botareas {<088>No areas loaded};
+			#variable botheight 1
+		} {
+			#variable botheight &{botcycle[]};
+			#variable botareas {};
+			#variable cnt 0;
+			#while {$cnt < &{botcycle[]}} {
+				#math {cnt} {$cnt + 1};
+				#if {$cnt == $cycle} {
+					#format cntnum {%-2s} {<128>$cnt.<088>};
+					#format area_display {%-12s} {<128>$botcycle[$cnt]<088>}
+				} {
+					#format cntnum {%-2s} {<088>$cnt.<088>};
+					#format area_display {%-12s} {<088>$botcycle[$cnt]<088>}
+				};
+				#if {$cnt == 1} {
+					#variable botareas {$cntnum $area_display}
+				} {
+					#variable botareas {$botareas\n$cntnum $area_display}
+				}
+			}
+		};
+
+		#draw tile $sidetop -$canvas[width]+1 $sidetop+1 -1 {
+			$gthemes[$gset[theme]][headings]Area Cycler<088>
+		};
+		#draw $gthemes[$gset[theme]][bordercolour] line $sidetop+1 -$canvas[width]+1 $sidetop+1 -1;
+		#showme {@get_symbol{left}} $sidetop+1 -$canvas[width];
+
+		#draw tile $sidetop+2 -$canvas[width]+1 $sidetop+$botheight+3 -1 {
+			$botareas
+		};
+
+		#return;
+
+		#nop guild area below area cycler;
+		#math sidegatop {$sidetop+$botheight+2};
+		#draw $gthemes[$gset[theme]][bordercolour] line $sidegatop -$canvas[width]+1 $sidegatop -1;
+		#line ignore #showme {@get_symbol{left}} $sidegatop -$canvas[width];
+		#line ignore #showme {@get_symbol{left}} $sidegatop -$canvas[width];
+
+		#format uguild {%n} {$guild};
+		#draw tile $sidegatop+1 -$canvas[width]+1 $sidegatop+2 -1 {$gthemes[$gset[theme]][headings]$uguild<088>};
+
+		#draw $gthemes[$gset[theme]][bordercolour] line $sidegatop+2 -$canvas[width]+1 $sidegatop+2 -1;
+		#line ignore #showme {@get_symbol{left}} $sidegatop+2 -$canvas[width];
+		#line ignore #showme {@get_symbol{left}} $sidegatop+2 -$canvas[width];
+
+		#draw tile $sidegatop+3 -$canvas[width]+1 $sidegatop+15 -1 {$sideguildcontent};
+	}
+}
+
+#if {"$draw[canvas]" == "on"} {
+	#draw $line_colour $line_type line $chat[height]+$caption[height]+1 -$canvas[width] -$status[height]-2 -$canvas[width];
+	#showme {@get_symbol{centre}} $chat[height]+$caption[height] -$canvas[width];
+	#showme {@get_symbol{bottom}} -$hpbar[height]-$gline[height]-2 -$canvas[width];
+	sidedraw
+}
+
+#if {"$draw[map]" == "on"} {
+	#if {"$map[position]" == "top"} {
+		#draw $line_colour $line_type line 1 -$map[width]-1 $map[height] -$map[width]-1;
+
+		#if {"$draw[caption]" == "on"} {
+			#showme {@get_symbol{bottom}} $map[height]+1 -$map[width]-1
+		};
+		#map flag vtmap on;
+		#map offset 2 -$map[width] $map[height] -2;
+		
+		#nop these are also drawn in mapper.tin;
+		#nop #delay 0 #draw {tile} $map[height]-1 -$map[width] $map[height]-1 -1 {<020>$roomareapt  <140>(<120>$room_cnt<140>)<088>};
+		#nop #delay 0 #draw {tile} $map[height] -$map[width] $map[height] -1 {<140>[<030>$roomvnum<140>] <130>$roomname<088>}
+
+	}; #elseif {"$map[position]" == "bottom"} {
+		#draw $line_colour $line_type line -$status[height]-$map[height]-4 -$map[width] -$status[height]-$map[height]-4 -1;
+		#showme {$line_colour\u251C} -$status[height]-$map[height]-4 -$canvas[width];
+
+		#map flag vtmap on;
+		#map offset -$status[height]-$map[height]-1 -$map[width] -$status[height]-1 -1;
+
+		#nop these are also drawn in mapper.tin;
+		#nop #delay 0 #draw {tile} -$status[height]-$map[height]-3 -$map[width] -$status[height]-$map[height]-3 -1 {<020>$roomarea <140>(<120>$room_cnt<140>)<099>};
+		#nop #delay 0 #draw {tile} -$status[height]-$map[height]-2 -$map[width] -$status[height]-$map[height]-2 -1 {<140>[<030>$roomvnum<140>] <130>$roomname<099>}
+	}; #else {
+		#echo {"!INVALID MAP POSITION!"}
+	}
+} {
+	#map flag vtmap off
+}
+
+#alias {redraw} {
+	#var redraw[args][1] valid;
+	#var redraw[args][2] valid;
+	#if {"%1" != ""} {
+		#switch {"%1"} {
+			#case {"alert"}		{#var redraw[option] %1};
+			#case {"canvas"}	{#var redraw[option] %1};
+			#case {"caption"}	{#var redraw[option] %1};
+			#case {"chat"}		{#var redraw[option] %1};
+			#case {"gline"}		{#var redraw[option] %1};
+			#case {"hpbar"}		{#var redraw[option] %1};
+			#case {"map"}		{#var redraw[option] %1};
+			#default	    	{#var redraw[args][1] invalid;#showme REDRAW:  Invalid redraw option}
+		};
+		#if {"%2" != ""} {
+			#switch {"%2"} {
+				#case {"on"}	{#var redraw[flag] on};
+				#case {"off"}	{#var redraw[flag] off};
+				#default	{#var redraw[args][2] invalid;#showme REDRAW:  Invalid redraw parameter (on or off)}
+			}
+		} {
+			#if {"$draw[$redraw[option]]" == "on"} {
+				#var redraw[flag] off
+			} {
+				#var redraw[flag] on
+			}
+		};
+		#if {"$redraw[args][1]" == "valid" && "$redraw[args][2]" == "valid"} {
+			#var draw[$redraw[option]] $redraw[flag];
+			#class drawvar write .tt/vars/draw.var;
+			#read .tt/draw.tin
+		}
+	} {
+		#class drawvar write .tt/vars/draw.var;
+		#read .tt/draw.tin
+	}
+}
+
+#variable sideguildcontent {}
+
+#unevent {VARIABLE UPDATE sideguildcontent} {
+	#delay 0 sidedraw
+}
+
+#class draw {close}
+

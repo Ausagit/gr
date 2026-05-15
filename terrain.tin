@@ -1,0 +1,189 @@
+#class {terrain} {open}
+
+#variable terrains[air]               {{col} {<268>} {sym} {<268>. .<088>}};
+#variable terrains[alley]             {{col} {<248>} {sym} {<248>. .<088>}};
+#variable terrains[ashen_field]       {{col} {<278>} {sym} {<278>, `<088>}};
+#variable terrains[areaexit]          {{col} {<168>} {sym} {<168>[<278>?<168>]<088>}};
+#variable terrains[bank]              {{col} {<138>} {sym} {<138>*<128>$<138>*<088>}};
+#variable terrains[barn]              {{col} {<218>} {sym} {<218>[ ]<088>}};
+#variable terrains[beach]             {{col} {<138>} {sym} {<138>, `<088>}};
+#variable terrains[bloodyhall]        {{col} {<218>} {sym} {<218>. .<088>}};
+#variable terrains[bloodyroom]        {{col} {<118>} {sym} {<118>[ ]<088>}};
+#variable terrains[bookshelves]       {{col} {<238>} {sym} {<238>"""<088>}};
+#variable terrains[bookshelves_ns]    {{col} {<238>} {sym} {<238>=<148>.<238>=<088>}};
+#variable terrains[bridge]            {{col} {<238>} {sym} {<238>===<088>}};
+#variable terrains[cabin]             {{col} {<238>} {sym} {<238># #<088>}};
+#variable terrains[cathedral]         {{col} {<178>} {sym} {<178>[^]<088>}};
+#variable terrains[cave]              {{col} {<248>} {sym} {<248>% %<088>}};
+#variable terrains[castle]            {{col} {<178>} {sym} {<278>###<088>}};
+#variable terrains[chaos_sea]         {{col} {<258>} {sym} {<258>~^~<088>}};
+#variable terrains[city]              {{col} {<278>} {sym} {<278>. .<088>}};
+#variable terrains[city_underground]  {{col} {<238>} {sym} {<238>. .<088>}};
+#variable terrains[cloud1]            {{col} {<178>} {sym} {<178>~ ~<088>}};
+#variable terrains[cloud2]            {{col} {<108>} {sym} {<108>~ ~<088>}};
+#variable terrains[cloud3]            {{col} {<278>} {sym} {<128>.<138>*<088>~<088>}};
+#variable terrains[crossroad_ews]     {{col} {<278>} {sym} {<278>-+-<088>}};
+#variable terrains[crossroad_nw]      {{col} {<278>} {sym} {<278>-+ <088>}};
+#variable terrains[crossroad_se]      {{col} {<278>} {sym} {<278> +-<088>}};
+#variable terrains[crypt]             {{col} {<108>} {sym} {<108>[ ]<088>}};
+#variable terrains[crypt_entrance]    {{col} {<108>} {sym} {<108>(v)<088>}};
+#variable terrains[dark]              {{col} {<108>} {sym} {<108>[ ]<088>}};
+#variable terrains[dead_field]        {{col} {<238>} {sym} {<238>, `<088>}};
+#variable terrains[dead_forest]       {{col} {<238>} {sym} {<238>( *<088>}};
+#variable terrains[dead_jungle]       {{col} {<238>} {sym} {<238>* *<088>}};
+#variable terrains[desert]            {{col} {<238>} {sym} {<138>~ ~<088>}};
+#variable terrains[docks]             {{col} {<238>} {sym} {<238>|||<088>}};
+#variable terrains[dungeon]           {{col} {<248>} {sym} {<248># #<088>}};
+#variable terrains[dustdevil]         {{col} {<238>} {sym} {<238>.\/<088>}};
+#variable terrains[field1]            {{col} {<228>} {sym} {<228>, `<088>}};
+#variable terrains[field2]            {{col} {<228>} {sym} {<228>. ^<088>}};
+#variable terrains[field3]            {{col} {<228>} {sym} {<228>, .<088>}};
+#variable terrains[field4]            {{col} {<228>} {sym} {<228>` ^<088>}};
+#variable terrains[flowers1]          {{col} {<178>} {sym} {<168>*<158>*<138>*<088>}};
+#variable terrains[flowers2]          {{col} {<178>} {sym} {<158>*<168>*<138>*<088>}};
+#variable terrains[forest]            {{col} {<228>} {sym} {<228>( *<088>}};
+#variable terrains[fountain]          {{col} {<148>} {sym} {<148>( )<088>}};
+#variable terrains[graveyard]         {{col} {<238>} {sym} {<238>. <178>+<088>}};
+#variable terrains[hallway]           {{col} {<268>} {sym} {<268>[ ]<088>}};
+#variable terrains[hell1]             {{col} {<218>} {sym} {<218>` <118>,<088>}};
+#variable terrains[hell2]             {{col} {<218>} {sym} {<218>~ .<088>}};
+#variable terrains[hell3]             {{col} {<218>} {sym} {<218>~ <118>^<088>}};
+#variable terrains[hell4]             {{col} {<218>} {sym} {<118>^ <218>^<088>}};
+#variable terrains[hellfountain]      {{col} {<218>} {sym} {<118>(<178>~<118>)<088>}};
+#variable terrains[hellhall]          {{col} {<218>} {sym} {<088>. <218>.<088>}};
+#variable terrains[hellinside]        {{col} {<218>} {sym} {<218>[ ]<088>}};
+#variable terrains[hellstairs]        {{col} {<218>} {sym} {<218>.<118>@<218>.<088>}};
+#variable terrains[hills]             {{col} {<228>} {sym} {<228>. ^<088>}};
+#variable terrains[hut]               {{col} {<238>} {sym} {<238>[ ]<088>}};
+#variable terrains[ice]               {{col} {<168>} {sym} {<168>~ ~<088>}};
+#variable terrains[icehills]          {{col} {<168>} {sym} {<168>^ ~<088>}};
+#variable terrains[icemount]          {{col} {<178>} {sym} {<178>/ \<088>}};
+#variable terrains[inn]               {{col} {<238>} {sym} {<238>[I]<088>}};
+#variable terrains[inside]            {{col} {<278>} {sym} {<278>[ ]<088>}};
+#variable terrains[insideice]         {{col} {<168>} {sym} {<168>[ ]<088>}};
+#variable terrains[jungle]            {{col} {<228>} {sym} {<228>* *<088>}};
+#variable terrains[lightning]         {{col} {<138>} {sym} {<138>  /<088>}};
+#variable terrains[mist]              {{col} {<178>} {sym} {<178>~ ~<088>}};
+#variable terrains[moon]              {{col} {<248>} {sym} {<248> * <088>}};
+#variable terrains[mountain]          {{col} {<238>} {sym} {<238>.^.<088>}};
+#variable terrains[mountain_cyan]     {{col} {<268>} {sym} {<268>.^.<088>}};
+#variable terrains[ocean1]            {{col} {<148>} {sym} {<148>~ ~<088>}};
+#variable terrains[ocean2]            {{col} {<148>} {sym} {<148>~ ^<088>}};
+#variable terrains[ocean3]            {{col} {<148>} {sym} {<148>^ ~<088>}};
+#variable terrains[ocean4]            {{col} {<148>} {sym} {<148>, ~<088>}};
+#variable terrains[office]            {{col} {<238>} {sym} {<238>[ ]<088>}};
+#variable terrains[palace_room]       {{col} {<138>} {sym} {<138>[ ]<088>}};
+#variable terrains[park]              {{col} {<228>} {sym} {<228>{ }<088>}};
+#variable terrains[pillar]            {{col} {<278>} {sym} {<278> * <088>}};
+#variable terrains[pipe]              {{col} {<278>} {sym} {<278>===<088>}};
+#variable terrains[plain]             {{col} {<238>} {sym} {<238>, `<088>}};
+#variable terrains[portal]            {{col} {<258>} {sym} {<258>(<158>P<258>)<088>}};
+#variable terrains[quicksand]         {{col} {<138>} {sym} {<138>%%%<088>}};
+#variable terrains[rain]              {{col} {<148>} {sym} {<148>'.'<088>}};
+#variable terrains[rainbow]           {{col} {<148>} {sym} {<118>)<138>)<148>)<088>}};
+#variable terrains[redcarpet]         {{col} {<118>} {sym} {<118>. .<088>}};
+#variable terrains[river]             {{col} {<148>} {sym} {<148>~ ~<088>}};
+#variable terrains[road]              {{col} {<278>} {sym} {<278>[ ]<088>}};
+#variable terrains[road_crossroads]   {{col} {<278>} {sym} {<278>-+-<088>}};
+#variable terrains[road_ew]           {{col} {<278>} {sym} {<278>- -<088>}};
+#variable terrains[road_ns]           {{col} {<278>} {sym} {<278> | <088>}};
+#variable terrains[rocks]             {{col} {<238>} {sym} {<238>^ ^<088>}};
+#variable terrains[ruins]             {{col} {<178>} {sym} {<178>{<148>*<178>}<088>}};
+#variable terrains[ship]              {{col} {<238>} {sym} {<238>\_/<088>}};
+#variable terrains[shore]             {{col} {<268>} {sym} {<268>~ ~<088>}};
+#variable terrains[shop]              {{col} {<088>} {sym} {<088>[<128>$<088>]<088>}};
+#variable terrains[smallroad]         {{col} {<278>} {sym} {<228>,<278>|<228>`<088>}};
+#variable terrains[smallroad_ew]      {{col} {<278>} {sym} {<278>---<088>}};
+#variable terrains[snow]              {{col} {<178>} {sym} {<178>. ,<088>}};
+#variable terrains[space1]            {{col} {<108>} {sym} {<208>[ ]<088>}};
+#variable terrains[space2]            {{col} {<278>} {sym} {<278>*  <088>}};
+#variable terrains[space3]            {{col} {<278>} {sym} {<278>  .<088>}};
+#variable terrains[space4]            {{col} {<108>} {sym} {<208>[ ]<088>}};
+#variable terrains[stairs]            {{col} {<278>} {sym} {<278>.@.<088>}};
+#variable terrains[sun]               {{col} {<138>} {sym} {<138> * <088>}};
+#variable terrains[swamp]             {{col} {<228>} {sym} {<228>; ;<088>}};
+#variable terrains[temple]            {{col} {<268>} {sym} {<268>{<178>+<268>}<088>}};
+#variable terrains[townsquare]        {{col} {<238>} {sym} {<238>[ ]<088>}};
+#variable terrains[tower]             {{col} {<238>} {sym} {<238>] [<088>}};
+#variable terrains[trail_ew]          {{col} {<238>} {sym} {<238>. .<088>}};
+#variable terrains[tunnel]            {{col} {<238>} {sym} {<238>] [<088>}};
+#variable terrains[underground]       {{col} {<148>} {sym} {<148>. .<088>}};
+#variable terrains[underwater]        {{col} {<248>} {sym} {<248>~ ~<088>}};
+#variable terrains[vertical_shaft]    {{col} {<278>} {sym} {<278>< ><088>}};
+#variable terrains[volcano]           {{col} {<218>} {sym} {<218>/ \<088>}};
+#variable terrains[waterswim]         {{col} {<148>} {sym} {<148>~ ~<088>}};
+#variable terrains[waternoswim]       {{col} {<148>} {sym} {<148>~ ~<088>}};
+#variable terrains[well]              {{col} {<238>} {sym} {<238>(<148>~<238>)<088>}};
+#variable terrains[wind1]             {{col} {<168>} {sym} {<168>~ ~<088>}};
+#variable terrains[wind2]             {{col} {<108>} {sym} {<108>~-~<088>}};
+
+
+
+#alias {terrain} {
+	#if {"%1" == ""} {
+		#map get roomterrain terrain;
+	} {
+        #if {"$terrains[%1][col]" == ""} {
+            #echo {Invalid terrain type %1.};
+            #return;
+        };
+		#variable terrain %1;
+		#map set roomterrain %1
+	};
+
+    #local rmcol $terrains[%1][col];
+    #local rmsym $terrains[%1][sym];
+	
+	#format {rmsym_len} {%L} {$rmsym};
+
+	#if {"$rmcol" != ""} {
+		#map set roomcolor $rmcol
+	};
+	#if {$rmsym_len > 0} {
+		#map set roomsymbol $rmsym
+	};
+
+    #unvariable rsym_len;
+    #unvariable terrain;
+}
+
+#alias {terrainupdaterooms} {
+    #local t {};
+
+    #loop 1 5000 {cnt} {
+        #map at $cnt {
+            #map get roomterrain t;
+            #if {"$t" == ""} {
+                #echo {Room vnum %d has no terrain.} {$cnt};
+            } {
+                #if {"$terrains[$t][sym]" == ""} {
+                    #echo {Room vnum %d has invalid terrain '$t'.} {$cnt};
+                } {
+                   #map set roomcolor $terrains[$t][col];
+                   #map set roomsymbol $terrains[$t][sym];    
+                }
+            }
+        }
+    };
+    #nop #echo {$t};
+}
+
+#alias {terrains}
+{
+    #foreach {*terrains[]} {ter} {
+        #local sym {$terrains[$ter][sym]};
+        #replace sym {\\} {╲};
+        #line ignore #showme {$sym ${terrains[$ter][col]}$ter<088>};
+    }
+}
+
+#alias {terrainupdate} {
+    #nop update the terrain information in the file to match the tt++ table;
+    #foreach {*terrains[]} {ter} {
+        #map terrain {$ter} {$terrains[$ter][sym]};
+    };
+    #nop update all rooms to match the tt++ table;
+    terrainupdaterooms;
+}
+
+#class {terrain} {close}

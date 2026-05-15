@@ -1,0 +1,31 @@
+#class chat_monitors kill
+#class chat_monitors open
+
+#var monitor_file {.tt/logs/chat.log}
+
+#function {clean_msg} {
+    #local cont {%1};
+    #replace cont {\n} { };
+    #list cont explode { };
+    #list cont filter {{.+}};
+    #list cont collapse { };
+
+    #variable result $cont;
+}
+
+#nop communication
+#action {^You tell %w, "%a"\n} {
+    update_chat <aea>To %1: @clean_msg{%2}<088>
+}
+
+#action {^%w tells you, "%a"\n} {
+    update_chat <aea>%1: @clean_msg{%2}<088>;
+    #bell
+}
+
+#action {^%w shouts, "%a"\n} {
+    update_chat <aaf>%1 shouts: @clean_msg{%2}<088>
+}
+
+
+#class chat_monitors close

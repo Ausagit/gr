@@ -1,0 +1,13 @@
+#!/bin/bash
+SCREENID=$(tmux list-sessions | grep $1)
+if (( ${#SCREENID} > 0 ));
+then
+	SCREENID=$1
+	tmux attach-session -d -t $1
+else
+	tmux start-server
+	tmux new-session -d -s $1 -n TT
+	tmux send-keys -t $1.0 "tt" C-m
+	tmux attach-session -t $1
+fi
+unset SCREENID

@@ -1,0 +1,251 @@
+#class {events} {open}
+#NOP REQUIRED:  draw.tin	//split variable
+
+/* Screen Sizing */
+#event {SCREEN RESIZE} {
+    #read .tt/draw.tin;
+	#var screen[rows] %0;
+	#var screen[cols] %1;
+	#var screen[height] %2;
+	#var screen[width] %3
+}
+
+/* Initialize Screen Variables */
+#screen get rows screen[rows]
+#screen get cols screen[cols]
+#NOP #screen get height screen[height]
+#NOP #screen get width screen[width]
+
+/* Mouse input/buffer/chat scrolling */
+#var screen[scroll] page
+#event {SCROLLED MOUSE WHEEL UP} {
+	#if {%0 > $screen[rows] - $split[bottom]} {
+		#cursor {HISTORY PREV};
+	};
+	#if {%0 > $split[top] && %0 < $screen[rows] - $split[bottom]} {
+		#if {"$screen[scroll]" == "page"} {
+			#buffer up $screen[rows]
+		}; #elseif {"$screen[scroll]" == "line"} {
+			#buffer up 1
+		}
+	};
+	#if {%0 < $split[top]} {
+		chatup
+	}
+}
+
+#event {SCROLLED MOUSE WHEEL DOWN} {
+	#if {%0 > $screen[rows] - $split[bottom]} {
+		#cursor {HISTORY NEXT};
+	};
+	#if {%0 > $split[top] && %0 < $screen[rows] - $split[bottom]} {
+		#if {"$screen[scroll]" == "page"} {
+			#buffer down $screen[rows]
+		}; #elseif {"$screen[scroll]" == "line"} {
+			#buffer down 1
+		}
+	};
+	#if {%0 < $split[top]} {
+		chatdown
+	}
+}
+
+/* Double Click to toggle scrolling method per pane */
+#event {DOUBLE-CLICKED MOUSE BUTTON ONE} {
+	#if {%0 > $screen[rows] - $split[bottom]} {
+		#return
+	};
+	#if {%0 > $split[top] && %0 < $screen[rows] - $split[bottom]} {
+		#if {"$screen[scroll]" == "page"} {
+			#var screen[scroll] line
+		} {
+			#var screen[scroll] page
+		}
+	};
+	#if {%0 < $split[top]} {
+		#if {"$chat[scroll]" == "page"} {
+			#var chat[scroll] line
+		} {
+			#var chat[scroll] page
+		}
+	}
+}
+
+
+/* Screen Split resize on Mouse drag */
+#EVENT {PRESSED MOUSE BUTTON ONE} {
+	#if {%0 == $split[top]} {
+		#if {%3 == -$split[right]} {
+			#var DRAG 2
+		} {
+			#var DRAG 1
+		}
+	}
+}
+
+#EVENT {RELEASED MOUSE BUTTON ONE} {
+	#variable DRAG 0;
+	#NOP #screen raise SCREEN RESIZE
+}
+
+#EVENT {MOVED MOUSE BUTTON ONE} {
+	#switch {$DRAG} {
+		#case {0} {
+			#return
+		};
+		#case {1} {
+			#screen clear square 1 1 $split[top] -1;
+			#variable split[top] %0
+		};
+		#case {2} {
+			#screen clear square 1 1 $split[top] -1;
+			#screen clear square $split[top] -$split[right] -$split[bottom]-2 -1;
+			#var split[top] %0;
+			#var canvas[width] -%3
+		}
+	};
+}
+
+/* Map mouse clicks*/
+
+#NOP Display room info on single-click
+#event {MAP SHORT-CLICKED MOUSE BUTTON ONE} {
+	#map at %0 #map info
+}
+
+#NOP Map goto room on double-click
+#event {MAP DOUBLE-CLICKED MOUSE BUTTON ONE} {
+	#map goto %0
+}
+
+#NOP Map run on right-click
+#event {MAP SHORT-CLICKED MOUSE BUTTON THREE} {
+	#map run %0
+}
+
+#class {events} {close}
+
+
+
+
+
+
+
+
+
+#variable clockon 0
+#variable IdleLimit 900
+/*
+#TICKER {idle} {
+	#math {idle} {$idle + 1};
+	#if {$idle > 900 && "$draw[alert]" == "on"} {
+		#draw tile $split[top]+1 1 -$split[bottom]-2 $alert[width] {<BF00>}
+	}; #elseif {$idle > 840 && "$draw[alert]" == "on"} {
+		#draw tile $split[top]+1 1 -$split[bottom]-2 $alert[width] {<BFF0>}
+	}; #elseif {$idle > 600 && "$draw[alert]" == "on"} {
+		#draw tile $split[top]+1 1 -$split[bottom]-2 $alert[width] {<B0F0>}
+	}; #elseif {$idle < 600 && "$draw[alert]" == "on"} {
+		#screen clear square $split[top]+1 1 -$split[bottom]-2 $alert[width]
+	};
+	#if {$bot && $idle > $IdleLimit} {
+		.stop;
+		#unvariable bot;
+		#delay {gohome} {gohome_check} {10}
+	};
+	update_caption
+} {1}
+*/
+
+#alias {gohome_check} {
+	#if {$mip[round] == 0} {
+		.stop
+	} {
+		#delay {gohome} {gohome_check} {10}
+	}
+}
+
+
+
+
+#EVENT {RECEIVED INPUT} {
+	#variable idle 0;
+}
+
+#variable chat[max] 100
+#variable chat[offset] 0
+#variable chat[page] 1
+#variable chat[rows] 17
+#variable chat[scroll] page
+
+/*
+#alias {show_chat} {
+	#math chat[start]	{$chat[rows] * $chat[page]};
+	#math chat[end]		{$chat[rows] * $chat[page] - $chat[rows] + 1};
+	#if {"$draw[chat]" == "on"} {
+		#line sub var #line sub esc #draw {tile} 1 1 $chat[rows] $chat[right] $chat[log][-$chat[start]..-$chat[end]]
+	}
+}
+*/
+
+#alias {show_chat} {
+	#math chat[start]	{$chat[rows] + $chat[offset]};
+	#math chat[end]		{$chat[offset] + 1};
+	#if {"$draw[chat]" == "on"} {
+		#line sub var #line sub esc #draw {tile} 1 0 $chat[rows] $chat[right] $chat[log][-$chat[start]..-$chat[end]]
+	}
+}
+
+#alias {update_chat} {
+	#format {timestamp} {%t} {<108>[<268>%H<108>:<268>%M<108>]<088> };
+	#if {&chat[log][] > $chat[max]} {
+		#list chat[log] del 1
+	};
+	#nop remove esc chars;
+	#variable chat[text] %0;
+	#replace {chat[text]} {\\x7B} {\uFF5B};
+	#replace {chat[text]} {\\x7D} {\uFF5D};
+	#list chat[log] ins -1 {${timestamp}$chat[text]};
+
+	#class {chat} {write} {.tt/vars/chat.var};
+	show_chat
+}
+
+#alias {chatup} {
+	#if {"$chat[scroll]" == "page"} {
+		#if {$chat[rows]*{$chat[page]+1} <= $chat[max] &&
+		     $chat[rows]*{$chat[page]+1} <= &chat[log][]} {
+			#math chat[page] {$chat[page] + 1};
+			#math chat[offset] {$chat[page] * $chat[rows] - $chat[rows]};
+			show_chat
+		}
+	}; #elseif {"$chat[scroll]" == "line"} {
+		#if {$chat[offset] <= $chat[max] &&
+		     $chat[offset] <= &chat[log][]} {
+			#math chat[offset] {$chat[offset] + 1};
+			show_chat
+		}
+	}
+}
+
+#alias {chatdown} {
+	#if {"$chat[scroll]" == "page"} {
+		#if {$chat[page] > 1} {
+			#math chat[page] {$chat[page] - 1};
+			#math chat[offset] {$chat[page] * $chat[rows] - $chat[rows]};
+			show_chat
+		}
+	}; #elseif {"$chat[scroll]" == "line"} {
+		#if {$chat[offset] > 0} {
+			#math chat[offset] {$chat[offset] - 1};
+			show_chat
+		}
+	}
+}
+
+#alias {chatend} {
+	#variable chat[page] 1;
+	#variable chat[offset] 0;
+	show_chat
+}
+
+

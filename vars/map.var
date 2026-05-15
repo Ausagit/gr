@@ -1,0 +1,198 @@
+#CLASS {mapvar} OPEN
+
+#VARIABLE {map}
+{
+    {3k} 
+    {
+        {position} {152}
+    }
+    {3kt} 
+    {
+        {position} {152}
+    }
+    {Tharog} 
+    {
+        {position} {1}
+    }
+    {Valdemar} 
+    {
+        {position} {5}
+    }
+    {adfs} 
+    {
+        {position} {152}
+    }
+    {agni} 
+    {
+        {position} {152}
+    }
+    {avid} 
+    {
+        {position} {152}
+    }
+    {baid} 
+    {
+        {position} {152}
+    }
+    {guest} 
+    {
+        {position} {157}
+    }
+    {height} {17}
+    {mdendy} 
+    {
+        {position} {152}
+    }
+    {medy} 
+    {
+        {position} {152}
+    }
+    {mendu} 
+    {
+        {position} {152}
+    }
+    {mendy} 
+    {
+        {position} {2084}
+    }
+    {pmoorey@outlook.com} 
+    {
+        {position} {14}
+    }
+    {position} {top}
+    {spicy} 
+    {
+        {position} {152}
+    }
+    {tharog} 
+    {
+        {position} {116}
+    }
+    {tieout} 
+    {
+        {position} {152}
+    }
+    {timeout} 
+    {
+        {position} {35841}
+    }
+    {vId} 
+    {
+        {position} {152}
+    }
+    {vaaid} 
+    {
+        {position} {152}
+    }
+    {vai} 
+    {
+        {position} {152}
+    }
+    {vaid} 
+    {
+        {position} {152}
+    }
+    {vaid } 
+    {
+        {position} {152}
+    }
+    {vaiexitd} 
+    {
+        {position} {152}
+    }
+    {vaif} 
+    {
+        {position} {152}
+    }
+    {vais} 
+    {
+        {position} {152}
+    }
+    {vakdemar} 
+    {
+        {position} {152}
+    }
+    {valdeamr} 
+    {
+        {position} {155}
+    }
+    {valdemar} 
+    {
+        {position} {35841}
+    }
+    {valdemar } 
+    {
+        {position} {152}
+    }
+    {valdemar.tin} 
+    {
+        {position} {152}
+    }
+    {valdemart} 
+    {
+        {position} {152}
+    }
+    {valdemat} 
+    {
+        {position} {152}
+    }
+    {valdemdar} 
+    {
+        {position} {152}
+    }
+    {valdemear} 
+    {
+        {position} {152}
+    }
+    {valdemr} 
+    {
+        {position} {152}
+    }
+    {valdermar} 
+    {
+        {position} {152}
+    }
+    {valdmear} 
+    {
+        {position} {152}
+    }
+    {valdmemar} 
+    {
+        {position} {152}
+    }
+    {valfemar} 
+    {
+        {position} {152}
+    }
+    {vaod} 
+    {
+        {position} {152}
+    }
+    {vbaid} 
+    {
+        {position} {152}
+    }
+    {via} 
+    {
+        {position} {152}
+    }
+    {viad} 
+    {
+        {position} {152}
+    }
+    {vid} 
+    {
+        {position} {152}
+    }
+    {vldemar} 
+    {
+        {position} {152}
+    }
+    {vsid} 
+    {
+        {position} {152}
+    }
+    {width} {39}
+}
+
+#CLASS {mapvar} CLOSE

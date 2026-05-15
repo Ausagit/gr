@@ -1,0 +1,17 @@
+#class {subs} {open}
+
+#nop room tags
+#substitute {=S=} {}
+#substitute {=K=} {}
+#substitute {=X=} {}
+
+#nop living tags
+#nop #substitute {^=M= } {}
+#nop #substitute {^=P= } {}
+
+#nop item tags
+#nop #substitute {^=W= } {}
+#nop #substitute {^=A= } {}
+#nop #substitute {^=I= } {}
+
+#class {subs} {close}

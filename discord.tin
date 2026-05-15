@@ -1,0 +1,3 @@
+#variable discord[tell][url]  {}
+#variable discord[bot][url]   {}
+#variable discord[party][url] {}

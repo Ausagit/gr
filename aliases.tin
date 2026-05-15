@@ -1,0 +1,108 @@
+#class {aliases} {open}
+
+#alias {ktt} {#kill tick idle}
+
+#alias {st} {strat}
+
+#alias {ta} {thisarea}
+#alias {na} {nextarea}
+
+#alias {cload}
+{
+    #class $ses_name kill;
+    #read .tt/char/$ses_name.tin
+}
+
+#alias {cte} {#variable gset[hidden][corpsetrig] 1;_gset_save;#echo {<bfb>Corpse trigger enabled.<088>}}
+#alias {ctd} {#variable gset[hidden][corpsetrig] 0;_gset_save;#echo {<bfb>Corpse trigger disabled.<088>}}
+
+#nop helpful client stuff
+#alias {sideon} {redraw map on;redraw canvas on}
+#alias {sideoff} {redraw map off;redraw canvas off}
+
+#alias {roundstodays} {#local days 0;#math {days} {%1/1800.0/24.0};#echo {%d rounds is %f days.} {%1} {$days}}
+#alias {daystorounds} {#local rounds 0;#math {rounds} {%1*1800.0*24.0};#echo {%f days is %d rounds.} {%1} {$rounds}}
+
+#nop run to a room vnum
+#alias {go2} {#map run %1}
+
+#NOP Generic Aliases
+#alias {ga} {#send !get all}
+#alias {gac} {#send !get all from corpse}
+#alias {gc} {#send !get coins}
+#alias {goto} {#swnd !houseedit gotoroom}
+#alias {gl} {#send !glance}
+#alias {k} {#send !kill %0}
+#alias {los} {#send !lineofsight}
+#alias {rem} {#send !remove}
+
+#NOP Chatline Aliases
+#alias {cl} {#send !ctell}
+#alias {pt} {#send !ptell %0}
+#alias {pth} {#send !ptell -h}
+#alias {th} {#send !tellhist}
+
+#NOP HM Portal Aliase
+#alias {efor} {#send !portal eforest}
+#alias {wfor} {#send !portal wforest}
+
+#NOP Party Aliases
+#alias {dg} {#send !divvy gold}
+#alias {fol} {#send !follow %0}
+
+
+#NOP Initial Login
+#alias {/start} {
+        d;
+        touch post;
+        e;
+        home;
+        morgue;
+        acquire;
+        home;
+        keep all;
+	mapgo home
+}
+
+#NOP Character Swapping
+#alias {swt} {switchto}
+
+#NOP Run
+#alias {/run} {
+    #config speedwalk on;
+    %0;
+    #config speedwalk off
+}
+
+/* TMUX Aliases */
+#alias {rs} {#read .tt/draw.tin}
+
+#alias {rsaw} {#sys tmux resize-pane -t 1 -x 30 -y 20;}
+
+
+/* TT Aliases */
+
+#alias {/calc} {
+	#math {math} {%1};
+	#format {math_format} {%g} {$math};
+	#echo $math_format
+}
+
+
+#alias corpsetrig {
+    #nop;
+}
+
+
+
+#alias {kill} {
+    #nop todo - check strategies and do stuff;
+    #send !kill %0;
+}
+
+#alias {k} {
+    kill %0;
+}
+
+
+#class {aliases} {close}

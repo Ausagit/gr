@@ -1,0 +1,26 @@
+#class {trigs} {open}
+
+#action {^=K=%1 killed %2.=K=$} {
+	#nop #if {$combat_que_on} {cq refresh};
+	#nop reset mob status tracking;
+	#foreach {*mob[]} {mobindex} {#variable mob[$mobindex] 0};
+	corpsetrig;
+	onkillrun;
+} {9}
+
+#nop miscellaneous helpful stuff
+#action {^Everything slowly fades into blackness...$} {killbot;#if {@alias_exists{on_death}} {on_death}}
+
+
+
+#action {^[PARTY] %1: {(w|W)here are we\?}} {
+	#if {"$bot" == "1"} {
+		#send !ptell We are in $bots[stepper], room #$roomvnum, step $path_pos/$path_len. My target is at $enemy[hp]% health.
+	}
+}
+
+
+
+#class {trigs} {close}
+
+

@@ -1,0 +1,194 @@
+#class {bot} {open}
+
+/* Disable items while botting */
+#nop mapoff
+#nop prompt >$nl$
+
+/* Build Party Variable */
+#send !pwho
+
+/* Initialize Variables */
+#variable foundmob 0
+#variable foundplayer 0
+#variable goldfound 0
+#variable itemfound 0
+#variable bot 0
+#variable singlestep 0
+#variable stepping 0
+
+
+#alias {.pause} {
+	#class {xbot} {kill};
+	#variable stepping 0;
+	#alias {_check_mob} {.pause}
+}
+
+#alias {.stop} {
+	#map get {roomvnum} {bots[vnum]};
+	#path save forward bots[path];
+	#path save position bots[position];
+	#class {xbot} {kill};
+	#alias {xx} {#nop};
+	#alias {_check_mob} {#nop};
+	#variable stepping 0;
+	#variable halt 1
+}
+
+#alias {.resume} {
+	#map run $bots[vnum];
+	#path load $bots[path];
+	#path goto $bots[position];
+	#variable halt 0;
+	#delay {2} {.bot}
+}
+
+#alias {.single} {
+	#variable singlestep 1
+}
+
+#alias {_check_mob} {#NOP}
+
+#alias {..} {
+	#undelay gohome;
+	#variable bot 1;
+	#variable halt 0;
+	#class {xbot} {open};
+	#action {{^=S=}} {xx} {1};
+	#alias {xx} {
+        #nop CHECK - confirmed this is triggered OK;
+		#variable stepping 1;
+		#variable foundplayer 0;
+		#variable goldfound 0;
+		#variable itemfound 0;
+		#action {^> $} {
+			#if {$itemfound && !$foundplayer && $vacuum} {
+				#send !get all
+			};
+			#if {$goldfound && !$foundplayer} {
+				#send !get coins
+			};
+			#path walk;
+			#path get position path_pos;
+			#unaction {^> $}
+		} {1}
+	};
+	#alias {_check_mob} {
+		#variable stepping 0;
+		#action {^> $} {
+			#unaction {^> $};
+			#if {$foundplayer} {
+				#path walk;
+				#path get position path_pos;
+			} {
+				.pause;
+				#if {"$mobname" != ""} {
+					kill $mobname
+				};
+				#variable foundmob 1;
+				#if {$itemfound && $vacuum} {
+					get all
+				};
+				#if {$goldfound} {
+					#send !get coins
+				}
+			}
+		}
+	};
+	#send !glance;
+	#class {xbot} {close}
+}
+
+#action { gold coins.$} {
+	#variable goldfound 1
+}
+
+#action {^=A= } {
+	#variable itemfound 1
+}
+#action {^=W= } {
+	#variable itemfound 1
+}
+#action {^=I= } {
+	#variable itemfound 1
+}
+
+#alias {killbot} {
+	.stop;
+	#class bot kill;
+	#unalias {.bot};
+	#variable bot 0;
+	#variable mobname {};
+}
+
+#alias {.bot} {
+	#if {$halt == 0} {
+		#delay {0} {..}
+	}
+}
+
+#action {^=K=%1 killed %2.=K=$} {
+	#if {$combat_que_on} {cq refresh};
+	#nop reset mob status tracking;
+	#foreach {*mob[]} {mobindex} {#variable mob[$mobindex] 0};
+	corpsetrig;
+	onkillrun;
+	#if {!$singlestep} {
+		#delay {step} {.bot} {0.5}
+	}
+} {1}
+
+
+/* Detect Players */
+#action {^=P= %*} {
+	#variable party_simple $party;
+	#list party_simple simplify;
+	#variable party_found 0;
+	#foreach {$party_simple} {party_member} {
+		#regexp {%0} {$party_member} {#variable party_found 1}
+	};
+	#if {!$party_found && $no_player != 1} {
+		#variable foundplayer 1
+	}
+}
+
+/* Skip room on Mob */
+#NOP #action {Crikey} {#variable foundplayer 1}
+
+#alias {v %1} {
+	#if {"%1" == "on"} {
+		#variable vacuum 1
+	} {
+		#variable vacuum 0
+	}
+}
+
+#action {#PATH WALK: #END OF PATH} {
+	#if {$no_loop || !$foundmob} {
+		killbot;
+		#if {&{botcycle[]} > 1} {
+			nextarea
+		}; #else {
+			#if {!$no_home} {go home}
+		}
+	} {
+		#unaction {^>$};
+		#path load botpath;
+		#variable foundmob 0;
+		.bot
+	}
+}
+
+#if {@alias_exists{guildsetup}} {
+	#variable botpath {guildsetup;$botpath}
+}
+#if {@alias_exists{guildcleanup}} {
+	#variable botpath {$botpath;guildcleanup}
+}
+#path load botpath
+#variable halt 2
+
+#format {testtime} {%t} {%H:%M:%S};#echo {<AFC><aaa>Bot Started %s<088>} {$testtime}
+
+#class {bot} {close}
+
+

@@ -1,0 +1,71 @@
+#class {botload} {kill}
+#class {botload} {open}
+
+/* Global Bot Variable Initialization */
+#variable mobname {}
+/* Party Variable*/
+#variable party {}
+
+/* Load specific stepper file */
+#alias {- %1} {
+	#class bot kill;
+	#variable no_home 0;
+	#variable no_loop 0;
+	#variable no_player 0;
+	#variable hardmode 0;
+	#variable vacuum 1;
+	
+	#variable bots[stepper] %1;
+	#read .tt/bots/%1.tin;
+    #read .tt/bots/bot_main.tin;
+    #path get length path_len
+}
+
+/* Resume a stepper after a disconnect DisConnectResume */
+#alias {.dcr} {
+	#map run $bots[vnum];
+        - $bots[stepper];
+        #delay {path_position} {#path goto $bots[position]} {0.5};
+        #delay {stepper_start} {..} {2}
+}
+
+#NOP Add party member to list
+#NOP NOTE: With disguised players, you should add an appropriote short desc: i.e., "pa Black cat"
+#alias pa {
+	#list party add %0
+}
+
+#NOP Remove party member from list
+#NOP Note: For multi-named (disguised characters manually added), use braces: i.e., "pr {Black cat}"
+#alias pr {
+	#list party find %0 party_index;
+	#list party delete $party_index
+}
+
+#NOP Auto build party variable based off of party member list
+#action {^Name         Location                                  Creator$} {
+	#action {^%w %+ (%w%s)} {
+		#variable party_member {%%1};
+		#variable party_found 0;
+		#list party find $party_member party_found;
+		#if {$party_found == 0} {
+			#list party add $party_member
+		}
+	} {1};
+	#delay {party_capture} {
+		#unaction {^%w %+ (%w%s)};
+	} {0.5}
+}
+
+#NOP TODO Auto add players on rally
+#NOP TODO Auto remove players on pboot or pquit
+
+/* Low priority aliases to mute output from mud */
+#alias {.bot%*} {#showme !bot is not active} {9}
+#alias {.stop%*} {
+	#showme !Bot is not active
+} {9}
+#alias {.resume%*} {#showme !Bot is not active} {9}
+#alias {killbot%*} {#showme !Bot is not active} {9}
+
+#class {botload} {close}

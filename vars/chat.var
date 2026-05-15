@@ -1,0 +1,79 @@
+#CLASS {chat} OPEN
+
+#VARIABLE {chat}
+{
+    {end} {1}
+    {height} {18}
+    {log} 
+    {
+        {1} {<108>[<268>23<108>:<268>47<108>]<088> <aea>To Tharog: test<088>}
+        {2} {<108>[<268>23<108>:<268>47<108>]<088> <aea>Tharog: test<088>}
+        {3} {<108>[<268>23<108>:<268>51<108>]<088> <aea>To Tharog: test<088>}
+        {4} {<108>[<268>23<108>:<268>51<108>]<088> <aea>Tharog: test<088>}
+        {5} {<108>[<268>23<108>:<268>51<108>]<088> <aea>To Tharog: test2<088>}
+        {6} {<108>[<268>23<108>:<268>51<108>]<088> <aea>Tharog: test2<088>}
+        {7} {<108>[<268>19<108>:<268>53<108>]<088> <aaf>Tharog shouts: test<088>}
+        {8} {<108>[<268>19<108>:<268>58<108>]<088> <aaf>Tharog shouts: asdf<088>}
+        {9} {<108>[<268>19<108>:<268>59<108>]<088> <aaf>Tharog shouts: asfdasdf<088>}
+        {10} {<108>[<268>20<108>:<268>00<108>]<088> <aaf>Tharog shouts: asdf<088>}
+        {11} {<108>[<268>20<108>:<268>00<108>]<088> <aaf>Tharog shouts: asdf<088>}
+        {12} {<108>[<268>20<108>:<268>00<108>]<088> <aaf>Tharog shouts: asdf<088>}
+        {13} {<108>[<268>20<108>:<268>02<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {14} {<108>[<268>20<108>:<268>03<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {15} {<108>[<268>20<108>:<268>06<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {16} {<108>[<268>20<108>:<268>06<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {17} {<108>[<268>20<108>:<268>07<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf         kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad         fasdf asdfsadf asdfas asdf eee<088>}
+        {18} {<108>[<268>20<108>:<268>07<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf         kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad         fasdf asdfsadf asdfas asdf eee<088>}
+        {19} {<108>[<268>20<108>:<268>07<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf     kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad     fasdf asdfsadf asdfas asdf eee<088>}
+        {20} {<108>[<268>20<108>:<268>07<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf     kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad     fasdf asdfsadf asdfas asdf eee<088>}
+        {21} {<108>[<268>20<108>:<268>07<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf     kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad     fasdf asdfsadf asdfas asdf eee<088>}
+        {22} {<108>[<268>20<108>:<268>07<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf   kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad   fasdf asdfsadf asdfas asdf eee<088>}
+        {23} {<108>[<268>20<108>:<268>08<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf  kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad  fasdf asdfsadf asdfas asdf eee<088>}
+        {24} {<108>[<268>20<108>:<268>09<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf<088>}
+        {25} {<108>[<268>20<108>:<268>09<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf<088>}
+        {26} {<108>[<268>20<108>:<268>09<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf<088>}
+        {27} {<108>[<268>20<108>:<268>09<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf<088>}
+        {28} {<108>[<268>20<108>:<268>09<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf<088>}
+        {29} {<108>[<268>20<108>:<268>09<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf  kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad  fasdf asdfsadf asdfas asdf eee<088>}
+        {30} {<108>[<268>20<108>:<268>11<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf<088>}
+        {31} {<108>[<268>20<108>:<268>15<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {32} {<108>[<268>20<108>:<268>15<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {33} {<108>[<268>20<108>:<268>16<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {34} {<108>[<268>20<108>:<268>16<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {35} {<108>[<268>20<108>:<268>16<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {36} {<108>[<268>20<108>:<268>17<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {37} {<108>[<268>20<108>:<268>17<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {38} {<108>[<268>20<108>:<268>17<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {39} {<108>[<268>20<108>:<268>18<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {40} {<108>[<268>20<108>:<268>18<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {41} {<108>[<268>20<108>:<268>18<108>]<088> <aaf>Tharog shouts: asdf<088>}
+        {42} {<108>[<268>20<108>:<268>18<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {43} {<108>[<268>20<108>:<268>19<108>]<088> <aaf>Tharog shouts: <088>}
+        {44} {<108>[<268>20<108>:<268>19<108>]<088> <aaf>Tharog shouts: <088>}
+        {45} {<108>[<268>20<108>:<268>20<108>]<088> <aaf>Tharog shouts: <088>}
+        {46} {<108>[<268>20<108>:<268>20<108>]<088> <aaf>Tharog shouts: <088>}
+        {47} {<108>[<268>20<108>:<268>21<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {48} {<108>[<268>20<108>:<268>21<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf                 kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad                 fasdf asdfsadf asdfas asdf eee<088>}
+        {49} {<108>[<268>20<108>:<268>21<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {50} {<108>[<268>20<108>:<268>22<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {51} {<108>[<268>20<108>:<268>22<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {52} {<108>[<268>20<108>:<268>22<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {53} {<108>[<268>20<108>:<268>22<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {54} {<108>[<268>20<108>:<268>22<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {55} {<108>[<268>20<108>:<268>25<108>]<088> <aaf>Tharog shouts: adsfsd fasdf asdf asdf asd fas fdas dfasdfasdf asdf asdf asf kjsad fjasd sad fasd fsadf asdf asdf asdf sadf asdfawerwfda sad fasdf asdfsadf asdfas asdf eee<088>}
+        {56} {<108>[<268>20<108>:<268>25<108>]<088> <aea>Tharog: asfjkasdkj sdakjfdasjk asdfjkh askdjfk hasdkj f sjfkfjsdhh fh hkh jh ajkhsdfkjhsdfkjhkjfoiuhjsfdkjskdjf sadfkjahsdf kjasdhf ksjadhf kas d fs f<088>}
+        {57} {<108>[<268>20<108>:<268>25<108>]<088> <aea>To Tharog: asfjkasdkj sdakjfdasjk asdfjkh askdjfk hasdkj f sjfkfjsdhh fh hkh jh ajkhsdfkjhsdfkjhkjfoiuhjsfdkjskdjf sadfkjahsdf kjasdhf ksjadhf kas d fs f<088>}
+        {58} {<108>[<268>17<108>:<268>59<108>]<088> <aea>Tharog: test<088>}
+        {59} {<108>[<268>17<108>:<268>59<108>]<088> <aea>To Tharog: test<088>}
+    }
+    {max} {100}
+    {offset} {0}
+    {page} {1}
+    {right} {-41}
+    {rows} {17}
+    {scroll} {page}
+    {start} {17}
+    {text} {<aea>To Tharog: test<088>}
+}
+
+#CLASS {chat} CLOSE

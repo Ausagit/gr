@@ -1,0 +1,17 @@
+#CLASS {botvar} OPEN
+
+#VARIABLE {bots}
+{
+    {path} {botpath}
+    {position} {2}
+    {stepper} {0}
+    {vnum} {165}
+}
+#VARIABLE {sectionz}
+{
+    {pause} {24810}
+    {20} {LollygagGubbinsWabbit}
+    {40} {BoustrophedonGoombahLollygag}
+}
+
+#CLASS {botvar} CLOSE

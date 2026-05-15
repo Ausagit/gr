@@ -1,0 +1,79 @@
+#CONFIG           {AUTO TAB}		{5000}
+#CONFIG           {BUFFER SIZE}		{10000}
+#CONFIG           {CHARSET}		    {UTF-8}
+#CONFIG           {COLOR MODE}		{TRUE}
+#CONFIG           {COLOR PATCH}		{ON}
+#CONFIG           {COMMAND COLOR}	{<078>}
+#CONFIG           {COMMAND ECHO}	{ON}
+#CONFIG           {CONNECT RETRY}	{15}
+#CONFIG           {HISTORY SIZE}	{1000}
+#CONFIG           {LOG MODE}		{RAW}
+#CONFIG           {MOUSE}		    {ON}
+#CONFIG           {PACKET PATCH}	{AUTO}
+#CONFIG           {REPEAT CHAR}		{!}
+#CONFIG           {REPEAT ENTER}	{ON}
+#CONFIG           {SCROLL LOCK}		{ON}
+#CONFIG           {SPEEDWALK}		{OFF}
+#CONFIG           {TINTIN CHAR}		{#}
+#CONFIG           {VERBATIM}		{OFF}
+#CONFIG           {VERBATIM CHAR}	{\}
+#CONFIG           {VERBOSE}		    {OFF}
+#CONFIG           {WORDWRAP}		{ON}
+#PATHDIR          {d}	{u}	{32}
+#PATHDIR          {e}	{w}	{2}
+#PATHDIR          {n}	{s}	{1}
+#PATHDIR          {ne}	{sw}	{3}
+#PATHDIR          {nw}	{se}	{9}
+#PATHDIR          {s}	{n}	{4}
+#PATHDIR          {se}	{nw}	{6}
+#PATHDIR          {sw}	{ne}	{12}
+#PATHDIR          {u}	{d}	{16}
+#PATHDIR          {w}	{e}	{8}
+
+#variable ses_name {};
+
+#EVENT {SESSION CONNECTED} {
+
+}
+
+/* Character Switching */
+#alias {switchto} {
+        #zap;
+        #if {"%0" == ""} {
+                connect inix
+        } {
+                connect %0
+        };
+        #NOP #read .tt/start.tin
+}
+
+#alias {connect} {
+    #session {%0} {localhost} {4242};
+    #variable account_name {%0};
+
+    $account_name;
+    #textin .tt/.pass;
+    tharog;
+
+    #nop temp;
+    #alias hl {#read .tt/hp.tin};
+    #alias ml {#read .tt/mapper.tin};
+    #alias tl {#read .tt/terrain.tin};
+    #action {Cathedral of Light (w)} {#map go 165};
+}
+
+#action {^Gloomrest welcomes you %*, %*!} {
+    #format ses_name {%l} {%2};
+    #format logfile {.tt/logs/${ses_name}_%t.log} {%Y%m%d};
+	#LOG {APPEND} {$logfile};
+	#read .tt/start.tin;
+    _gset_load;
+    
+    #delay 1 {
+        #if {$watchdog_module} {startwatchdog};
+		#nop sg load;
+		#if {@alias_exists{on_login}} {on_login}
+	};
+
+    #delay 2 #send !clientskilllist;
+}

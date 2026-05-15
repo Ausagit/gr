@@ -1,0 +1,662 @@
+#nop strategy.tin
+/*
+#nop configurable guild settings via the 'gset x y' command
+#nop add _gset_load to the guild file after the guild name as been set - requires $ses_name and $guild variables set
+
+astrat
+    Script to automatically set scaler, hardmode, strategies and a custom command string when entering
+    areas with a stepper using your preconfigured list.
+	The data is saved to the file .tt/char/<charname>-<guildname>-<additinalpath>-sg.tin file.
+
+    Usage:
+        Add some items, 'as add name/scaler/hard/strats/cmd'
+        Enable the que, 'as on'.
+
+    Suggested:
+	    Add guildsetup as the first command in the area's botpath variable add a guildsetup alias to your <guild>.tin file.
+	    Add 'as run $bots[stepper]' to the alias to set the data based stepper name when you enter.
+
+    Strategy group Commands:
+        as                  - show the list
+        as on               - enable the que
+        as off              - disable the que
+        as disable <name>   - disable the specified que item
+        as enable <name>    - enable the specified que item
+        as add <args>       - add an item, args are mandatory, except for strategies and addional command(s)
+                              <name>/<scaler>/<hard>/<strats/<cmd>
+        as remove <name>    - remove the specified que item
+        as load [filename]  - loads the default Strategy group file without an argument, else the file specified, if existing
+        sg save [filename]  - saves the que to the currently used filename without an argument (shown on the top of the cq page)
+                              saves to a new file if an argument is specified. Will overwrite without warning.
+  
+    Injecting script:
+        You can use script for the command, however you must not use variables directly; use the $:var_name format instead of $, see the example below.
+
+*/
+#class strategy kill
+#class strategy open
+
+#read .tt/strategy/shadow.tin;
+
+#variable gset_reset_count 0
+#variable group_strat_on 1
+#variable as_debug 0
+#variable gsfilename {}
+#variable global_hardmode 1
+#variable current_scaler 0
+#variable strat_silent 0
+
+#variable skills {}
+#variable talents {}
+
+#nop table of trained talents to determine which strats to automatically make available
+#variable talents {}
+
+#function {hmonoff} {
+	#if {%1 == 1} {
+		#variable {result} {<aea>ON<088>}
+	} {
+		#variable {result} {<eaa>OFF<088>}
+	}
+}
+
+#alias {hmode on} {#variable global_hardmode 1}
+#alias {hmode off} {#variable global_hardmode 0}
+
+
+#variable gsetinfo {
+	{hp}			{{group}{display}		{subgroup} {}		{default}{0}			{format}{^([0-1])$}                 {exclusions}{} {help}{Toggle showing your hpbar in combat}}
+	{theme}			{{group}{display}		{subgroup} {}		{default}{blue}		{format}{^([a-zA-Z0-9\s]{1,30})$}	{exclusions}{} {help}{Theme name applied to tables, messages etc}}
+}
+
+#variable strategyinfo {
+	{shadow_rupture}    {{name} {rupture} {skill} {15105} {group}{shadow}	{subgroup} {combat}	{pos} {1}	{default}{0}	{format}{^([0-1])$}	{exclusions}{} {help}{Rupture your shadow marks when target is low health}}
+    {shadow_reckoning}  {{name} {reckoning} {skill} {15117} {group}{shadow}	{subgroup} {combat}	{pos} {1}	{default}{0}	{format}{^([0-1])$}	{exclusions}{} {help}{Release stagger when below a health threshold or above a stagger theshold}}
+}
+
+#nop a list of strategies activated from parsing a talent list from the mud;
+#variable active_strategies {};
+
+#list {gsetgroups} {create} {miscellaneous;display;colours;hidden}
+
+#variable {gthemes} {
+	{default}
+	{
+		{lines}			{<108>}
+		{headings}		{<228>}
+		{subheadings}	{<268>}
+		{slabels}		{<bbb>}
+		{altrow}		{<cea>}
+		{bordercolour}	{<108>}
+		{bordertype}	{single}
+	}
+	{magenta}
+	{
+		{lines}			{<eae>}
+		{headings}		{<faf>}
+		{subheadings}	{<eae>}
+		{slabels}		{<bbb>}
+		{altrow}		{<eae>}
+		{bordercolour}	{<108>}
+		{bordertype}	{single}
+	}
+	{blue}
+	{
+		{lines}			{<abe>}
+		{headings}		{<adf>}
+		{subheadings}	{<bbf>}
+		{slabels}		{<bbb>}
+		{altrow}		{<ace>}
+		{bordercolour}	{<108>}
+		{bordertype}	{single}
+	}
+	{purple}
+	{
+		{lines}			{<cbe>}
+		{headings}		{<dcf>}
+		{subheadings}	{<cbe>}
+		{slabels}		{<cbe>}
+		{altrow}		{<cbe>}
+		{bordercolour}	{<108>}
+		{bordertype}	{single}
+	}
+}
+
+#alias {_gset_reset} {
+	#echo {<258>Settings have been reset to default.<088>};
+	#class {gsettings} {kill};
+	#class {gsettings} {open};
+	#variable {gset} {};
+    #variable {gset_strats} {};
+	#class {gsettings} {close};
+	#class {gsettings} {save};
+	#foreach {*gsetinfo[%*]} {name} {#variable gset[$name] {$gsetinfo[$name][default]}};
+	#class {gsettings} {write} {.tt/char/${ses_name}-gset.tin}
+}
+
+#alias {_gset_load} {
+	#class {gsettings} {kill};
+	#class {gsettings} {read} {.tt/char/${ses_name}-gset.tin};
+	#class {gsettings} {size} {gsetsize};
+	#if {$gsetsize == 0} {
+		#echo {<258>Settings file not found!<088>};
+		_gset_reset;
+		#unvariable {gsetsize}
+	}	
+}
+
+#alias {_sg_init} {
+    #nop create an empty que when the module loads;
+    #class {strat_group_list} {kill};
+    #class {strat_group_list} {open};
+    #variable {strat_group} {};
+    #class {strat_group_list} {close};
+    #class {strat_group_list} {save};
+}
+_sg_init
+
+#alias {gset} {
+	#if {"%1" == ""} {
+		#nop #draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78;
+		#echo {$gthemes[$gset[theme]][headings]Setting           Value<088>};
+		#draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78;
+
+		#foreach {$gsetgroups[%*]} {group} {
+			#if {"$group" != "hidden"} {
+				#local shown_header 0;
+				#foreach {*gsetinfo[%*]} {name} {
+					#if {"$group" == "$gsetinfo[$name][group]" && "$group" != "strategy"} {
+						#if {!$shown_header} {#echo {$gthemes[$gset[theme]][subheadings]%n<088>} {$group};#variable shown_header 1};
+						#if {"$group" == "colours"} {
+							#echo {  %-15s<088> <%s>%.60s<088>} {$name} {$gset[$name]} {$gset[$name]}
+						} {
+							#echo {  %-15s<088> %.60s} {$name} {$gset[$name]}
+						}
+					}
+				}
+			}
+		};
+		#draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78
+	};
+	#elseif {"%1" == "reset"} {
+		#if {$gset_reset_count == 0} {
+			#echo {<258>Are you sure you wish to reset your settings?\nType <158>gset reset<258> again within 10 seconds to confirm.<088>};
+			#variable gset_reset_count 1;
+			#delay gset_reset {
+				#variable gset_reset_count 0;
+				#echo {<258>Settings reset period has timed out.<088>}
+			} {10}
+		} {
+			#variable gset_reset_count 0;
+			_gset_reset
+		}				
+	};
+	#elseif {"%1" == "help"} {
+		#draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78;
+		#echo {$gthemes[$gset[theme]][headings]Setting              Help<088>} {$gsetout};
+		#draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78;
+
+		#foreach {$gsetgroups[%*]} {group} {     
+			#if {"$group" != "hidden"} {
+				#echo {$gthemes[$gset[theme]][subheadings]%n<088>} {$group};
+
+				#foreach {*gsetinfo[%*]} {name} {
+					#if {"$group" == "$gsetinfo[$name][group]"} {
+						#echo {  %-15s<088> %.60s} {$name} {$gsetinfo[$name][help]}
+					}
+				}
+			}
+		};
+		#draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78
+	};
+    #elseif {"%2" == "" && "$gsetinfo[%1]" != ""} {
+        #if {$gset[%1]} {
+            gset %1 0
+        } {
+            gset %1 1
+        }
+    };
+	#else {
+		#regexp {%0} {{([a-z0-9_]+) ([a-zA-Z0-9\._\'\s\-]+)}} {
+			#if {"$gsetinfo[&2][format]" != ""} {
+				#regexp {&3} {{$gsetinfo[&2][format]}} {
+					#if {"&3" == "clear"} {
+						#nop for freeform text entries, they can be cleared with the clear argument;
+						#variable gset[&2] {};
+						#echo {<258>Setting <158>&2<258> has been <158>cleared<258>.<088>}
+					} {
+						#variable gset[&2] {&3};
+						#echo {<258>Setting <158>&2<258> set to <158>&3<258>.<088>};
+						#if {$gset[&2]} {
+							#nop check for strategies that will be turned off when this one is enabled;
+							#list texclusions create {$gsetinfo[&2][exclusions]};
+							#foreach {$texclusions[%*]} {name} {
+								#if {$gset[$name]} {
+									#variable gset[$name] 0
+								}
+							}
+						}
+					};
+					_gset_save
+				} {
+					#echo {<258>Invalid gset value <158>&3<258> for <158>&2<258>.<088>}
+				}
+			} {
+				#echo {<158>&2<258> is not a valid gset option.<088>}
+			}
+		} {
+			#echo {<258>Syntax is <158>gset <option> <value><258>.<088>}
+		}
+	}
+}
+
+#alias {strat_silent} {
+	#variable strat_silent 1;
+	strat %1 %2;
+	#variable strat_silent 0
+}
+
+#alias {strat} {
+	#if {"%1" == ""} {
+		strategies
+	} {
+		#local stratname {};
+		#if {"$strategyinfo[%1][group]" == "strategy"} {
+			#variable stratname %1;
+		} {
+			#nop change to #list find eventually;
+			#foreach {*strategyinfo[%1%*]} {name} {
+				#variable stratname $name;
+				#break
+			}
+		};
+
+		#if {"$stratname" != ""} {
+			#if {($gset_strats[$stratname] && "%2" == "") || "%2" == "off" || "%2" == "0"} {
+				#if {!$strat_silent} {
+					#echo {<258>Strategy <158>$stratname<258> is now <118>disabled<088>.}
+				};
+				#variable gset_strats[$stratname] 0
+			} {
+				#if {!$strat_silent} {
+					#echo {<258>Strategy <158>$stratname<258> is now <128>enabled<088>.}
+				};
+				#variable gset_strats[$stratname] 1;
+				#nop check for strategies that will be turned off when this one is enabled;
+				#list texclusions create {$strategyinfo[$stratname][exclusions]};
+				#foreach {$texclusions[%*]} {name} {
+					#if {$gset_strats[$name]} {
+						#variable gset_strats[$name] 0
+					}
+				}
+			};
+			_gset_save
+		} {
+			#echo {<258>That is not a valid strategy.<088>}
+		}
+	}
+}
+
+#alias {strategies} {
+	#nop #draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 80;
+	#echo {$gthemes[$gset[theme]][headings]Strategy           Description<088>};
+	#draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78;
+	#nop #variable strategies {@get_strategies{}};
+	#foreach {*active_strategies[]} {index} {
+		#echo {%s%-18s<088> %.58s} {@strategy_colour{$index}} {$strategyinfo[$index][name]} {$strategyinfo[$index][help]};
+	};
+	#draw $gthemes[$gset[theme]][lines] scroll line 1 1 1 78
+}
+
+#nop used internally for resetting boot-long settings 
+#alias {_gset_clear} {
+	_gset_save
+}
+
+#alias {_gset_save} {
+	#class {gsettings} {write} {.tt/char/${ses_name}-gset.tin}
+}
+
+#alias {_sg_save} {
+	#class {strat_group_list} {write} {.tt/char/$gset[hidden][sgfile]}
+}
+
+#nop get a list of strategies for showing on the side bar
+#function {get_strategies} {
+    #if {&active_strategies[] == 0} {
+        #return {};
+    };
+    #list result create {};
+	#foreach {*active_strategies[%*]} {name} {
+		#list result add {{{id} {$name} {name} {$strategyinfo[$name][name]} {value} {$gset_strats[$name]} {pos} {$strategyinfo[$name][pos]}}}
+	};
+	#list result indexate pos;
+	#list result order
+}
+
+#function {strategy_colour} {
+	#if {$gset_strats[%1]} {
+		#variable result <128>;
+	} {
+		#variable result <088>;
+	}
+}
+
+#alias {sg} {
+    #switch {"%1"} {
+        #case "add" {
+            #regexp {%0} {{add ([a-zA-Z0-9_]{1,20})\/([0-9]{1,3})\/([0-9])(?:\/(0|1))?(?:\/([a-z_,\-*]+))?(?:\/(.+))?}} {
+                #nop as add name/scaler/rating/hard/strats/cmd;
+                #local cdname {};
+                #local cmd {&7};
+				#local ashmode {&5};
+				#format cdname {%l} {&2};
+				#replace cmd {'} {"};
+				#if {"&5" == ""} {#variable ashmode 0};
+                
+				#variable strat_group[$cdname][scaler] &3;
+				#variable strat_group[$cdname][hard] $ashmode;
+				#variable strat_group[$cdname][rating] {&4};
+				#variable strat_group[$cdname][strats] {&6};
+				#variable strat_group[$cdname][cmd] {&7};
+                _sg_save;
+				#echo {<028>Strategy group <128>$cdname<028> added.<088>}
+            } {
+                #echo {<028>Syntax is:<088>};
+				#echo {    sg add name/scaler};
+				#echo {    sg add name/scaler/hard};
+				#echo {    sg add name/scaler/hard/strats};
+				#echo {    sg add name/scaler/hard/strats/cmd}
+            }
+        };
+		#case "set" {
+			#if {"%2" != ""} {
+				#local cdname {};
+				#format cdname {%l} {%2};
+				#if {"$strat_group[$cdname][scaler]" != ""} {
+					#if {"%3" == "scaler"} {
+						#regexp {%0} {{set (\w+) scaler ([0-9]{1,3})}} {
+							#variable strat_group[$cdname][scaler] &3;
+							_sg_save;
+							#echo {<028>Strategy group <128>$cdname<028> %3 set to <128>&3<088>}
+						} {
+							#echo {<028>Invalid value for scaler.<088>}
+						}
+					};
+					#elseif {"%3" == "hard"} {
+						#regexp {%0} {{set (\w+) hard ([0-1])}} {
+							#variable strat_group[$cdname][hard] &3;
+							_sg_save;
+							#echo {<028>Strategy group <128>$cdname<028> %3 set to <128>&3<088>}
+						} {
+							#echo {<028>Invalid value for hardmode.<088>}
+						}
+					};
+					#elseif {"%3" == "rating"} {
+						#regexp {%0} {{set (\w+) rating ([0-9])}} {
+							#variable strat_group[$cdname][rating] &3;
+							_sg_save;
+							#echo {<028>Strategy group <128>$cdname<028> %3 set to <128>&3<088>}
+						} {
+							#echo {<028>Invalid value for rating.<088>}
+						}
+					};
+					#elseif {"%3" == "strats"} {
+						#regexp {%0} {{set (\w+) strats ([a-z_,\-\*]+)}} {
+							#variable strat_group[$cdname][strats] &3;
+							_sg_save;
+							#echo {<028>Strategy group <128>$cdname<028> %3 set to <128>&3<088>}
+						} {
+							#echo {<028>Invalid value for strats.<088>}
+						}
+					};
+					#elseif {"%3" == "cmd"} {
+						#regexp {%0} {{set (\w+) cmd (.+)}} {
+							#variable strat_group[$cdname][cmd] &3;
+							_sg_save;
+							#echo {<028>Strategy group <128>$cdname<028> %3 set to <128>&3<088>}
+						} {
+							#echo {<028>Invalid value for cmd.<088>}
+						}
+					};
+					#else {
+						#echo {<028>Invalid strategy group type, use scaler, hard, starts or cmd.<088>}
+					}
+				} {
+					#echo {<028>Invalid strategy group.<088>}
+				}
+			}	
+		};
+        #case "clear" {
+            #variable strat_group {};
+            #variable group_strat_on 0;
+            #variable gsfilename {};
+            #echo {<028>Strategy group cleared.<088>}
+        };
+        #case "load" {
+			#nop ""        - load last (or default);
+			#nop "xyz"     - load xyz;
+			#nop "default" - load default;
+            #local filename_ok 0;
+            #if {"%2" == ""} {
+				#if {"$gset[hidden][sgfile]" == ""} {
+					#variable gset[hidden][sgfile] {$ses_name-sg-default.tin};
+					_gset_save
+				};
+                #variable filename_ok 1
+            } {
+                #regexp {%0} {{load ([a-zA-Z0-9]{1,30})}} {
+                    #variable gset[hidden][sgfile] {$ses_name-sg-&2.tin};
+					_gset_save;
+                    #variable filename_ok 1
+                } {
+                    #echo {<028>Filename must be a combination of letters and numbers.<088>};
+                    #variable filename_ok 0
+                }
+            };
+            #if {$filename_ok} {
+				#local aslistsize 0;
+                #class strat_group_list kill;
+                #class strat_group_list read {.tt/char/${gset[hidden][sgfile]}};
+                #class strat_group_list size {aslistsize};
+                #if {$aslistsize == 0} {
+                    #echo {<028>Creating new empty strategy group <128>${gset[hidden][sgfile]}<028>.<088>};
+                    _sg_init;
+					_sg_save;
+                } {
+                    #echo {<028>Strategy group <128>$gset[hidden][sgfile]<028> loaded.<088>};
+                }
+            }
+        };
+        #case "saveas" {
+			#regexp {%0} {{saveas ([a-zA-Z0-9]{1,30})}} {
+				#variable gset[hidden][sgfile] {$ses_name-sg-&2.tin};
+				_gset_save;
+				_sg_save;
+				#echo {<028>Strategy group saved to <128>$gset[hidden][sgfile]<028>.<088>};
+			} {
+				#echo {<028>Filename must be a combination of letters, numbers and underscore.<088>};
+			}
+        };
+        #case "on" {
+            #if {&{strat_group[]} != 0} {
+                #variable group_strat_on 1;
+                #echo {<028>Strategy group <128>enabled.<088>}
+            } {
+                #echo {<028>Strategy group cannot be enabled because you have none configured.<088>}
+            }
+        };
+        #case "off" {
+            #variable group_strat_on 0;
+            #echo {<028>Strategy group <018>disabled<028>.<088>}
+        };
+        #case "enable" {
+            #local index @get_as_index{%2};
+            #if {$index > 0} {
+                #variable strat_group[$index][enabled] 1;
+                #echo {<028>Strategy group <128>$strat_group[$index][name]<028> enabled.<088>}
+            } {
+                #echo {<028>Strategy group <128>%2<028> not found.<088>}
+            }
+        };
+        #case "remove" {
+            #if {"$strat_group[%2]" != ""} {
+                #echo {<028>Strategy group <128>%2<028> removed.<088>};
+                #unvariable strat_group[%2];
+				_sg_save
+            } {
+                #echo {<028>Strategy group <128>%2<028> not found.<088>}
+            }
+        };
+        #case "help" {
+            #echo {<028>Coming soon...<088>}
+        };
+        #case "" {
+            _showsg
+        };
+        #default {
+			#if {"$strat_group[%1]" != ""} {
+				#variable astrats {$strat_group[%1][strats]};
+				#if {"$astrats" != ""} {
+					#list astrats explode {,};
+					#if {&astrats[] > 0} {
+						#foreach {*astrats[%*]} {astratindex} {
+							#regexp {$astrats[$astratindex]} {{(\-|\*)?(.+)}} {
+								#if {"&2" == "-"} {
+									strat &3 off
+								};
+								#elseif {"&2" == "*"} {
+									#nop on or off dependant on mask status;
+									#if {"$mask_status" == "1" || "$mask_status" == "2"} {
+										strat &3 on
+									} {
+										strat &3 off
+									}
+								};
+								#else {
+									strat &3 on
+								}
+							}
+						}
+					}
+				};
+				#send !scaler $strat_group[%1][scaler];
+				#variable global_hardmode $strat_group[%1][hard];
+				#if {"$strat_group[%1][cmd]" != ""} {@sg_execute{$strat_group[%1][cmd]}};
+				#echo {<028>Strategy group <128>%1<028> loaded.<088>}                  
+			} {
+				#echo {<028>Strategy group <128>%1<028> does not exist.<088>}
+			}
+		}
+    }
+}         
+
+#function {sg_execute} {
+    #variable exec {%0};
+    #replace exec {'} {"};
+    #replace exec {$:} {$};
+    #replace exec {@:} {@};
+    #variable result {$exec}
+}
+
+#alias {_showsg} {
+    #local cuelist {};
+	#local stratwidth 10;
+	#local cmdwidth 3;
+	#local namewidth 10;
+	#local swidth 0;
+	#local cwidth 0;
+	#local nwidth 0;
+
+	#foreach {*strat_group[%*]} {astrat} {
+		#format swidth {%L} {$strat_group[$astrat][strats]};
+		#if {$swidth > $stratwidth} {#variable stratwidth $swidth};
+		#format cwidth {%L} {$strat_group[$astrat][cmd]};
+		#if {$cwidth > $cmdwidth} {#variable cmdwidth $cwidth};
+		#format nwidth {%L} {$astrat};
+		#if {$nwidth > $namewidth} {#variable namewidth $nwidth};
+	};
+
+	#format cuelist {%sSTRATEGY GROUPS<088> %s%-50s        <088>%sEN<088>} {$gthemes[$gset[theme]][headings]} {$gthemes[$gset[theme]][subheadings]} {[$gset[hidden][sgfile]]} {@sg_check_colour{$group_strat_on}} {$cuelist};
+    #format cuelist {%s\n%s==============================================================================<088>} {$cuelist} {$gthemes[$gset[theme]][lines]};
+	#format cuelist {%s\n%s%-${namewidth}s  Sca R H  %-${stratwidth}s  %-${cmdwidth}s<088>} {$cuelist} {$gthemes[$gset[theme]][subheadings]} {Name} {Strategies} {Command/Script};
+    #format cuelist {%s\n%s------------------------------------------------------------------------------<088>} {$cuelist} {$gthemes[$gset[theme]][lines]};
+
+    #if {&strat_group[] == 0} {
+        #format cuelist {%s\n You have no configured area strategies.} {$cuelist}
+    } {
+        #foreach {*strat_group[%*]} {astrat} {
+			#format cuelist {%s\n%-${namewidth}s<088>  %+3s %s %s  %-${stratwidth}s  %-${cmdwidth}s} {$cuelist} {$astrat} {$strat_group[$astrat][scaler]} {$strat_group[$astrat][rating]} {$strat_group[$astrat][hard]} {$strat_group[$astrat][strats]} {$strat_group[$astrat][cmd]};
+        }
+    };
+    #echo {$cuelist<088>}
+}
+
+#function {sg_check_colour} {
+    #if {%1 == 1 || "%1" == "ON"} {
+		#variable {result} {<228>}
+	} {
+        #variable {result} {<218>}
+    }
+}
+
+
+#event {VARIABLE UPDATE gset} {
+	#delay 0 sidedraw
+}
+
+#event {VARIABLE UPDATE gset_strats} {
+	#delay 0 sidedraw
+}
+
+#event {VARIABLE UPDATE group_strat_on} {
+	#delay 0 sidedraw
+}
+
+
+#action {^#-#T %* T#-#$} {
+    #nop #line gag;
+    #variable talents {};
+}
+
+#action {^#-#S %* S#-#$} {
+    #nop capture a comma seperated list talents from the mud;
+    #variable skills {};
+    #variable active_strategies {};
+    
+    #nop create the table of currently known skills;
+    #local tl {%1};
+    #list tl explode {,};
+    #foreach {$tl[]} {id} {
+        #variable skills[$id] 1;
+    };
+
+    #nop check the full list of strategies against the known skills and add to active if a match on skill id;
+    #nop check against the gset saved strats for on/off status;
+    #foreach {*strategyinfo[]} {cst} {
+        #if {"$skills[$strategyinfo[$cst][skill]]" != ""} {
+            #if {"$gset_strats[$cst]" != ""} {
+                #variable active_strategies[$cst] {$gset_strats[$cst]};
+            } {
+                #variable active_strategies[$cst] 0
+            }
+        }
+    };
+    #nop redraw the side panel, if shown;
+    sidedraw;
+}
+
+#class strategy close
+
+
+/*
+    strategy name == cooldown name
+    add event subscription?
+        on_start
+        on_end
+        on_round
+        on_kill
+    or each round loop through all strat and check? do this for now
+    
+
+*/

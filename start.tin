@@ -1,0 +1,29 @@
+#nop Load Common Files
+#NOP #read .tt/numpad.tin
+#read .tt/vars.tin;
+#read .tt/events.tin
+#read .tt/terrain.tin;
+#read .tt/mapper.tin;
+#read .tt/graph.tin;
+#read .tt/ticklist.tin;
+#read .tt/hp.tin;
+
+#read .tt/aliases.tin;
+#read .tt/subs.tin;
+#read .tt/gags.tin;
+#read .tt/trigs.tin;
+
+#read .tt/bots/bot_cycle.tin;
+#read .tt/bots/bot_load.tin;
+#read .tt/chat_monitors.tin;
+
+#read .tt/strategy/strategy.tin;
+#read .tt/modules/onkill.tin;
+#nop #read .tt/modules/combat_que.tin;
+#read .tt/modules/watchdog.tin;
+
+#sub {~\t} {       }
+
+#nop laod at the end;
+#read .tt/draw.tin;
+
