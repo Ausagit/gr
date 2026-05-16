@@ -35,7 +35,7 @@
     #class drawvar open;
     #variable draw {{alert} {off} {canvas} {on} {caption} {off} {chat} {on} {gline} {on} {hpbar} {on} {map} {on} };
     #class drawvar close;
-    #class mapvar write gr/vars/draw.var;
+    #class drawvar write gr/vars/draw.var;
 }
 
 #class mapvar kill

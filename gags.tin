@@ -2,6 +2,7 @@
 
 #nop #gag {^$}
 #gag {^>$}
+#gag {^#-#}
 
 #alias {uhp} {
     #ungag {^CD[};
