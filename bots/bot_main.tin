@@ -60,7 +60,7 @@
 		#variable foundplayer 0;
 		#variable goldfound 0;
 		#variable itemfound 0;
-		#action {^> $} {
+		#action {^>$} {
 			#if {$itemfound && !$foundplayer && $vacuum} {
 				#send !get all
 			};
@@ -69,13 +69,13 @@
 			};
 			#path walk;
 			#path get position path_pos;
-			#unaction {^> $}
+			#unaction {^>$}
 		} {1}
 	};
 	#alias {_check_mob} {
 		#variable stepping 0;
-		#action {^> $} {
-			#unaction {^> $};
+		#action {^>$} {
+			#unaction {^>$};
 			#if {$foundplayer} {
 				#path walk;
 				#path get position path_pos;

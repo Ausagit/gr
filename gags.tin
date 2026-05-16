@@ -1,7 +1,7 @@
 #class {gags} {open}
 
-/* Blank Line */
-#nop #gag {^ $}
+#nop #gag {^$}
+#gag {^>$}
 
 #alias {uhp} {
     #ungag {^CD[};
