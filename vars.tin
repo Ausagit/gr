@@ -1,78 +1,50 @@
-#CLASS {vars} OPEN
+#CLASS vars open
 
 #class botvar kill
 #read gr/vars/bots.var
-
-#class chat kill
-#read gr/vars/chat.var
-
-#class drawvar kill
-#read gr/vars/draw.var
-
-#class mapvar kill
-#read gr/vars/map.var
-
-
 #class botvar size {gsetsize};
 #if {$gsetsize == 0} {
+    #echo {First run error, ignore. Creating default map.var file.};
     #class botvar open;
     #variable bots { {path} {botpath} {position} {0} {stepper} {0} {vnum} {1} };
     #class botvar close;
     #class botvar write gr/vars/bots.var;
 }
 
+#class chat kill
+#read gr/vars/chat.var
 #class chat size {gsetsize};
 #if {$gsetsize == 0} {
+    #echo {First run error, ignore. Creating default char.var file.};
     #class chat open;
-    #variable chat
-    {
-        {end} {1}
-        {height} {18}
-        {log} 
-        {
-            {1} {<108>[<268>23<108>:<268>47<108>]<088> <aea>Welcome to Gloomrest!<088>}
-
-        }
-        {max} {100}
-        {offset} {0}
-        {page} {1}
-        {right} {-41}
-        {rows} {17}
-        {scroll} {page}
-        {start} {17}
+    #variable chat {
+        {end} {1} {height} {18}
+        {log} { {1} {<108>[<268>23<108>:<268>47<108>]<088> <aea>Welcome to Gloomrest!<088>} }
+        {max} {100} {offset} {0} {page} {1} {right} {-41} {rows} {17} {scroll} {page} {start} {17}
         {text} {<aea>Welcome to Gloomrest!<088>}
     };
     #class chat close;
     #class chat write gr/vars/chat.var;
 }
 
+#class drawvar kill
+#read gr/vars/draw.var
 #class drawvar size {gsetsize};
 #if {$gsetsize == 0} {
+    #echo {First run error, ignore. Creating default draw.var file.};
     #class drawvar open;
-    #variable draw
-    {
-        {alert} {off}
-        {canvas} {on}
-        {caption} {off}
-        {chat} {on}
-        {gline} {on}
-        {hpbar} {on}
-        {map} {on}
-    };
+    #variable draw {{alert} {off} {canvas} {on} {caption} {off} {chat} {on} {gline} {on} {hpbar} {on} {map} {on} };
     #class drawvar close;
     #class mapvar write gr/vars/draw.var;
 }
 
+#class mapvar kill
+#read gr/vars/map.var
 #class mapvar size {gsetsize};
 #if {$gsetsize == 0} {
+    #echo {First run error, ignore. Creating default map.var file.};
     #class mapvar open;
-    #variable map
-    {
-        {height} {17}
-        {position} {top}
-        {$ses_name} {{position} {1}}
-        {width} {39}
-    };
+    #variable map { {height} {17} {position} {top} {$ses_name} {{position} {1}} {width} {39} };
     #class mapvar close;
     #class mapvar write gr/vars/map.var;
 }
@@ -90,4 +62,4 @@
 	#class mapvar write gr/vars/map.var;
 }
 
-#CLASS {vars} CLOSE
+#class vars close
