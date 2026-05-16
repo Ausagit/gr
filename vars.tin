@@ -63,7 +63,7 @@
     #class mapvar write gr/vars/draw.var;
 }
 
-#class drawvar size {gsetsize};
+#class mapvar size {gsetsize};
 #if {$gsetsize == 0} {
     #class mapvar open;
     #variable map
