@@ -34,7 +34,7 @@
 #variable account_name {};
 
 #EVENT {SESSION CONNECTED} {
-
+    #nop character name not known when first connecting;
 }
 
 /* Character Switching */
