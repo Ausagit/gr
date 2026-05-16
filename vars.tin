@@ -15,10 +15,66 @@
 
 #class botvar size {gsetsize};
 #if {$gsetsize == 0} {
-    #class botvar OPEN
-    #variable bots { {path} {botpath} {position} {0} {stepper} {0} {vnum} {1} }
-    #class botvar CLOSE
+    #class botvar open;
+    #variable bots { {path} {botpath} {position} {0} {stepper} {0} {vnum} {1} };
+    #class botvar close;
     #class botvar write gr/vars/bots.var;
+}
+
+#class chat size {gsetsize};
+#if {$gsetsize == 0} {
+    #class chat open;
+    #variable chat
+    {
+        {end} {1}
+        {height} {18}
+        {log} 
+        {
+            {1} {<108>[<268>23<108>:<268>47<108>]<088> <aea>Welcome to Gloomrest!<088>}
+
+        }
+        {max} {100}
+        {offset} {0}
+        {page} {1}
+        {right} {-41}
+        {rows} {17}
+        {scroll} {page}
+        {start} {17}
+        {text} {<aea>Welcome to Gloomrest!<088>}
+    };
+    #class chat close;
+    #class chat write gr/vars/chat.var;
+}
+
+#class drawvar size {gsetsize};
+#if {$gsetsize == 0} {
+    #class drawvar open;
+    #variable draw
+    {
+        {alert} {off}
+        {canvas} {on}
+        {caption} {off}
+        {chat} {on}
+        {gline} {on}
+        {hpbar} {on}
+        {map} {on}
+    };
+    #class drawvar close;
+    #class mapvar write gr/vars/draw.var;
+}
+
+#class drawvar size {gsetsize};
+#if {$gsetsize == 0} {
+    #class mapvar open;
+    #variable map
+    {
+        {height} {17}
+        {position} {top}
+        {$ses_name} {{position} {1}}
+        {width} {39}
+    };
+    #class mapvar close;
+    #class mapvar write gr/vars/map.var;
 }
 
 #unvariable {gsetsize}
