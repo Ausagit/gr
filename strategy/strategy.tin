@@ -6,7 +6,7 @@
 astrat
     Script to automatically set scaler, hardmode, strategies and a custom command string when entering
     areas with a stepper using your preconfigured list.
-	The data is saved to the file .tt/char/<charname>-<guildname>-<additinalpath>-sg.tin file.
+	The data is saved to the file gr/char/<charname>-<guildname>-<additinalpath>-sg.tin file.
 
     Usage:
         Add some items, 'as add name/scaler/hard/strats/cmd'
@@ -36,7 +36,7 @@ astrat
 #class strategy kill
 #class strategy open
 
-#read .tt/strategy/shadow.tin;
+#read gr/strategy/shadow.tin;
 
 #variable gset_reset_count 0
 #variable group_strat_on 1
@@ -131,12 +131,12 @@ astrat
 	#class {gsettings} {close};
 	#class {gsettings} {save};
 	#foreach {*gsetinfo[%*]} {name} {#variable gset[$name] {$gsetinfo[$name][default]}};
-	#class {gsettings} {write} {.tt/char/${ses_name}-gset.tin}
+	#class {gsettings} {write} {gr/char/${ses_name}-gset.tin}
 }
 
 #alias {_gset_load} {
 	#class {gsettings} {kill};
-	#class {gsettings} {read} {.tt/char/${ses_name}-gset.tin};
+	#class {gsettings} {read} {gr/char/${ses_name}-gset.tin};
 	#class {gsettings} {size} {gsetsize};
 	#if {$gsetsize == 0} {
 		#echo {<258>Settings file not found!<088>};
@@ -314,11 +314,11 @@ _sg_init
 }
 
 #alias {_gset_save} {
-	#class {gsettings} {write} {.tt/char/${ses_name}-gset.tin}
+	#class {gsettings} {write} {gr/char/${ses_name}-gset.tin}
 }
 
 #alias {_sg_save} {
-	#class {strat_group_list} {write} {.tt/char/$gset[hidden][sgfile]}
+	#class {strat_group_list} {write} {gr/char/$gset[hidden][sgfile]}
 }
 
 #nop get a list of strategies for showing on the side bar
@@ -457,7 +457,7 @@ _sg_init
             #if {$filename_ok} {
 				#local aslistsize 0;
                 #class strat_group_list kill;
-                #class strat_group_list read {.tt/char/${gset[hidden][sgfile]}};
+                #class strat_group_list read {gr/char/${gset[hidden][sgfile]}};
                 #class strat_group_list size {aslistsize};
                 #if {$aslistsize == 0} {
                     #echo {<028>Creating new empty strategy group <128>${gset[hidden][sgfile]}<028>.<088>};

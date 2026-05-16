@@ -7,8 +7,8 @@
         Enable the que, 'cq on'.
         Manage the [ready] status by calling update_cooldown <name> <0/1> from actions, like the rod runes at the end of this file.
 
-        Rating data is saved to .tt/char/<charname>-ratings.tin
-        Que data is saved to .tt/char/<charname>-<guildname>-que.tin or .tt/char/<charname>-<guildname>-<filename>-que.tin
+        Rating data is saved to gr/char/<charname>-ratings.tin
+        Que data is saved to gr/char/<charname>-<guildname>-que.tin or gr/char/<charname>-<guildname>-<filename>-que.tin
 
     Suggested:
 	    Add guildsetup as the first command in the area's botpath variable add a guildsetup alias to your <guild>.tin file.
@@ -30,7 +30,7 @@
                               saves to a new file if an argument is specified. Will overwrite without warning.
 
     Script to automatically change rating when entering dungeons using your preconfigured list of dungeon::ratings.
-	The data is automatically saved to the file .tt/char/<charname>-ratings.tin file.
+	The data is automatically saved to the file gr/char/<charname>-ratings.tin file.
     
     Injecting script:
         You can use script for the command, however you must not use variables directly; use the $:var_name format instead of $, see the example below.
@@ -157,7 +157,7 @@ _cq_init
                 #nop backup the current que data;
                 #local cq_temp {$combat_que};
                 #class combat_que_list kill;
-                #class combat_que_list read {.tt/char/$cqfilename_temp};
+                #class combat_que_list read {gr/char/$cqfilename_temp};
                 #class combat_que_list size {cuelistsize};
                 #if {$cuelistsize == 0} {
                     #echo {<028>Combat que <128>$cqfilename_temp<028> not found.<088>};
@@ -188,13 +188,13 @@ _cq_init
                 } {
                     #nop ratain the current filename
                 };
-                #class combat_que_list write {.tt/char/$cqfilename};
+                #class combat_que_list write {gr/char/$cqfilename};
                 #echo {<028>Combat que saved to <128>$cqfilename<028>.<088>}
             } {
                 #regexp {%0} {{save ([a-zA-Z0-9_]{1,30})}} {
                     #nop valid format;
                     #variable cqfilename {$ses_name-$guild-&2-que.tin};
-                    #class combat_que_list write {.tt/char/$cqfilename};
+                    #class combat_que_list write {gr/char/$cqfilename};
                     #echo {<028>Combat que saved to <128>$cqfilename<028>.<088>}
                 } {
                     #echo {<028>Filename must be a combination of letters, numbers and underscore.<088>};

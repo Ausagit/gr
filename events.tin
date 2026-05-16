@@ -3,7 +3,7 @@
 
 /* Screen Sizing */
 #event {SCREEN RESIZE} {
-    #read .tt/draw.tin;
+    #read gr/draw.tin;
 	#var screen[rows] %0;
 	#var screen[cols] %1;
 	#var screen[height] %2;
@@ -206,7 +206,7 @@
 	#replace {chat[text]} {\\x7D} {\uFF5D};
 	#list chat[log] ins -1 {${timestamp}$chat[text]};
 
-	#class {chat} {write} {.tt/vars/chat.var};
+	#class {chat} {write} {gr/vars/chat.var};
 	show_chat
 }
 

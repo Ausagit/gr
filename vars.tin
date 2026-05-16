@@ -1,25 +1,25 @@
 #nop #CLASS {vars} OPEN
 
 #class botvar kill
-#read .tt/vars/bots.var
+#read gr/vars/bots.var
 
 #class chat kill
-#read .tt/vars/chat.var
+#read gr/vars/chat.var
 
 #class drawvar kill
-#read .tt/vars/draw.var
+#read gr/vars/draw.var
 
 #class farmvar kill
-#read .tt/vars/farm.var
+#read gr/vars/farm.var
 
 #class mapvar kill
-#read .tt/vars/map.var
+#read gr/vars/map.var
 
 #class shopvar kill
-#read .tt/vars/shop.var
+#read gr/vars/shop.var
 
 #class pubvar kill
-#read .tt/vars/pub.var
+#read gr/vars/pub.var
 
 #event {SESSION DISCONNECTED} {
 	#NOP Save Map vnum per $ses_name;
@@ -27,12 +27,12 @@
 	#NOP Save Map (updated exits for unpause);
 	#nop mapsave;
 	#NOP Write var classes;
-    #nop #class chat write .tt/vars/chat.var;
-	#class botvar write .tt/vars/bots.var;
-	#class farmvar write .tt/vars/farm.var;
-	#class mapvar write .tt/vars/map.var;
-	#class pubvar write .tt/vars/pub.var;
-	#class shopvar write .tt/vars/shop.var
+    #nop #class chat write gr/vars/chat.var;
+	#class botvar write gr/vars/bots.var;
+	#class farmvar write gr/vars/farm.var;
+	#class mapvar write gr/vars/map.var;
+	#class pubvar write gr/vars/pub.var;
+	#class shopvar write gr/vars/shop.var
 }
 
 #nop #CLASS {vars} CLOSE

@@ -1,4 +1,6 @@
 # TinTin++
+Credit to Inix (https://github.com/Inix3K/TinTin) for his work on the 3-Kingdoms version on which this is based.
+Instructions below require updating for Gloomrest and changes.
 
 ## Required Version
 * TinTin++ version 2.01.90 or higher required
@@ -54,14 +56,14 @@ Copy git repo into .tt folder (this will allow you to copy files from the repo a
 
 Copy .profile to home directory and initialize it.  This adds aliases to connect to TMUX (explained below).
 ```
-cp .tt/scripts/.profile ~/
+cp gr/scripts/.profile ~/
 . .profile
 ```
 
 Create bin folder and copy scripts to it
 ```
 mkdir bin
-cp .tt/scripts/* ~/bin/
+cp gr/scripts/* ~/bin/
 ```
 
 Save your GR password
@@ -76,12 +78,12 @@ Make your initial character file
 cd char
 vi <player_name>.tin
 	* i   (enters Insert mode)
-	* #read .tt/guilds/<guild_name>.tin
+	* #read gr/guilds/<guild_name>.tin
 	* Esc (this will exit Insert mode)
 	* ZZ  (this will save and close the file)
 * I.E.: For jugger
 	* vi inix.tin
-	* #read .tt/guilds/juggernaut.tin
+	* #read gr/guilds/juggernaut.tin
 	* Esc
 	* ZZ
 ```
@@ -102,14 +104,14 @@ TMUX Connection Aliases:
 	* I.E.: `trcx 3s`:  reconnect to session named '3s' while leaving other sessions attached.
 
 Now that you're at the TinTin++ screen, connect to your character
-* `connect <player_name>`:	This will attempt to log you into 3K with the player name you pass and your password saved in .tt/.pass
+* `connect <player_name>`:	This will attempt to log you into 3K with the player name you pass and your password saved in gr/.pass
 	* If you want to connect to 3S, append '3s' to the end of the player name.
 		* I.E.:  `connect inix3s`
-		* Once the alias detects '3s' as the last two characters of the player name, it will connect to 3s instead of 3k, and will load the 3s character file.  In this example, it will load '.tt/char/inix3s.tin' instead of '.tt/char/inix.tin'
+		* Once the alias detects '3s' as the last two characters of the player name, it will connect to 3s instead of 3k, and will load the 3s character file.  In this example, it will load 'gr/char/inix3s.tin' instead of 'gr/char/inix.tin'
 
 ## MUD ANSI Setup
 Certain ANSI flags are set for mapper and stepper functions.  To load these flags:
-* `#read .tt/ansi_setup.tin`
+* `#read gr/ansi_setup.tin`
 
 ## MAP Commands
 * `mapon`:  This will set variables to collect room shorts, room exits, room descriptions, etc., as well as set the mud brief mode appropriately to begin mapping.

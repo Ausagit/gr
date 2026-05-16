@@ -31,6 +31,7 @@
 #PATHDIR          {w}	{e}	{8}
 
 #variable ses_name {};
+#variable account_name {};
 
 #EVENT {SESSION CONNECTED} {
 
@@ -39,40 +40,55 @@
 /* Character Switching */
 #alias {switchto} {
         #zap;
-        #if {"%0" == ""} {
-                connect inix
-        } {
-                connect %0
-        };
-        #NOP #read .tt/start.tin
+        connect %0
 }
 
 #alias {connect} {
-    #session {%0} {localhost} {4242};
-    #variable account_name {%0};
+    #regexp {%0} {%*,%*} {
+        #nop account_name,character_name;
+        #session {%0} {gloomrest.org} {3000};
+        #variable account_name {&1};
+        #send $account_name;
+        #textin gr/.pass;
+        #send &2;
+    } {
+        #nop just the account name;
+        #session {%0} {gloomrest.org} {3000};
+        #variable account_name {%0};
+        $account_name;
+        #textin gr/.pass;
+    }   
+}
 
-    $account_name;
-    #textin .tt/.pass;
-    tharog;
-
-    #nop temp;
-    #alias hl {#read .tt/hp.tin};
-    #alias ml {#read .tt/mapper.tin};
-    #alias tl {#read .tt/terrain.tin};
-    #action {Cathedral of Light (w)} {#map go 165};
+#alias {connect2} {
+    #regexp {%0} {%*,%*} {
+        #nop account_name,character_name;
+        #session {%0} {localhost} {4242};
+        #variable account_name {&1};
+        #send $account_name;
+        #textin gr/.pass;
+        #send &2;
+    } {
+        #nop just the account name;
+        #session {%0} {localhost} {4242};
+        #variable account_name {%0};
+        #send $account_name;
+        #textin gr/.pass;
+    }   
 }
 
 #action {^Gloomrest welcomes you %*, %*!} {
     #format ses_name {%l} {%2};
-    #format logfile {.tt/logs/${ses_name}_%t.log} {%Y%m%d};
+    #format logfile {gr/logs/${ses_name}_%t.log} {%Y%m%d};
 	#LOG {APPEND} {$logfile};
-	#read .tt/start.tin;
+	#read gr/start.tin;
     _gset_load;
     
     #delay 1 {
         #if {$watchdog_module} {startwatchdog};
 		#nop sg load;
 		#if {@alias_exists{on_login}} {on_login}
+        rs;
 	};
 
     #delay 2 #send !clientskilllist;

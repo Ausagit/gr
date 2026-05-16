@@ -5,7 +5,7 @@
 #nop REQUIRED:  strategy.tin
 
 /* Load draw variables */
-#read .tt/vars/draw.var
+#read gr/vars/draw.var
 
 #variable line_colour {$gthemes[$gset[theme]][bordercolour]}
 #variable line_type {$gthemes[$gset[theme]][bordertype]}
@@ -317,12 +317,12 @@
 		};
 		#if {"$redraw[args][1]" == "valid" && "$redraw[args][2]" == "valid"} {
 			#var draw[$redraw[option]] $redraw[flag];
-			#class drawvar write .tt/vars/draw.var;
-			#read .tt/draw.tin
+			#class drawvar write gr/vars/draw.var;
+			#read gr/draw.tin
 		}
 	} {
-		#class drawvar write .tt/vars/draw.var;
-		#read .tt/draw.tin
+		#class drawvar write gr/vars/draw.var;
+		#read gr/draw.tin
 	}
 }
 

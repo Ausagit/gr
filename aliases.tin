@@ -10,7 +10,7 @@
 #alias {cload}
 {
     #class $ses_name kill;
-    #read .tt/char/$ses_name.tin
+    #read gr/char/$ses_name.tin
 }
 
 #alias {cte} {#variable gset[hidden][corpsetrig] 1;_gset_save;#echo {<bfb>Corpse trigger enabled.<088>}}
@@ -75,7 +75,7 @@
 }
 
 /* TMUX Aliases */
-#alias {rs} {#read .tt/draw.tin}
+#alias {rs} {#read gr/draw.tin}
 
 #alias {rsaw} {#sys tmux resize-pane -t 1 -x 30 -y 20;}
 

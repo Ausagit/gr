@@ -1,29 +1,29 @@
 #nop Load Common Files
-#NOP #read .tt/numpad.tin
-#read .tt/vars.tin;
-#read .tt/events.tin
-#read .tt/terrain.tin;
-#read .tt/mapper.tin;
-#read .tt/graph.tin;
-#read .tt/ticklist.tin;
-#read .tt/hp.tin;
+#NOP #read gr/numpad.tin
+#read gr/vars.tin;
+#read gr/events.tin
+#read gr/terrain.tin;
+#read gr/mapper.tin;
+#read gr/graph.tin;
+#read gr/ticklist.tin;
+#read gr/hp.tin;
 
-#read .tt/aliases.tin;
-#read .tt/subs.tin;
-#read .tt/gags.tin;
-#read .tt/trigs.tin;
+#read gr/aliases.tin;
+#read gr/subs.tin;
+#read gr/gags.tin;
+#read gr/trigs.tin;
 
-#read .tt/bots/bot_cycle.tin;
-#read .tt/bots/bot_load.tin;
-#read .tt/chat_monitors.tin;
+#read gr/bots/bot_cycle.tin;
+#read gr/bots/bot_load.tin;
+#read gr/chat_monitors.tin;
 
-#read .tt/strategy/strategy.tin;
-#read .tt/modules/onkill.tin;
-#nop #read .tt/modules/combat_que.tin;
-#read .tt/modules/watchdog.tin;
+#read gr/strategy/strategy.tin;
+#read gr/modules/onkill.tin;
+#nop #read gr/modules/combat_que.tin;
+#read gr/modules/watchdog.tin;
 
 #sub {~\t} {       }
 
 #nop laod at the end;
-#read .tt/draw.tin;
+#read gr/draw.tin;
 

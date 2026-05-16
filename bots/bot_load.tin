@@ -16,8 +16,8 @@
 	#variable vacuum 1;
 	
 	#variable bots[stepper] %1;
-	#read .tt/bots/%1.tin;
-    #read .tt/bots/bot_main.tin;
+	#read gr/bots/%1.tin;
+    #read gr/bots/bot_main.tin;
     #path get length path_len
 }
 

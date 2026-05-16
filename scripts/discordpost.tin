@@ -79,7 +79,7 @@ Add the following line to the end of #alias {.mipProcessBAB} in mip.tin
                 }
             };
             #if {"$discord[$dchan][url]" != "" && $discord[$dchan][enabled]} {
-                #format dscript {python3 .tt/scripts/discordpost.py '%s' '%n' '%s'} {$discord[$dchan][url]} {&3} {@sanitizePayload{&4}};
+                #format dscript {python3 gr/scripts/discordpost.py '%s' '%n' '%s'} {$discord[$dchan][url]} {&3} {@sanitizePayload{&4}};
                 #script {$dscript}
             }
         } {

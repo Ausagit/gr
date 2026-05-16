@@ -22,13 +22,10 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Add scripts folder to PATH env variable
-PATH=$PATH:$HOME/.tt/scripts
+PATH=$PATH:$HOME/gr/scripts
 
 # Aliases for 3k and 3s reconnecting screens with rcc script
-alias 3k='trcc 3k'
-alias 3s='trcc 3s'
-alias 3kx='trcx 3k'
-alias 3sx='trcx 3s'
-alias tt='tt++ ~/.tt/rc.tin'
+alias gr='trcc gr'
+alias tt='tt++ ~/gr/rc.tin'
 
 export PATH

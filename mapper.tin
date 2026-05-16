@@ -1,7 +1,7 @@
 #class {mapper} {open}
 #NOP REQUIRED:  draw.tin
 
-#map read .tt/map/gloomrest.map
+#map read gr/map/gloomrest.map
 
 #var map[height] 17
 #var map[width] 39
@@ -237,7 +237,7 @@
 	}; #else {
 		#echo {!INVALID MAP POSITION!}
 	};
-	#read .tt/draw.tin
+	#read gr/draw.tin
 }
 		
 #NOP count the # of rooms mapped
@@ -313,7 +313,7 @@
 }
 
 #alias {mapsave} {
-	#map write .tt/map/gloomrest.map
+	#map write gr/map/gloomrest.map
 }
 
 #alias {mapon} {
@@ -383,6 +383,8 @@
 
 
 /* Area map moves */
+
+#action {Cathedral of Light (w)} {#map go 165};
 
 /* Transports */
 #NOP Amazon Research Center

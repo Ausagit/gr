@@ -1,7 +1,7 @@
 #class chat_monitors kill
 #class chat_monitors open
 
-#var monitor_file {.tt/logs/chat.log}
+#var monitor_file {gr/logs/chat.log}
 
 #function {clean_msg} {
     #local cont {%1};
