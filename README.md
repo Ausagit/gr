@@ -1,6 +1,6 @@
 # TinTin++
 Credit to Inix (https://github.com/Inix3K/TinTin) for his work on the 3-Kingdoms version on which this is based.
-Instructions below require updating for Gloomrest and changes.
+Instructions below require updating for Gloomrest.
 
 ## Required Version
 * TinTin++ version 2.01.90 or higher required
@@ -32,8 +32,8 @@ sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
 sudo apt update
 sudo apt install build-essential
 sudo apt build-dep tintin++
-wget https://downloads.sf.net/tintin/tintin-2.02.10.tar.gz
-tar -zxvf tintin-2.02.10.tar.gz
+wget https://github.com/scandum/tintin/releases/download/2.02.61/tintin-2.02.61.tar.gz
+tar -zxvf tintin-2.02.61.tar.gz
 cd tt/src
 ./configure
 sudo make install
@@ -49,10 +49,7 @@ sudo apt install tmux
 ```
 
 Clone the git<br/>
-`git clone https://github.com/Inix3K/TinTin`
-
-Copy git repo into .tt folder (this will allow you to copy files from the repo and allow manual overwrite of local files)<br/>
-`cp -r TinTin .tt`
+`git clone https://github.com/Ausagit/gr`
 
 Copy .profile to home directory and initialize it.  This adds aliases to connect to TMUX (explained below).
 ```
@@ -68,7 +65,10 @@ cp gr/scripts/* ~/bin/
 
 Save your GR password
 ```
-cd .tt
+cd gr
+mkdir char
+mkdir logs
+mkdir vars
 vi .pass
 ```
 * _Use any text editor you like here, I use VIM.  Just create the file, put your password in it, and save it.  Nothing else in the file._
@@ -82,20 +82,18 @@ vi <player_name>.tin
 	* Esc (this will exit Insert mode)
 	* ZZ  (this will save and close the file)
 * I.E.: For jugger
-	* vi inix.tin
+	* vi name.tin
 	* #read gr/guilds/juggernaut.tin
 	* Esc
 	* ZZ
 ```
-_NOTE:  connect alias will assume MUD is 3K.  For 3S, append "3s" to your character file name._<br/>
-	_I.E.: `vi inix3s.tin`_
 
 ## Connect to the MUD
 Now that you have the initial setup done, it's time to get playing!<br/>
 Type `cd` to return to the home directory
 
 TMUX Connection Aliases:
-* `3k`:  This will start a tmux session named '3K' and open TinTin++ with rc.tin configuration file
+* `gr`:  This will start a tmux session named '3K' and open TinTin++ with rc.tin configuration file
 		* If a tmux session is already started, this alias will also disconnect the tmux session from any other devices and reconnect you to it.  You can use this to swap from desktop to mobile, etc.
 * `3kx`:  This is similar to the `3k` alias, except it will leave other sessions connected.  If you want to be connected on mobile AND desktop, for instance.
 * `trcc`:  This is the script that the `3k` alias calls (located in your ~/bin/ folder).  However, if you want tmux sessions other than '3K' you can use this.
