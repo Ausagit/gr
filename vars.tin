@@ -1,4 +1,4 @@
-#nop #CLASS {vars} OPEN
+#CLASS {vars} OPEN
 
 #class botvar kill
 #read gr/vars/bots.var
@@ -9,17 +9,19 @@
 #class drawvar kill
 #read gr/vars/draw.var
 
-#class farmvar kill
-#read gr/vars/farm.var
-
 #class mapvar kill
 #read gr/vars/map.var
 
-#class shopvar kill
-#read gr/vars/shop.var
 
-#class pubvar kill
-#read gr/vars/pub.var
+#class botvar size {gsetsize};
+#if {$gsetsize == 0} {
+    #class botvar OPEN
+    #variable bots { {path} {botpath} {position} {0} {stepper} {0} {vnum} {1} }
+    #class botvar CLOSE
+    #class botvar write gr/vars/bots.var;
+}
+
+#unvariable {gsetsize}
 
 #event {SESSION DISCONNECTED} {
 	#NOP Save Map vnum per $ses_name;
@@ -29,10 +31,7 @@
 	#NOP Write var classes;
     #nop #class chat write gr/vars/chat.var;
 	#class botvar write gr/vars/bots.var;
-	#class farmvar write gr/vars/farm.var;
 	#class mapvar write gr/vars/map.var;
-	#class pubvar write gr/vars/pub.var;
-	#class shopvar write gr/vars/shop.var
 }
 
-#nop #CLASS {vars} CLOSE
+#CLASS {vars} CLOSE
