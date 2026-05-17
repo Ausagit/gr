@@ -46,14 +46,14 @@
 #alias {connect} {
     #regexp {%0} {%*,%*} {
         #nop account_name,character_name;
-        #session {%0} {45.55.100.71} {3000};
+        #session {%0} {gloomrest.org} {3000};
         #variable account_name {&1};
         #send $account_name;
         #textin gr/.pass;
         #send &2;
     } {
         #nop just the account name;
-        #session {%0} {45.55.100.71} {3000};
+        #session {%0} {gloomrest.org} {3000};
         #variable account_name {%0};
         $account_name;
         #textin gr/.pass;

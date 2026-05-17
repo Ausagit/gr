@@ -7,7 +7,7 @@ then
 else
 	tmux start-server
 	tmux new-session -d -s $1 -n TT
-	tmux send-keys -t $1.0 "tt" C-m
+	tmux send-keys -t $1.0 "ttgr" C-m
 	tmux attach-session -t $1
 fi
 unset SCREENID

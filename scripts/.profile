@@ -25,7 +25,9 @@ fi
 PATH=$PATH:$HOME/gr/scripts
 
 # Aliases for 3k and 3s reconnecting screens with rcc script
-alias gr='trcc gr'
-alias tt='tt++ ~/gr/rc.tin'
+alias gr='tgr gr'
+
+# still loads 3k without tmux
+alias ttgr='tt++ ~/gr/rc.tin'
 
 export PATH

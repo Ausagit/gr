@@ -5,7 +5,7 @@ Recommend adding the below to your .profile:
 PATH=$PATH:$HOME/gr/scripts
 
 # Aliases for 3k and 3s reconnecting TMUX with trcc script
-alias 3k='trcc gr'
-alias tt='tt++ ~/gr/.tinrc'
+alias gr='tgr gr'
+alias ttgr='tt++ ~/gr/rc.tin'
 
 export PATH
