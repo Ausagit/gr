@@ -63,7 +63,7 @@
                 #if {"&3" != ""} {
                     #variable buffs[&2][stacks] &3
                 };
-
+ 
                 #if {"$durations[%2][&2]" == ""} {
                     #variable durations[%2][&2] &4;
                 };
