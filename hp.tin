@@ -50,7 +50,7 @@
     #foreach {$tok[]} {item} {
         #if {"$bstr" != ""} {
             #variable bstr {$bstr };
-        }; 
+        };
 
         #regexp {$item} {{^([a-z]+)(?:\((\d+)\))?(?:\:(\d+))?}} {
             #nop &2 name, &3 stacks, &4 duration;
