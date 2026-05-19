@@ -4,7 +4,7 @@
 #class hp open
 
 #nop TODO: optional prefix/thing in non-regexp action, it's possible, find the syntax;
-#action {HP[%d/%d +%d/%d ~%d/%d] FC[%d/%d] SS[%w] [%w] CR[%d] EH[%*]}
+#action {HP[%d/%d +%d/%d ~%d/%d] FC[%d/%d] SS[%*] [%w] CR[%d] EH[%*]}
 {
     #nop #line gag;
     #var my[hp][current] %1;
@@ -114,7 +114,7 @@
     #var scol $gthemes[$gset[theme]][slabels];
 	#var	my[hp][graph]		{@graph{$my[hp][current];${my[hp][max]}}};
 	#var	my[focus][graph]		{@graph{$my[focus][current];$my[focus][max]}};
-	#var	enemy[graph]		{@graph{$enemy[hp];100}};
+	#nop #var	enemy[graph]		{@graph{$enemy[hp];100}};
 	#format hp			{%+4s} {@colscale{$my[hp][current];$my[hp][max]}};
 	#format hp_max		{%+4s} {<128>$my[hp][max]<088>};
 	#format focus			{%+4s} {@colscale{$my[focus][current];$my[focus][max]}};
@@ -128,7 +128,14 @@
     #format barrier     {%-4s} {@colscale{$my[barrier][current];$my[barrier][max]}};
     #format stagger     {%-4s} {@colscaleinv{$my[stagger][current];$my[stagger][max]}};
 
-    #line ignore #showme {${scol}MI<088> $my[minions][string] $scol| BU<088> $my[buffs][string] $scol| CD<088> $my[cooldowns][string]${scol}                                                    } {-6} {0};
+    #if {"$my[shapeshift]" != "none"}
+    {
+        #var ss {${scol}SS <bff>$my[shapeshift] $scol|<088> }
+    } {
+        #var ss {}
+    };
+
+    #line ignore #showme {${ss}${scol}MI<088> $my[minions][string] $scol| BU<088> $my[buffs][string] $scol| CD<088> $my[cooldowns][string]${scol}                                                    } {-6} {0};
 	#line ignore #showme {${scol}HP $hp/$hp_max  ${scol}BA <088>$barrier ${scol}FC $focus/$focus_max  ${scol}CR <088>$round ${scol}EH <088>$ehealth                 } {-4} {0};
 	#line ignore #showme {${scol}   $my[hp][graph] ${scol}ST <088>$stagger ${scol}   $my[focus][graph] ${scol}BS <088>435/153 ${scol}EB <088>$enemy[buffs][string]                             } {-3} {0};
 }

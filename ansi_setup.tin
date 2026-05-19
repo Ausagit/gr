@@ -21,4 +21,7 @@
 #send aset look_object_suff [0m
 #send aset look_other_suff [0m
 
+#send aset soul_pref =E=+hicyan
+#send aset soul_suff =E=+reset
+
 #class {ansi_setup} {close}

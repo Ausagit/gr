@@ -18,6 +18,10 @@
     update_chat <aea>To %1: @clean_msg{%2}<088>
 }
 
+#action {^=E=%a=E=\n} {
+    update_chat <aff>@clean_msg{%1}<088>
+}
+
 #action {^%w tells you, "%a"\n} {
     update_chat <aea>%1: @clean_msg{%2}<088>;
     #bell

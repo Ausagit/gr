@@ -384,8 +384,9 @@
 
 /* Area map moves */
 
-#action {Cathedral of Light (w)} {#map go 165};
-
+#action {Cathedral of Light (w)} {#map go 165}
+#action {^Death gestures nonchalantly towards you with a pale hand and you find yourself} {#map go 32}
+#action {^You find yourself unable to leave the immediate vicinity of the statue} {#map undo}
 /* Transports */
 #NOP Amazon Research Center
 /*

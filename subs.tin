@@ -5,6 +5,9 @@
 #substitute {=K=} {}
 #substitute {=X=} {}
 
+#nop soul/emote
+#substitute {=E=} {}
+
 #nop living tags
 #substitute {^=M= } {}
 #substitute {^=P= } {}
