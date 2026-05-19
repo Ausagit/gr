@@ -25,7 +25,7 @@ The majority of instructions will assume VPS with Ubuntu.
 Once VPS with Ubuntu is setup, below are the install directions from:  https:/tintin.mudhalla.net/install.php#Ubuntu
 ```
 sudo apt install zlib1g-dev
-sudo apt install libpcre3-dev
+sudo apt install libpcre2-dev
 sudo apt install libgnutls28-dev
 sudo apt install wget
 sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list

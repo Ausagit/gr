@@ -86,7 +86,7 @@
             };
         } {
             #nop error;
-            #echo {failed to match};
+            #line ignore #showme {failed to match: %1};
         };       
     };
 
