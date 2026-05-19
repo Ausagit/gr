@@ -10,8 +10,8 @@
 #substitute {^=P= } {}
 
 #nop item tags
-#nop #substitute {^=W= } {}
-#nop #substitute {^=A= } {}
-#nop #substitute {^=I= } {}
+#substitute {^=W= } {}
+#substitute {^=A= } {}
+#substitute {^=I= } {}
 
 #class {subs} {close}

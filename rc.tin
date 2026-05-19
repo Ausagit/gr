@@ -81,6 +81,7 @@
     #format ses_name {%l} {%2};
     #format logfile {gr/logs/${ses_name}_%t.log} {%Y%m%d};
 	#LOG {APPEND} {$logfile};
+    
 	#read gr/start.tin;
     #read gr/char/$ses_name.tin;
     _gset_load;
