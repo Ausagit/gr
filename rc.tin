@@ -74,7 +74,7 @@
         #variable account_name {%0};
         #send $account_name;
         #textin gr/.pass;
-    }   
+    }
 }
 
 #action {^Gloomrest welcomes you %*, %*!} {
@@ -84,6 +84,14 @@
     
 	#read gr/start.tin;
     #read gr/char/$ses_name.tin;
+
+    #class $ses_name size {gsetsize};
+    #if {$gsetsize == 0} {
+        #echo {No character file found, you may ignore this error.};
+        #echo {Create this file to store custom scripts for this character.};
+    };
+    #unvariable {gsetsize};
+
     _gset_load;
     
     #delay 1 {
