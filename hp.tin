@@ -155,7 +155,7 @@
     #format stagger     {%-4s} {@colscaleinv{$my[stagger][current];$my[stagger][max]}};
 
     #line ignore #showme {${scol}cooldowns<088> $my[cooldowns][string]${scol} $scol| minions<088> $my[minions][string] $scol| buffs<088> $my[buffs][string] ${scol}|<088>                                                               } {-6} {0};
-	#line ignore #showme {${scol}health $hp/$hp_max  ${scol}barrier <088>$barrier  ${scol}rnd <088>$round  ${scol}target <088>$ehealth                              } {-4} {0};
+	#line ignore #showme {${scol}health $hp/$hp_max  ${scol}barrier <088>$barrier  ${scol}rnd <088>$round  ${scol}target <088>$ehealth                                                              } {-4} {0};
 	#line ignore #showme {${scol} focus $focus/$focus_max  ${scol}stagger <088>$stagger  ${scol}bot <088>435/153  ${scol}tbuffs <088>$enemy[buffs][string]                                  } {-3} {0};
 }
 
