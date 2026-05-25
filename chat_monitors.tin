@@ -14,7 +14,7 @@
 }
 
 #nop communication
-#action {^You tell %w, "%a"\n} {
+#action {^You tell %*, "%a"\n} {
     update_chat <aea>To %1: @clean_msg{%2}<088>
 }
 
@@ -22,12 +22,12 @@
     update_chat <aff>@clean_msg{%1}<088>
 }
 
-#action {^%w tells you, "%a"\n} {
+#action {^%* tells you, "%a"\n} {
     update_chat <aea>%1: @clean_msg{%2}<088>;
     #bell
 }
 
-#action {^%w shouts, "%a"\n} {
+#action {^%* shouts, "%a"\n} {
     update_chat <aaf>%1 shouts: @clean_msg{%2}<088>
 }
 
