@@ -57,6 +57,12 @@ cp gr/scripts/.profile ~/
 . .profile
 ```
 
+To update the client and overwrite local changes
+```
+git reset --hard
+git pull
+```
+
 Create bin folder and copy scripts to it
 ```
 mkdir bin
