@@ -203,3 +203,55 @@
 		#variable result {<218>%3<088>}
 	}
 }
+
+
+
+#function {create_bar} {
+    #nop %1 = current value, %2 = max value, %3 = delta, %4 = colour;
+    #nop %5 = format type, %6 = bar length;
+    #nop usage: @create_bar{$my[hp][current];$my[hp][max];$delta;<afc>;2;20};
+    #nop %3 is the difference in value between rounds, calculated elsewhere;
+    #nop %6 is the desired bar length;
+
+    #local colour {%4};
+    #local numformat {};
+    #local filled {};
+    #local partial {};
+    #local empty {};
+
+    #math {perc} {%1 * 100 / %2};
+    #if {"%3" == ""} {#variable colour {<BAC>}};
+
+    #if     {"%5" == "1"} {#format numformat { %+3s%} {$perc}};
+    #elseif {"%5" == "2"} {#format numformat { %+5g} {%1}};
+    #elseif {"%5" == "3"} {#format numformat { %+5g} {%3}};
+    #else   {#variable numformat {}};
+
+    #nop lock the percentage between 0 and 100, to avoid negative or overfull bars;
+    #if {$perc < 0} {#math perc {0}};
+    #elseif {$perc > 100} {#math perc {100}};
+
+    #nop Calculate filled units, with 5 units per character;
+    #nop ▉ = 5, ▊ = 4, ▋ = 3, ▍ = 2, ▎ = 1;
+
+    #math filled {$perc * %6 * 5 / 100};
+    #math full {$filled / 5};
+    #math partial {$filled % 5};
+    #math empty {%6 - $full};
+
+    #if {$partial > 0} {#math empty {$empty - 1}};
+
+    #format fullbar {%s} {▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉};
+    #format emptybar {%s} {                                        };
+
+    #format fullbar {%.${full}s} {$fullbar};
+    #format emptybar {%.${empty}s} {$emptybar};
+
+    #if     {$partial == 4} {#variable partialbar {▊}};
+    #elseif {$partial == 3} {#variable partialbar {▋}};
+    #elseif {$partial == 2} {#variable partialbar {▍}};
+    #elseif {$partial == 1} {#variable partialbar {▎}};
+    #else   {#variable partialbar {}};
+
+    #return {$colour❰$fullbar$partialbar$emptybar❱$numformat<088>};
+}

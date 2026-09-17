@@ -112,9 +112,28 @@
 
 #alias {update_status} {
     #var scol $gthemes[$gset[theme]][slabels];
-	#var	my[hp][graph]		{@graph{$my[hp][current];${my[hp][max]}}};
-	#var	my[focus][graph]		{@graph{$my[focus][current];$my[focus][max]}};
-	#nop #var	enemy[graph]		{@graph{$enemy[hp];100}};
+
+    #nop temp;
+    #nop #variable gset[graph_text] 1;
+
+    #if {$my[hp][current] != $my[hp][last]} {
+		#math my[hp][delta] {$my[hp][current] - $my[hp][last]};
+		#variable my[hp][last] $my[hp][current];
+	} {
+        #format my[hp][delta] 0;
+    };
+
+    #if {$my[focus][current] != $my[focus][last]} {
+		#math my[focus][delta] {$my[focus][current] - $my[focus][last]};
+		#variable my[focus][last] $my[focus][current];
+	} {
+        #format my[focus][delta] 0;
+    };
+	
+    #variable my[hp][graph] {@create_bar{$my[hp][current];$my[hp][max];$my[hp][delta];<bfb>;$gset[graph_text];20}};
+    #variable my[focus][graph] {@create_bar{$my[focus][current];$my[focus][max];$my[focus][delta];<abd>;$gset[graph_text];20}};
+    
+    #nop #var	enemy[graph]		{@graph{$enemy[hp];100}};
 	#format hp			{%+4s} {@colscale{$my[hp][current];$my[hp][max]}};
 	#format hp_max		{%+4s} {<128>$my[hp][max]<088>};
 	#format focus			{%+4s} {@colscale{$my[focus][current];$my[focus][max]}};
@@ -136,27 +155,8 @@
     };
 
     #line ignore #showme {${ss}${scol}MI<088> $my[minions][string] $scol| BU<088> $my[buffs][string] $scol| CD<088> $my[cooldowns][string]${scol}                                                    } {-6} {0};
-	#line ignore #showme {${scol}HP $hp/$hp_max  ${scol}BA <088>$barrier ${scol}FC $focus/$focus_max  ${scol}CR <088>$round ${scol}EH <088>$ehealth                 } {-4} {0};
-	#line ignore #showme {${scol}   $my[hp][graph] ${scol}ST <088>$stagger ${scol}   $my[focus][graph] ${scol}BS <088>435/153 ${scol}EB <088>$enemy[buffs][string]                             } {-3} {0};
-}
-
-#alias {update_status2} {
-    #var scol $gthemes[$gset[theme]][slabels];
-	#var	my[hp][graph]		{@graph{$my[hp][current];${my[hp][max]}}};
-	#var	my[focus][graph]		{@graph{$my[focus][current];$my[focus][max]}};
-	#nop #var	enemy[graph]		{@graph{$enemy[hp];100}};
-	#format hp			{%+4s} {@colscale{$my[hp][current];$my[hp][max]}};
-	#format hp_max		{%+4s} {<128>$my[hp][max]<088>};
-	#format focus			{%+4s} {@colscale{$my[focus][current];$my[focus][max]}};
-	#format focus_max		{%-4s} {<128>$my[focus][max]<088>};
-	#format ehealth		{%-3s} {$enemy[name] @colscale{$enemy[hp];100;%}};
-    #format round       {%-7d} {$my[round]};
-    #format barrier     {%-4s} {@colscale{$my[barrier][current];$my[barrier][max]}};
-    #format stagger     {%-4s} {@colscaleinv{$my[stagger][current];$my[stagger][max]}};
-
-    #line ignore #showme {${scol}cooldowns<088> $my[cooldowns][string]${scol} $scol| minions<088> $my[minions][string] $scol| buffs<088> $my[buffs][string] ${scol}|<088>                                                               } {-6} {0};
-	#line ignore #showme {${scol}health $hp/$hp_max  ${scol}barrier <088>$barrier  ${scol}rnd <088>$round  ${scol}target <088>$ehealth                                                              } {-4} {0};
-	#line ignore #showme {${scol} focus $focus/$focus_max  ${scol}stagger <088>$stagger  ${scol}bot <088>435/153  ${scol}tbuffs <088>$enemy[buffs][string]                                  } {-3} {0};
+	#line ignore #showme {${scol}HP $my[hp][graph]  ${scol}BA <088>$barrier  ${scol}CR <088>$round ${scol}EH <088>$ehealth                 } {-4} {0};
+	#line ignore #showme {${scol}FC $my[focus][graph]  ${scol}ST <088>$stagger  ${scol}BS <088>435/153 ${scol}EB <088>$enemy[buffs][string]                             } {-3} {0};
 }
 
 #alias {heart_beat} {

@@ -265,7 +265,7 @@
 			#showme {@get_symbol{bottom}} $map[height]+1 -$map[width]-1
 		};
 		#map flag vtmap on;
-		#map offset 2 -$map[width] $map[height] -2;
+		#map offset 2 -$map[width] $map[height] -1;
 		
 		#nop these are also drawn in mapper.tin;
 		#nop #delay 0 #draw {tile} $map[height]-1 -$map[width] $map[height]-1 -1 {<020>$roomareapt  <140>(<120>$room_cnt<140>)<088>};

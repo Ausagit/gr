@@ -18,7 +18,7 @@ F 1048839
 
 G 0
 
-I 116
+I 354
 
 L {ASCII NESW LINE} {NO EXITS} {x}
 L {ASCII NESW LINE} {N} {o}
@@ -281,6 +281,7 @@ T {crossroad_ews} {<278>-+-<088>} {}
 T {crossroad_nw} {<278>-+ <088>} {}
 T {crossroad_se} {<278> +-<088>} {}
 T {crypt} {<108>[ ]<088>} {}
+T {crypt_entrance} {<108>(v)<088>} {}
 T {dark} {<108>[ ]<088>} {}
 T {dead_field} {<238>, `<088>} {}
 T {dead_forest} {<238>( *<088>} {}
@@ -381,7 +382,7 @@ T {xtest} {<108> ▢ <088>} {}
 
 
 
-R {1}{0}{<238>}{Gloomrest Town Square (s,e,w,n,ne,se,sw,nw)}{<238>[ ]<088>}{This is the center of Gloomrest, a small town nestled in the heart of a vast swamp. The air is thick with mist and the scent of decay. The ground is muddy and uneven, with puddles of stagnant water scattered about. The buildings around the square are old and weathered, their wooden facades rotting and covered in moss. A few hardy souls can be seen going about their business, but most of the town seems to be abandoned. The only sounds are the croaking of frogs and the occasional splash of something moving in the water. }{Gloomrest}{cot}{townsquare}{}{1.000}{}
+R {1}{0}{<238>}{Gloomrest Town Square (s,e,w,n,ne,se,sw,nw)}{<238>[ ]<088>}{This is the center of Gloomrest. }{Gloomrest}{cot}{townsquare}{}{1.000}{}
 E {2}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {3}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {4}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -399,7 +400,7 @@ E {7}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {8}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {150}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {3}{0}{<238>}{Gloomrest Town Square (e,w,n,sw,s,nw)}{<238>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{townsquare}{}{1.000}{}
+R {3}{0}{<238>}{Gloomrest Town Square (e,w,n,sw,s,nw)}{<238>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{townsquare}{}{1.000}{}
 E {1}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {10}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {6}{n}{n}{1}{0}{}{1.000}{}{0.00}
@@ -448,12 +449,12 @@ E {4}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {5}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {24}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {10}{0}{<278>}{Stairs of Light (e,w)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {10}{0}{<278>}{Stairs of Light (e,w)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {3}{w}{w}{8}{0}{}{1.000}{}{0.00}
-E {11}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {322}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {11}{0}{<278>}{Cathedral of Light (se,w,ne)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {10}{w}{w}{8}{0}{}{1.000}{}{0.00}
+R {11}{0}{<278>}{Cathedral of Light (se,w,ne)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+E {161}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {12}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {13}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 E {165}{e}{e}{2}{0}{}{1.000}{}{0.00}
@@ -462,7 +463,7 @@ R {12}{0}{<238>}{Cathedral of Light Graveyard (e,nw)}{<238>. <178>+<088>}{A bori
 E {11}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {31}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {13}{0}{<108>}{Entrance to the Catacombs (sw,d)}{<108>[v]<088>}{The ground before you is covered with immacutely maintained grass, split in the middle by a black stone path leading to a towering wall of stone on the far side. Set into the a wall of age-darkened stone stands a pair  of massive double doors, their surfaces are covered in intricate carvings showing imagery from the founding of Gloomrest, ships braving storm-lashed seas, the raising of the cathedral's spires, and solemn processions of priests and mourners guiding the honored dead below. Weather and time have softened some details, yet the craftsmanship remains striking, each figure and symbol framed by curling gothic motifs and runic inscriptions. Through the opened doorway stone steps lead downward, illuminated by burning lanterns set into nooks on the walls. }{Gloomrest}{}{crypt_entrance}{}{1.000}{}
+R {13}{0}{<108>}{Entrance to the Catacombs (sw,d)}{<108>(v)<088>}{The ground before you is covered with immacutely maintained grass, split in the middle by a black stone path leading to a towering wall of stone on the far side. Set into the a wall of age-darkened stone stands a pair  of massive double doors, their surfaces are covered in intricate carvings showing imagery from the founding of Gloomrest, ships braving storm-lashed seas, the raising of the cathedral's spires, and solemn processions of priests and mourners guiding the honored dead below. Weather and time have softened some details, yet the craftsmanship remains striking, each figure and symbol framed by curling gothic motifs and runic inscriptions. Through the opened doorway stone steps lead downward, illuminated by burning lanterns set into nooks on the walls. }{Gloomrest}{}{crypt_entrance}{}{1.000}{}
 E {11}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 E {14}{d}{d}{32}{0}{}{1.000}{}{0.00}
 
@@ -514,32 +515,31 @@ E {65}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {23}{0}{<278>}{Upper Main Street (w,e,n,s)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {4}{e}{e}{2}{0}{}{1.000}{}{0.00}
-E {113}{w}{w}{8}{0}{}{1.000}{}{0.00}
-E {114}{n}{n}{1}{0}{}{1.000}{}{0.00}
-E {115}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {325}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {24}{0}{<088>}{Gloomrest Town Square Shop (s)}{<088>[<128>$<088>]<088>}{}{Gloomrest}{shop}{shop}{}{1.000}{}
 E {9}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {25}{0}{<278>}{High Street (e,n,s)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {5}{s}{s}{4}{0}{}{1.000}{}{0.00}
-E {28}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {29}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {26}{0}{<138>}{Gloomrest Bank (w,vault)}{<138>*<128>$<138>*<088>}{This is the bank of Gloomrest, where you can store your items and gold safely. The friendly banker behind the counter can assist you with your banking needs.   }{Gloomrest}{bank}{bank}{}{1.000}{}
 E {6}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {27}{vault}{vault}{0}{0}{}{1.000}{}{0.00}
 
-R {27}{0}{<138>}{personal vault (out)}{<138>*<128>$<138>*<088>}{This your very own personal bank vault\; an extradimensional space where you can store your valuables permanently and safely. The vault is protected by powerful magic, allowing only you to enter it. All items left here, in or out of containers will be safe and secure, and will not be lost even if the vault is destroyed. The vault is very spacious, allowing you to store an unlimited amount of weight, up to an item limit. }{Gloomrest}{}{bank}{}{1.000}{}
+R {27}{0}{<138>}{personal vault (out)}{<138>*<128>$<138>*<088>}{This your very own personal bank vault\; an extradimensional space where you can store your valuables permanently and safely. The vault is protected by powerful magic, allowing only you to enter it. All items left here, in or out of containers will be safe and secure, and will not be lost even if the vault is destroyed. The vault is very spacious, allowing you to store an unlimited amount of weight, up to an item limit. }{Gloomrest}{vault}{bank}{}{1.000}{}
 E {26}{out}{out}{0}{0}{}{1.000}{}{0.00}
 
-R {28}{0}{<088>}{Gloomrest Tailor (w)}{<088>[<128>$<088>]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
-E {25}{w}{w}{8}{0}{}{1.000}{}{0.00}
+R {28}{0}{}{Blackspire (w,n)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {358}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {364}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {29}{0}{<278>}{High Street (w,n,s)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {25}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {123}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {124}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {370}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {30}{0}{<108>}{Gloomrest Catacombs (w,e)}{<108>[ ]<088>}{Small alcoves branch off from the main tunnels, some little more than cramped burial chambers sealed with heavy stone slabs. Dust gathers thickly here, and the silence feels heavier, as though these forgotten corners have not been visited in many decades.                                                         }{Gloomrest Catacombs}{}{crypt}{}{1.000}{}
 E {18}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -880,29 +880,29 @@ E {130}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {129}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {113}{0}{<278>}{Upper Main Street (w,e,s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {23}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {325}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {117}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {118}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {119}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {114}{0}{<088>}{The Pointy End (s)}{<088>[<128>$<088>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
-E {23}{s}{s}{4}{0}{}{1.000}{}{0.00}
+R {114}{0}{}{Blackspire (s,w)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {358}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {136}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {115}{0}{<088>}{Gloomrest Armoury (n)}{<088>[<128>$<088>]<088>}{The interior of the armourer's shop is dim but warm, lit by a row of oil lamps that cast a steady amber glow across the room. The air smells of worked metal, leather, and a faint trace of coal smoke drifting in from the forge at the rear. Along the walls, heavy wooden racks display an assortment of armour pieces - polished breastplates, dented pauldrons awaiting repair, and neatly hung suits of chainmail that glimmer softly in the light. Each piece bears the marks of use or craftsmanship, some etched with simple sigils, others plain but sturdy. }{Gloomrest}{}{shop}{}{1.000}{}
-E {23}{n}{n}{1}{0}{}{1.000}{}{0.00}
+R {115}{0}{}{Blackspire (e,n)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {364}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {371}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {116}{0}{}{Hall of the Ironbound Compact (n)}{ }{The hall of the Ironbound Compact is a large ancient chamber made from stone that has survived the test of time. }{Gloomrest}{}{}{}{1.000}{}
+R {116}{0}{}{Hall of the Ironbound Compact (n)}{ }{The hall of the Ironbound Compact is a large ancient chamber made from stone that has survived the test of time. }{Gloomrest}{ironbound}{}{}{1.000}{}
 E {8}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {117}{0}{<278>}{Main Street (w,e,s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {113}{e}{e}{2}{0}{}{1.000}{}{0.00}
-E {134}{w}{w}{8}{0}{}{1.000}{}{0.00}
-E {135}{s}{s}{4}{0}{}{1.000}{}{0.00}
-E {136}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {324}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {118}{0}{<278>}{South Row (sw,n)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {118}{0}{<278>}{South Row (sw,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {113}{n}{n}{1}{0}{}{1.000}{}{0.00}
-E {159}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
+E {374}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {119}{0}{<278>}{North Row (n,s)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {113}{s}{s}{4}{0}{}{1.000}{}{0.00}
@@ -912,27 +912,29 @@ R {120}{0}{<278>}{North Row (n,s)}{<278>[ ]<088>}{A boring and empty room (Gloom
 E {119}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {121}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {121}{0}{<278>}{North Row (e,s)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {121}{0}{}{North Row & Riverview Street (w,e,s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {384}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {385}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {120}{s}{s}{4}{0}{}{1.000}{}{0.00}
-E {122}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {337}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {122}{0}{<278>}{North Row (w,e)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {121}{w}{w}{8}{0}{}{1.000}{}{0.00}
+R {122}{0}{<278>}{North Row (w,e)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {123}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {385}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {123}{0}{<278>}{North Row (w,e)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {123}{0}{<278>}{North Row (w,e)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {122}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {29}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {124}{0}{<278>}{High Street (s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {29}{s}{s}{4}{0}{}{1.000}{}{0.00}
-E {125}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {327}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {125}{0}{<278>}{High Street (s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {124}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {326}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {126}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {126}{0}{<168>}{North Gate (s)}{<168>[<278>?<168>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{areaexit}{}{1.000}{}
+R {126}{0}{<168>}{North Gate (s)}{<168>[<278>?<168>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{north_gate}{areaexit}{}{1.000}{}
 E {125}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {127}{0}{<228>}{Gloomrest Park (sw,w,s)}{<228>{ }<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{park}{}{1.000}{}
@@ -940,12 +942,13 @@ E {111}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {130}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 E {128}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {128}{0}{<228>}{Gloomrest Park (w,n,sw,s,nw)}{<228>{ }<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{park}{}{1.000}{}
+R {128}{0}{<228>}{Gloomrest Park (w,n,sw,s,nw)}{<228>{ }<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{park}{}{1.000}{}
 E {111}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
 E {130}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {133}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 E {127}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {131}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {371}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {129}{0}{<228>}{Gloomrest Park (e,ne,n,se,s)}{<228>{ }<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{park}{}{1.000}{}
 E {111}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
@@ -953,6 +956,7 @@ E {130}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {133}{se}{se}{6}{0}{}{1.000}{}{0.00}
 E {132}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {112}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {151}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {130}{0}{<238>}{Gloomrest Park (e,w,n,ne,se,sw,s,nw)}{<238>(<148>~<238>)<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{park}{well}{}{1.000}{}
 E {111}{n}{n}{1}{0}{}{1.000}{}{0.00}
@@ -974,36 +978,43 @@ E {130}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 E {133}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {129}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {133}{0}{<228>}{Gloomrest Park (e,w,ne,n,nw)}{<228>{ }<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{park}{}{1.000}{}
+R {133}{0}{<228>}{Gloomrest Park (e,w,ne,n,nw)}{<228>{ }<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{park}{}{1.000}{}
 E {130}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {131}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {132}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {128}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
 E {129}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
+E {366}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {134}{0}{<278>}{Lower Main Street (w,e,s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {117}{e}{e}{2}{0}{}{1.000}{}{0.00}
-E {137}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {324}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {323}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {138}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {139}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {135}{0}{<088>}{Gloomrest Leatherworker (n)}{<088>[<128>$<088>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
-E {117}{n}{n}{1}{0}{}{1.000}{}{0.00}
+R {135}{0}{}{Blackspire (s,e)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {371}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {136}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {136}{0}{<088>}{Got the Shaft (s)}{<088>[<128>$<088>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
-E {117}{s}{s}{4}{0}{}{1.000}{}{0.00}
+R {136}{0}{}{Blackspire (e,w)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {135}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {114}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {137}{0}{<278>}{Lower Main Street (e,w)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {134}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {323}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {140}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {138}{0}{<278>}{Market Street (s,n)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {138}{0}{<278>}{Market Street (s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {134}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {164}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {393}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {394}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {139}{0}{<278>}{Market Street (s,n)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {139}{0}{<278>}{Market Street (s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {134}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {162}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {391}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {392}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {140}{0}{<238>}{Gloomrest Docks (w,e,n,s)}{<238>|||<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{docks}{docks}{}{1.000}{}
 E {137}{e}{e}{2}{0}{}{1.000}{}{0.00}
@@ -1015,7 +1026,7 @@ R {141}{0}{<238>}{Gloomrest Wharf (w,e)}{<238>|||<088>}{A boring and empty room 
 E {140}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {144}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {142}{0}{<238>}{North Docks (e,n,s)}{<238>|||<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
+R {142}{0}{<238>}{North Docks (e,n,s)}{<238>|||<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
 E {140}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {145}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {146}{n}{n}{1}{0}{}{1.000}{}{0.00}
@@ -1030,9 +1041,10 @@ E {141}{e}{e}{2}{0}{}{1.000}{}{0.00}
 R {145}{0}{<238>}{The Salty Maiden (w)}{<238>[I]<088>}{}{Gloomrest}{maiden}{inn}{}{1.000}{}
 E {142}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {146}{0}{<238>}{North Docks (e,s)}{<238>|||<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
+R {146}{0}{<238>}{North Docks (e,s)}{<238>|||<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
 E {142}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {147}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {380}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {147}{0}{<278>}{Gloomrest Arena (w)}{<278>[ ]<088>}{Type 'challenge [level 1-50]' to summon a monster to fight. Type 'geteq <level 1-50> <quality 0-5>' to get a set of equipment to fight with. Type 'clear <all/mobs/items>' to clear the room of monsters and/or items. }{Gloomrest}{arena}{road}{}{1.000}{}
 E {146}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -1040,6 +1052,7 @@ E {146}{w}{w}{8}{0}{}{1.000}{}{0.00}
 R {148}{0}{<238>}{South Docks (e,n)}{<238>|||<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
 E {143}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {149}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {379}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {149}{0}{<238>}{The Shady Virgin (w)}{<238>[I]<088>}{}{Gloomrest}{virgin}{inn}{}{1.000}{}
 E {148}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -1050,39 +1063,42 @@ E {151}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {151}{0}{<278>}{High Street (w,s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {150}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {329}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {129}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {152}{w}{w}{8}{0}{}{1.000}{}{0.00}
-E {153}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {152}{0}{<278>}{South Row (e,w)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {152}{0}{}{Shady Lane (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
 E {151}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {156}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {153}{0}{<278>}{High Street (n,s)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {151}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {328}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {154}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {368}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {369}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {154}{0}{<278>}{High Street (n,s)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {153}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {155}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {155}{0}{<168>}{South Gate (n)}{<168>[<278>?<168>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{areaexit}{}{1.000}{}
+R {155}{0}{<168>}{South Gate (n)}{<168>[<278>?<168>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{south_gate}{areaexit}{}{1.000}{}
 E {154}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {156}{0}{<278>}{South Row (e,w)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {156}{0}{}{Shady Lane (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
 E {152}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {157}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {157}{0}{<278>}{South Row (e,w)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {157}{0}{}{Shady Lane (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
 E {156}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {158}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {158}{0}{<278>}{South Row (e,n)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {158}{0}{}{Shady Lane (e,w,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
 E {157}{e}{e}{2}{0}{}{1.000}{}{0.00}
-E {159}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {373}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {374}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {159}{0}{<278>}{South Row (s,ne)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
-E {158}{s}{s}{4}{0}{}{1.000}{}{0.00}
-E {118}{ne}{ne}{3}{0}{}{1.000}{}{0.00}
+R {159}{0}{<088>}{Got the Shaft (w)}{<088>[<128>$<088>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
+E {162}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
 R {160}{0}{<108>}{Gloomrest Catacombs (e,w,n,s)}{<108>[ ]<088>}{Small alcoves branch off from the main tunnels, some little more than cramped burial chambers sealed with heavy stone slabs. Dust gathers thickly here, and the silence feels heavier, as though these forgotten corners have not been visited in many decades. }{Gloomrest Catacombs}{}{crypt}{}{1.000}{}
 E {240}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -1090,15 +1106,24 @@ E {284}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {285}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {286}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
-R {162}{0}{<278>}{Market Street (s,n)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {161}{0}{}{Stairs of Light (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {11}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {319}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {162}{0}{<278>}{Market Street (s,n)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {139}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {163}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {159}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
-R {163}{0}{<278>}{Market Street (s)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
+R {163}{0}{}{North Row & Market Street (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {382}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {383}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {162}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {340}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {164}{0}{<278>}{Market Street (n)}{<278>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {138}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {376}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {165}{0}{<178>}{Cathedral of Light (w)}{<178>[^]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{col}{cathedral}{}{1.000}{}
 E {11}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -1726,3 +1751,531 @@ E {243}{w}{w}{8}{0}{}{1.000}{}{0.00}
 R {318}{0}{<108>}{Gloomrest Catacombs (w,e)}{<108>[ ]<088>}{The catacombs stretch deep beneath the city, vast chambers and corridors carved directly into the black limestone bedrock. The stone walls bear the marks of ancient chisels, their surfaces worn smooth in places by the passing of centuries. The air is cool and still, heavy with the faint scent of dust and old earth. }{Gloomrest Catacombs}{}{crypt}{}{1.000}{}
 E {244}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {283}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {319}{0}{}{Upper Main Street (w,e,s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {161}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {330}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {352}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {353}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {320}{0}{}{Upper Main Street (w,e,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {330}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {321}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {354}{enter}{enter}{0}{0}{}{1.000}{}{0.00}
+E {427}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {321}{0}{}{Upper Main Street & Spireview Street (w,e,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {322}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {320}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {355}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {322}{0}{}{Upper Main Street (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {10}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {321}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {323}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+E {137}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {134}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {324}{0}{}{}{ }{}{}{}{}{}{1.000}{}
+E {117}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {134}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {325}{0}{}{Lower Main Street (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {113}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {23}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {326}{0}{}{High Street (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {125}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {327}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {372}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {327}{0}{}{High Street (e,w,n,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {326}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {124}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {331}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {332}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {328}{0}{}{South Row (e,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {153}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {329}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {367}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {412}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {329}{0}{}{High Street (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {328}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {151}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {330}{0}{}{Upper Main Street (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {319}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {320}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {331}{0}{}{The Strand (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {327}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {341}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {332}{0}{}{The Strand (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {327}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {333}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {333}{0}{}{The Strand (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {332}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {334}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {334}{0}{}{The Strand (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {333}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {335}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {335}{0}{}{The Strand & Riverview Street (e,w,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {334}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {336}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {337}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {336}{0}{}{The Strand (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {335}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {338}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {337}{0}{}{Riverview Street (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {335}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {121}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {338}{0}{}{The Strand (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {336}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {339}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {339}{0}{}{The Strand & Market Street (s,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {338}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {340}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {340}{0}{}{Market Street (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {339}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {163}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {341}{0}{}{The Strand (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {331}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {342}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {342}{0}{}{The Strand (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {341}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {343}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {343}{0}{}{The Strand & Spireview Street (w,e,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {342}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {344}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {345}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {344}{0}{}{The Strand (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {343}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {346}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {345}{0}{}{Spireview Street (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {343}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {387}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {346}{0}{}{The Strand (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {344}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {347}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {347}{0}{}{The Strand & Light's Way (s,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {346}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {348}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {348}{0}{}{Light's Way (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {347}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {349}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {349}{0}{}{North Row & Light's Way (w,n,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {348}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {350}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {351}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {350}{0}{}{North Row (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {349}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {386}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {351}{0}{}{Light's Way (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {349}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {352}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {352}{0}{}{Light's Way (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {351}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {319}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {353}{0}{}{Light's Way (n,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {319}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {356}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {354}{0}{<168>}{Spire Inn (n)}{<168>[<278>?<168>]<088>}{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{spire_inn_entrance}{areaexit}{}{1.000}{}
+E {424}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {425}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {426}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {320}{out}{out}{0}{0}{}{1.000}{}{0.00}
+
+R {355}{0}{}{Spireview Street (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {389}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {321}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {356}{0}{}{Light's Way (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {353}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {357}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {357}{0}{}{Light's Way (w,n,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {356}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {358}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {359}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {358}{0}{}{Blackspire (e,s,n)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {357}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {28}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {114}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {359}{0}{}{Light's Way (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {357}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {360}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {360}{0}{}{South Row & Light's Way (n,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {359}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {361}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {361}{0}{}{South Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {360}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {362}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {362}{0}{}{South Row (w,e,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {361}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {363}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {364}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {363}{0}{}{South Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {362}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {365}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {364}{0}{}{Blackspire (w,e,s)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {362}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {28}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {115}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {365}{0}{}{South Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {363}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {366}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {366}{0}{}{South Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {365}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {367}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {133}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {367}{0}{}{South Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {366}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {328}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {368}{0}{}{Gloomrest Blacksmith (e)}{B}{A boring an empty room (Gloomrest Style) }{Gloomrest}{blacksmith}{}{}{1.000}{}
+E {153}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {369}{0}{}{South Stables (w)}{S}{A boring an empty room (Gloomrest Style) }{Gloomrest}{sstables}{}{}{1.000}{}
+E {153}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {370}{0}{}{North Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {29}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {390}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {371}{0}{}{Blackspire (s,w)}{ }{A worn stone road leads around the base of the Blackspire. }{Gloomrest}{}{}{}{1.000}{}
+E {128}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {115}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {135}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {372}{0}{}{North Stables (w)}{S}{A boring an empty room (Gloomrest Style) }{Gloomrest}{nstables}{}{}{1.000}{}
+E {326}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {373}{0}{}{Shady Lane (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {158}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {375}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {374}{0}{}{Riverview Street (s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {158}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {118}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {375}{0}{}{Shady Lane (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {373}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {376}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {376}{0}{}{Shady Lane (e,w,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {375}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {377}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {164}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {377}{0}{}{Shady Lane (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {376}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {378}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {378}{0}{}{Shady Lane (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {377}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {379}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {379}{0}{<238>}{South Docks (e,n)}{<238>|||<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
+E {378}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {148}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {395}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {380}{0}{<238>}{North Docks (e,s)}{<238>|||<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
+E {146}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {381}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {381}{0}{}{North Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {380}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {382}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {382}{0}{}{North Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {381}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {163}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {383}{0}{}{North Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {163}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {384}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {384}{0}{}{North Row (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {383}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {121}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {385}{0}{}{North Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {122}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {121}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {386}{0}{}{North Row (e,w)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {350}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {387}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {387}{0}{}{North Row & Spireview Street (w,e,s,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {386}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {388}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {389}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {345}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {388}{0}{}{North Row (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {387}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {390}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {389}{0}{}{Spireview Street (n,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {387}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {355}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {390}{0}{}{North Row (w,e)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
+E {388}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {370}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {391}{0}{<088>}{The Pointy End (w)}{<088>[<128>$<088>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
+E {139}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {392}{0}{<088>}{Gloomrest Armoury (e)}{<088>[<128>$<088>]<088>}{The interior of the armourer's shop is dim but warm, lit by a row of oil lamps that cast a steady amber glow across the room. The air smells of worked metal, leather, and a faint trace of coal smoke drifting in from the forge at the rear. Along the walls, heavy wooden racks display an assortment of armour pieces - polished breastplates, dented pauldrons awaiting repair, and neatly hung suits of chainmail that glimmer softly in the light. Each piece bears the marks of use or craftsmanship, some etched with simple sigils, others plain but sturdy. }{Gloomrest}{}{shop}{}{1.000}{}
+E {139}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {393}{0}{<088>}{Gloomrest Leatherworker (w)}{<088>[<128>$<088>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
+E {138}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {394}{0}{<088>}{Gloomrest Tailor (e)}{<088>[<128>$<088>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{shop}{}{1.000}{}
+E {138}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {395}{0}{<238>}{South Docks (e,n)}{<238>|||<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{docks}{}{1.000}{}
+E {379}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {396}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {396}{0}{<108>}{Narrow Laneway (w,e,s)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {395}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {397}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {398}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {397}{0}{<108>}{Narrow Laneway (w,e,s)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {396}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {399}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {400}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {398}{0}{<108>}{Narrow Laneway (s,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {396}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {401}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {399}{0}{<108>}{Narrow Laneway (w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {397}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {400}{0}{<108>}{Narrow Laneway (e,s,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {397}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {402}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {405}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {401}{0}{<108>}{Narrow Laneway (e,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {398}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {402}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {402}{0}{<108>}{Narrow Laneway (w,s,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {401}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {403}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {400}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {403}{0}{<108>}{Narrow Laneway (e,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {402}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {404}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {404}{0}{<108>}{Narrow Laneway (e,w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {403}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {414}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {405}{0}{<108>}{Narrow Laneway (w,e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {400}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {406}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {406}{0}{<108>}{Narrow Laneway (w,e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {405}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {407}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {407}{0}{<108>}{Narrow Laneway (w,e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {406}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {408}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {408}{0}{<108>}{Narrow Laneway (e,w,s)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {407}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {409}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {410}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {409}{0}{<108>}{Narrow Laneway (w,e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {408}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {411}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {410}{0}{<108>}{Narrow Laneway (s,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {408}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {416}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {411}{0}{<108>}{Narrow Laneway (e,w,s)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {409}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {412}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {413}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {412}{0}{<108>}{Narrow Laneway (w,e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {411}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {328}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {413}{0}{<108>}{Narrow Laneway (w,s,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {411}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {421}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {423}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {414}{0}{<108>}{Narrow Laneway (e,w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {404}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {415}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {415}{0}{<108>}{Narrow Laneway (w,e,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {414}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {416}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {417}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {416}{0}{<108>}{Narrow Laneway (w,e,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {415}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {420}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {410}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {417}{0}{<108>}{Narrow Laneway (s,w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {415}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {418}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {418}{0}{<108>}{Narrow Laneway (e,w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {417}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {419}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {419}{0}{<108>}{Narrow Laneway (e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {418}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {420}{0}{<108>}{Narrow Laneway (e,w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {416}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {421}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {421}{0}{<108>}{Narrow Laneway (w,e,n)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {420}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {422}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {413}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {422}{0}{<108>}{Narrow Laneway (w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {421}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {423}{0}{<108>}{Narrow Laneway (e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+E {413}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {424}{0}{}{Spire Inn Common Room (w,e,s)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {354}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {439}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {437}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {425}{0}{}{Spire Inn Common Room (e,w,s)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {354}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {428}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {429}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {426}{0}{}{Spire Inn Common Room (w,e,s,n)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {354}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {433}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {437}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {429}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {427}{0}{<238>}{}{<238>[I]<088>}{}{}{}{inn}{}{1.000}{}
+E {320}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {428}{0}{}{Spire Inn Bar (s,e)}{B}{}{Gloomrest}{}{}{}{1.000}{}
+E {425}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {430}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {429}{0}{}{Spire Inn Common Room (w,e,s,n)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {425}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {430}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {432}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {426}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {430}{0}{}{Spire Inn Bar (e,s,n)}{B}{}{Gloomrest}{}{}{}{1.000}{}
+E {428}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {429}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {431}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {431}{0}{}{Spire Inn Bar (e,n)}{B}{}{Gloomrest}{}{}{}{1.000}{}
+E {430}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {432}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {432}{0}{}{Spire Inn Common Room (w,e,n)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {431}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {433}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {429}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {433}{0}{}{Spire Inn Common Room (w,e,s,n)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {432}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {434}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {435}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {426}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {434}{0}{}{Spire Inn Common Room (w,e,n)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {433}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {436}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {437}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {435}{0}{}{Spire Inn Stairs (u,d,n)}{ }{A large ornate stone staircase leads to the upper floors and down into the undercroft here. To the north you can see the main hall of the inn, where the air smells faintly of smoke and cooking. }{Gloomrest}{}{}{}{1.000}{}
+E {433}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {440}{u}{u}{16}{0}{}{1.000}{}{0.00}
+E {441}{d}{d}{32}{0}{}{1.000}{}{0.00}
+
+R {436}{0}{}{Spire Inn Common Room (w,n)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {434}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {438}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {437}{0}{}{Spire Inn Common Room (w,e,s,n)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {434}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {438}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {424}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {426}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {438}{0}{}{Spire Inn Common Room (w,s,n)}{F}{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {436}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {437}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {439}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {439}{0}{}{Spire Inn Common Room (s,w)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
+E {438}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {424}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {440}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {435}{d}{d}{32}{0}{}{1.000}{}{0.00}
+
+R {441}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {435}{u}{u}{16}{0}{}{1.000}{}{0.00}

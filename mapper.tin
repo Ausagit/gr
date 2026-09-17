@@ -1,10 +1,11 @@
+#class mapper kill
 #class {mapper} {open}
 #NOP REQUIRED:  draw.tin
 
 #map read gr/map/gloomrest.map
 
-#var map[height] 17
-#var map[width] 39
+#nop #var map[height] 17
+#nop #var map[width] 39
 #NOP #var map[position] top
 #variable area {}
 
@@ -48,7 +49,16 @@
 #event {MAP ENTER ROOM} {
 	#if {"$mapping" == "on"} {
 		mapupdate
-	}
+	};
+
+    #map get roomvnum current_vnum;
+    
+    #switch {$current_vnum} {
+        #case 427 {
+            #nop entering spire inn placeholder room;
+            #map go 354;
+        }
+    }
 }
 
 #event {MAP EXIT ROOM} {
