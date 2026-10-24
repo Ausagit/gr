@@ -1,5 +1,6 @@
 #class mapper kill
-#class {mapper} {open}
+#class mapper open
+
 #NOP REQUIRED:  draw.tin
 
 #map read gr/map/gloomrest.map
@@ -57,6 +58,14 @@
         #case 427 {
             #nop entering spire inn placeholder room;
             #map go 354;
+        };
+        #case 442 {
+            #nop entering south barracks;
+            #map go 443;
+        };
+        #case 451 {
+            #nop city hall;
+            #map go 452;
         }
     }
 }
@@ -440,4 +449,4 @@
 }
 */
 
-#class {mapper} {close}
+#class mapper close

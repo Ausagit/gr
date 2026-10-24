@@ -14,11 +14,11 @@ CROOMS <088>
 CSYMBOLS <128>
 CUSER <138>
 
-F 1048839
+F 1048838
 
 G 0
 
-I 354
+I 449
 
 L {ASCII NESW LINE} {NO EXITS} {x}
 L {ASCII NESW LINE} {N} {o}
@@ -424,11 +424,12 @@ E {9}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {6}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {25}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {6}{0}{<238>}{Gloomrest Town Square (e,sw,w,s)}{<238>[ ]<088>}{A boring and empty room (Gloomrest Style)                                         }{Gloomrest}{}{townsquare}{}{1.000}{}
+R {6}{0}{<238>}{Gloomrest Town Square (e,sw,w,s)}{<238>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{townsquare}{}{1.000}{}
 E {1}{sw}{sw}{12}{0}{}{1.000}{}{0.00}
 E {3}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {5}{w}{w}{8}{0}{}{1.000}{}{0.00}
 E {26}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {451}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {7}{0}{<238>}{Gloomrest Town Square (e,w,n,se,nw,s)}{<238>[ ]<088>}{A boring and empty room (Gloomrest Style) }{Gloomrest}{}{townsquare}{}{1.000}{}
 E {1}{nw}{nw}{9}{0}{}{1.000}{}{0.00}
@@ -1080,6 +1081,7 @@ E {369}{e}{e}{2}{0}{}{1.000}{}{0.00}
 R {154}{0}{<278>}{High Street (n,s)}{<278>[ ]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{road}{}{1.000}{}
 E {153}{n}{n}{1}{0}{}{1.000}{}{0.00}
 E {155}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {442}{e}{e}{2}{0}{}{1.000}{}{0.00}
 
 R {155}{0}{<168>}{South Gate (n)}{<168>[<278>?<168>]<088>}{A boring an empty room (Gloomrest Style) }{Gloomrest}{south_gate}{areaexit}{}{1.000}{}
 E {154}{n}{n}{1}{0}{}{1.000}{}{0.00}
@@ -1761,7 +1763,6 @@ E {353}{s}{s}{4}{0}{}{1.000}{}{0.00}
 R {320}{0}{}{Upper Main Street (w,e,s)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
 E {330}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {321}{w}{w}{8}{0}{}{1.000}{}{0.00}
-E {354}{enter}{enter}{0}{0}{}{1.000}{}{0.00}
 E {427}{s}{s}{4}{0}{}{1.000}{}{0.00}
 
 R {321}{0}{}{Upper Main Street & Spireview Street (w,e,n)}{ }{A boring an empty room (Gloomrest Style) }{Gloomrest}{}{}{}{1.000}{}
@@ -2212,7 +2213,7 @@ E {433}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {437}{e}{e}{2}{0}{}{1.000}{}{0.00}
 E {429}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {427}{0}{<238>}{}{<238>[I]<088>}{}{}{}{inn}{}{1.000}{}
+R {427}{0}{<238>}{}{<238>[I]<088>}{}{}{spire_inn}{inn}{}{1.000}{}
 E {320}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
 R {428}{0}{}{Spire Inn Bar (s,e)}{B}{}{Gloomrest}{}{}{}{1.000}{}
@@ -2274,8 +2275,425 @@ R {439}{0}{}{Spire Inn Common Room (s,w)}{ }{This is the common room of the Spir
 E {438}{s}{s}{4}{0}{}{1.000}{}{0.00}
 E {424}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {440}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+R {440}{0}{}{Spire Inn Stairs (d,u,n)}{ }{A large ornate stone staircase leads to the upper floor and down to the main hall. To the north a hallway leading to some function rooms. }{Gloomrest}{}{}{}{1.000}{}
 E {435}{d}{d}{32}{0}{}{1.000}{}{0.00}
+E {515}{u}{u}{16}{0}{}{1.000}{}{0.00}
+E {516}{n}{n}{1}{0}{}{1.000}{}{0.00}
 
-R {441}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+R {441}{0}{}{Spire Inn Undercroft (w,e,u)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the Inn's kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
 E {435}{u}{u}{16}{0}{}{1.000}{}{0.00}
+E {454}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {455}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {456}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {442}{0}{}{}{G}{}{}{}{}{}{1.000}{}
+E {154}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {443}{0}{}{room_short}{ }{Tharog's workroom long desc. }{Gloomrest}{}{}{}{1.000}{}
+E {154}{out}{out}{0}{0}{}{1.000}{}{0.00}
+E {444}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {445}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {446}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {444}{0}{}{City Watch Administration (w,u)}{ }{The office is large and neatly. }{Gloomrest}{}{}{}{1.000}{}
+E {443}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {450}{u}{u}{16}{0}{}{1.000}{}{0.00}
+
+R {445}{0}{}{City Watch Armoury (u,s)}{ }{West of the watch-house, the training yard is a broad rectangle of packed earth, hemmed in by high stone walls on three sides. The ground is churned and pitted from years of boots, and in the dry months it sends up a fine tan dust that clings to everything. Along the north wall stands a row of wooden practice posts, their tops splintered and gouged by countless blows, and a rack of blunted wooden swords and padded staves leans beneath a sagging lean-to. Straw targets hang on the far wall, bristling with old crossbow bolts, some so weathered they look like part of the masonry. A stone trough of murky water sits in one corner, and a worn bench beside it serves for the sergeants who bark corrections and keep tally of who has earned a bruise. The air rings with the clack of wood on wood and the grunts of recruits who haven't yet learned to pace themselves. }{Gloomrest}{}{}{}{1.000}{}
+E {443}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {447}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {446}{0}{}{Gloomrest Prison (d,n)}{ }{The office is large and neatly. }{Gloomrest}{}{}{}{1.000}{}
+E {443}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {447}{0}{}{City Watch Armoury (u,w)}{ }{The armoury sits just inside the main doors, behind a heavy oak gate banded with iron. The room is low and cold, its vaulted stone ceiling blackened by generations of lamp smoke. Racks of spears and halberds line the walls in tidy rows, their shafts worn smooth and dark where countless hands have gripped them. Swords hang from pegs above, and crossbows rest on long wooden benches, some with strings slackened to spare the wood. The air smells of oiled steel, old leather and damp stone. In one corner, a grindstone sits beside a barrel of rags and tallow, and the floor around it is polished by years of sharpening. A battered ledger hangs from a chain by the door, where every blade and bolt must be signed in and out. }{Gloomrest}{}{}{}{1.000}{}
+E {445}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {449}{u}{u}{16}{0}{}{1.000}{}{0.00}
+E {533}{out}{out}{0}{0}{}{1.000}{}{0.00}
+
+R {448}{0}{}{City Watch Barracks (d)}{ }{The office is large and neatly. }{Gloomrest}{}{}{}{1.000}{}
+
+R {449}{0}{}{City Watch Mess Hall (u,d)}{ }{The mess hall is a long, low room warmed by a wide hearth at one end, where a great iron pot hangs permanently over the coals. Long trestle tables, scarred with knife marks and carved initials, run down the centre, flanked by benches worn to a shine. Thick stone walls swallow most of the street noise, so the room is filled instead with clattering bowls, rough laughter and the steady murmur of off-duty watchmen. Smoke gathers in the rafters, and the smell of onions, stewed meat and fresh bread hangs over everything. Narrow windows let in thin slants of daylight, and by evening the room glows amber from lanterns and firelight. Near the hearth, a chalkboard lists the duty rotations, smudged and rewritten more often than anyone can count. }{Gloomrest}{}{}{}{1.000}{}
+E {447}{d}{d}{32}{0}{}{1.000}{}{0.00}
+E {534}{u}{u}{16}{0}{}{1.000}{}{0.00}
+E {535}{out}{out}{0}{0}{}{1.000}{}{0.00}
+
+R {450}{0}{}{City Watch Commander's Office (d)}{ }{The office is large and neatly. }{Gloomrest}{}{}{}{1.000}{}
+E {444}{d}{d}{32}{0}{}{1.000}{}{0.00}
+
+R {451}{0}{}{City Hall (out)}{H}{City Hall. }{Gloomrest}{}{}{}{1.000}{}
+E {6}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {452}{out}{out}{0}{0}{}{1.000}{}{0.00}
+
+R {452}{0}{}{City Hall (out)}{ }{Tharog's workroom long desc. }{Gloomrest}{}{}{}{1.000}{}
+E {453}{enter}{enter}{0}{0}{}{1.000}{}{0.00}
+E {6}{out}{out}{0}{0}{}{1.000}{}{0.00}
+
+R {453}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+
+R {454}{0}{}{Spire Inn Undercroft (e)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {441}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {457}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {458}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {459}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {455}{0}{}{Spire Inn Undercroft (e,w,s)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {441}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {460}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {461}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {456}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {441}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {458}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {461}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {487}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {457}{0}{<108>}{Spire Inn Undercroft (e)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {454}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {458}{0}{}{Spire Inn Undercroft (e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {454}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {490}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {456}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {459}{0}{<108>}{Spire Inn Undercroft (s)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {454}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {460}{0}{}{Spire Inn Undercroft (e,w,s)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {455}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {462}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {463}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {461}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {455}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {456}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {463}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {485}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {462}{0}{}{Spire Inn Undercroft (e,w,n,s)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {460}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {464}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {465}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {466}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {463}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {460}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {466}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {461}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {483}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {464}{0}{}{Spire Inn Undercroft (s,w)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {462}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {467}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {465}{0}{<108>}{Spire Inn Undercroft (s)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {462}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {466}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {462}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {467}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {463}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {478}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {467}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {464}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {466}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {468}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {469}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {468}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {467}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {470}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {471}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {472}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {469}{0}{}{Spire Inn Undercroft (w,n,s)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {467}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {478}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {479}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {470}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {468}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {473}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {474}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {475}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {471}{0}{<108>}{Spire Inn Undercroft (n)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {468}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {472}{0}{<108>}{Spire Inn Undercroft (s)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {468}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {473}{0}{}{Spire Inn Undercroft (w,n,s)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {470}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {476}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {477}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {474}{0}{<108>}{Spire Inn Undercroft (n)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {470}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {475}{0}{<108>}{Spire Inn Undercroft (s)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {470}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {476}{0}{<108>}{Spire Inn Undercroft (s)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {473}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {477}{0}{<108>}{Spire Inn Undercroft (n)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {473}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {478}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {469}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {480}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {483}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {466}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {479}{0}{}{Spire Inn Undercroft (w,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {469}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {480}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {480}{0}{}{Spire Inn Undercroft (w,e,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {479}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {481}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {478}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {481}{0}{}{Spire Inn Undercroft (w,e,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {480}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {482}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {483}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {500}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {482}{0}{}{Spire Inn Undercroft (w,e,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {481}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {484}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {485}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {483}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {481}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {463}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {485}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {478}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {484}{0}{}{Spire Inn Undercroft (w,e,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {482}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {486}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {487}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {485}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {482}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {461}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {483}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {487}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {486}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {484}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {488}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {489}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {490}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {487}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {484}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {490}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {456}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {485}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {488}{0}{}{Spire Inn Undercroft (w,e,s)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {486}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {491}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {492}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {489}{0}{<108>}{Spire Inn Undercroft (n)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {486}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {490}{0}{}{Spire Inn Undercroft (w,e,s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {486}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {498}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {487}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {458}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {491}{0}{}{Spire Inn Undercroft (e,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {488}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {493}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {492}{0}{}{Spire Inn Undercroft (s,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {488}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {496}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {493}{0}{}{Spire Inn Undercroft (w,n,s)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {491}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {494}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {495}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {494}{0}{<108>}{Spire Inn Undercroft (e)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {493}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {495}{0}{<108>}{Spire Inn Undercroft (s)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {493}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {496}{0}{}{Spire Inn Undercroft (e,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {492}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {497}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {497}{0}{<108>}{Spire Inn Undercroft (w)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {496}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {498}{0}{}{Spire Inn Undercroft (e,n)}{ }{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{}{}{1.000}{}
+E {490}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {499}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {499}{0}{<108>}{Spire Inn Undercroft (s)}{<108>[ ]<088>}{Tiered shelving lines the walls of this room with various sizes boxes, crates and barrels containing provisions for the inn above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {498}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {500}{0}{<108>}{Spire Inn Undercroft (w,e,s,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {481}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {501}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {502}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {503}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {501}{0}{<108>}{Spire Inn Undercroft (w,e,s)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {500}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {504}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {505}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {502}{0}{<108>}{Spire Inn Undercroft (w,e,s)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {500}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {514}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {512}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {503}{0}{<108>}{Spire Inn Undercroft (w,e,s,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {500}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {509}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {512}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {505}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {504}{0}{<108>}{Spire Inn Undercroft (s,e)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {501}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {506}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {505}{0}{<108>}{Spire Inn Undercroft (w,e,s,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {501}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {506}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {508}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {503}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {506}{0}{<108>}{Spire Inn Undercroft (e,s,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {504}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {505}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {507}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {507}{0}{<108>}{Spire Inn Undercroft (e,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {506}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {508}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {508}{0}{<108>}{Spire Inn Undercroft (w,e,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {507}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {509}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {505}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {509}{0}{<108>}{Spire Inn Undercroft (w,e,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {508}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {510}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {503}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {510}{0}{<108>}{Spire Inn Undercroft (w,e,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {509}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {511}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {512}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {511}{0}{<108>}{Spire Inn Undercroft (w,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {510}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {513}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {512}{0}{<108>}{Spire Inn Undercroft (w,e,s,n)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {510}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {513}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {502}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {503}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {513}{0}{<108>}{Spire Inn Undercroft (w,n,s)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {511}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {512}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {514}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {514}{0}{<108>}{Spire Inn Undercroft (w,s)}{<108>[ ]<088>}{The Inn's undercroft is an enourmous vaulted space, made from the same dark granite as the majority of the city. Oil lanterns burn at regular intervals providing just enough light to see by. Rows and rows of tiered shelving hold various supplies for the kitchen and bars. }{Gloomrest}{}{dark}{}{1.000}{}
+E {513}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {502}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {515}{0}{}{Spire Inn Stairs (d,n)}{ }{A large ornate stone staircase leads to the upper floor and down to the main hall. To the north a hallway leading to guest rooms. }{Gloomrest}{}{}{}{1.000}{}
+E {440}{d}{d}{32}{0}{}{1.000}{}{0.00}
+E {519}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {516}{0}{}{Spire Inn (w,e,s)}{ }{To the south a large ornate stone staircase leads to the upper floor and down to the main hall, while to the east and west you can see two large function rooms. To the north you seew hat appears to be the door to a store room. }{Gloomrest}{}{}{}{1.000}{}
+E {440}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {517}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {518}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {517}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {516}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {518}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {516}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {519}{0}{}{Spire Inn (w,e,s)}{ }{The upper level of the inn is as well contructed and maintained as the floors below. A wide hallway runs the length of the floor, with doors to guest rooms spaced at regular intrevals on both sides. }{Gloomrest}{}{}{}{1.000}{}
+E {515}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {520}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {521}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {527}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {520}{0}{}{Spire Inn (e,w)}{ }{The upper level of the inn is as well contructed and maintained as the floors below. A wide hallway runs the length of the floor, with doors to guest rooms spaced at regular intrevals on both sides. }{Gloomrest}{}{}{}{1.000}{}
+E {519}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {522}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {525}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {526}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {521}{0}{}{Spire Inn (w,e,s,n)}{ }{The upper level of the inn is as well contructed and maintained as the floors below. A wide hallway runs the length of the floor, with doors to guest rooms spaced at regular intrevals on both sides. }{Gloomrest}{}{}{}{1.000}{}
+E {519}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {528}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {529}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {530}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {522}{0}{}{Spire Inn (e,s,n)}{ }{The upper level of the inn is as well contructed and maintained as the floors below. A wide hallway runs the length of the floor, with doors to guest rooms spaced at regular intrevals on both sides. }{Gloomrest}{}{}{}{1.000}{}
+E {520}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {523}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {524}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {523}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {522}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {524}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {522}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {525}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {520}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {526}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {520}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {527}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {519}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {528}{0}{}{Spire Inn (w,s,n)}{ }{The upper level of the inn is as well contructed and maintained as the floors below. A wide hallway runs the length of the floor, with doors to guest rooms spaced at regular intrevals on both sides. }{Gloomrest}{}{}{}{1.000}{}
+E {521}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {531}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {532}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {529}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {521}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {530}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {521}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {531}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {528}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {532}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+E {528}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {533}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+
+R {534}{0}{}{City Watch Barracks (d)}{ }{The top floor runs the length of the building beneath a steep timber roof, its beams dark with age. Narrow cots line both walls, each with a plain wool blanket and a small wooden chest at its foot for the owner's few belongings. Some men have hung charms, letters or scraps of cloth above their beds, the only touches of personal comfort in the room. The warmth of the hearth below rises through the floorboards, making this the one cosy place in the building, though the air is thick with the smells of wool, sweat and candle wax. Small arched windows overlook the rooftops of the south city, and at night the distant sounds of the streets drift in. At the far end, a few partitioned alcoves with proper doors serve as the officers' quarters, giving the sergeants a little privacy and a view of the stairs. }{Gloomrest}{}{}{}{1.000}{}
+E {449}{d}{d}{32}{0}{}{1.000}{}{0.00}
+E {536}{out}{out}{0}{0}{}{1.000}{}{0.00}
+
+R {535}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+
+R {536}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}

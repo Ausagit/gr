@@ -18,7 +18,7 @@ First, you need to determine your desired method of using TinTin++.  My recommen
 4. WinTin
 
 The VPS will allow you to connect to your session from any device, makes swapping from desktop to mobile, etc., much easier and allows your session to continue running with no need to do multiple setups for multiple devices.
-_Recommend using minimal Ubuntu install (I.E.:  Ubuntu 20.04 LTS Minimal) on free-tier VPS to minimize additional installs that aren't needed and can bog down the free-tier server._
+_Recommend using minimal Ubuntu install (I.E.:  Ubuntu 24.04 LTS Minimal) on free-tier VPS to minimize additional installs that aren't needed and can bog down the free-tier server._
 
 The majority of instructions will assume VPS with Ubuntu.
 
@@ -32,6 +32,9 @@ sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
 sudo apt update
 sudo apt install build-essential
 sudo apt build-dep tintin++
+If you get the error, "You must put some 'deb-src' URI's in your sources.list", run the following command then try the build-dep again:
+sudo sed -Ei 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources && sudo apt update
+
 wget https://github.com/scandum/tintin/releases/download/2.02.61/tintin-2.02.61.tar.gz
 tar -zxvf tintin-2.02.61.tar.gz
 cd tt/src

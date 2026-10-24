@@ -66,6 +66,7 @@ astrat
 
 #variable gsetinfo {
 	{hp}			{{group}{display}		{subgroup} {}		{default}{0}			{format}{^([0-1])$}                 {exclusions}{} {help}{Toggle showing your hpbar in combat}}
+	{graph_text}	{{group}{display}		{subgroup} {}		{default}{0}			{format}{^([0-4])$}                 {exclusions}{} {help}{Change hp/focus bar graph text style}}
 	{theme}			{{group}{display}		{subgroup} {}		{default}{blue}		{format}{^([a-zA-Z0-9\s]{1,30})$}	{exclusions}{} {help}{Theme name applied to tables, messages etc}}
 }
 
