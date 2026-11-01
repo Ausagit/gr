@@ -14,11 +14,11 @@ CROOMS <088>
 CSYMBOLS <128>
 CUSER <138>
 
-F 1048838
+F 1048839
 
 G 0
 
-I 449
+I 547
 
 L {ASCII NESW LINE} {NO EXITS} {x}
 L {ASCII NESW LINE} {N} {o}
@@ -2194,8 +2194,9 @@ E {413}{n}{n}{1}{0}{}{1.000}{}{0.00}
 R {422}{0}{<108>}{Narrow Laneway (w)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
 E {421}{w}{w}{8}{0}{}{1.000}{}{0.00}
 
-R {423}{0}{<108>}{Narrow Laneway (e)}{<108>[ ]<088>}{The lanways here are narrow and dark, dimly lit by oil lanterns hung on the walls of the two-story timber buildings. The cobblestone ground is uneven and treacherous. }{Gloomrest}{}{dark}{}{1.000}{}
+R {423}{0}{<108>}{Narrow Laneway (e)}{/}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. A staircase is carved into the stone here, leading to the surface. }{Gloomrest}{}{dark}{}{1.000}{}
 E {413}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {537}{enter}{enter}{0}{0}{}{1.000}{}{0.00}
 
 R {424}{0}{}{Spire Inn Common Room (w,e,s)}{ }{This is the common room of the Spire Inn. The room is filled with tables and chairs, and a large fireplace dominates the eastern wall. The walls are adorned with various paintings and tapestries, giving the room a cozy and welcoming atmosphere. A bar can be seen to the west, where patrons can order drinks and food. The atmosphere is calm and ordered due to the wealthy demographic and guards by the entrance. }{Gloomrest}{}{}{}{1.000}{}
 E {354}{w}{w}{8}{0}{}{1.000}{}{0.00}
@@ -2697,3 +2698,81 @@ E {536}{out}{out}{0}{0}{}{1.000}{}{0.00}
 R {535}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
 
 R {536}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+
+R {537}{0}{<168>}{The Hollow (u,w)}{<168>[<278>?<168>]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. A staircase is carved into the stone here, leading to the surface. }{Gloomrest}{hollow}{areaexit}{}{1.000}{}
+E {539}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {423}{u}{u}{16}{0}{}{1.000}{}{0.00}
+
+R {538}{0}{<108>}{The Hollow (e,w,n)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {539}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {542}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {544}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {539}{0}{<108>}{The Hollow (e,w,s,n)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {537}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {538}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {540}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {541}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {540}{0}{<238>}{The Hollow (n)}{<238>[I]<088>}{This section of the cavern serves as a crude resting place for members of the thieves guild. A small kitchen occupies one corner, where the smell of cooking food mingles with the damp scent of the surrounding stone. Rough tables and benches provide a place for members to eat and gather, while a collection of simple cots has been arranged in the more sheltered section at the back. Magical lanterns cast a soft glow over the makeshift furnishings, and the low murmur of conversation carries through the cavern. Though hardly comfortable, it offers a welcome refuge for those who call The Hollow home. }{Gloomrest}{}{inn}{}{1.000}{}
+E {539}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {541}{0}{<238>}{The Hollow (s,w)}{<238>(<148>~<238>)<088>}{An enormous cavern lies beneath the streets of Gloomrest, its high vaulted ceiling disappearing into the darkness above. The uneven stone floor has been roughly levelled, though scattered pillars and natural rock formations create sheltered pockets throughout the space. Magical lanterns fixed to the walls and rocky outcrops cast a subdued light across the cavern. In the northeast corner, a clear underground stream winds through the stone, providing a much-needed source of fresh water for the guild. Though shaped by nature, the space bears the unmistakable marks of those who have made it their home. }{Gloomrest}{}{well}{}{1.000}{}
+E {539}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {542}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {542}{0}{<108>}{The Hollow (e,w,s)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {541}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {543}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {538}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {543}{0}{<108>}{The Hollow (e,s,n)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {542}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {544}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {545}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {544}{0}{<108>}{The Hollow (e,n,s)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {543}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {538}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {546}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {545}{0}{<108>}{The Hollow (s)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {543}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {546}{0}{<108>}{The Hollow (w,e,s,n)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {544}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {547}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {548}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {549}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {547}{0}{<108>}{The Hollow (e,w,s,n)}{<108>[ ]<088>}{This section of the cavern serves as the private working area of the guild's underboss. A sturdy wooden desk and well-worn chair sit upon a large rug, with several chests arranged nearby for storing valuables, supplies and important documents. Papers, ledgers and a collection of maps are scattered across the desk, evidence of the many affairs requiring attention. A few shelves hold books and assorted belongings, while a pair of lanterns cast a warm glow over the furnishings. Though modest compared to the guildmaster's quarters, the space is orderly and functional, providing a place to oversee the guild's day-to-day operations away from the bustle of the Hollow. }{Gloomrest}{}{dark}{}{1.000}{}
+E {546}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {550}{w}{w}{8}{0}{}{1.000}{}{0.00}
+E {551}{s}{s}{4}{0}{}{1.000}{}{0.00}
+E {552}{n}{n}{1}{0}{}{1.000}{}{0.00}
+
+R {548}{0}{<088>}{The Hollow (w)}{<088>[<128>$<088>]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{shop}{}{1.000}{}
+E {546}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {549}{0}{<108>}{The Hollow (e,s,n)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {546}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {554}{e}{e}{2}{0}{}{1.000}{}{0.00}
+E {555}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {550}{0}{<088>}{The Hollow (e)}{<088>[<128>G<088>]<088>}{This secluded section of the cavern serves as the private quarters of Juliette, the guildmaster. Considerably more comfortable than the surrounding hideout, the space is furnished with fine rugs, well-crafted furniture and a sturdy table bearing a decanter of wine and several glasses. A bookcase stands against the rocky wall, its shelves filled with books and assorted curiosities. At the rear, wooden screens divide off a more private area, concealing her sleeping quarters from the rest of the cavern. Though sheltered from the bustle of the guild, the rough stone surroundings remain a constant reminder of the world beyond. }{Gloomrest}{}{guild}{}{1.000}{}
+E {547}{e}{e}{2}{0}{}{1.000}{}{0.00}
+
+R {551}{0}{<138>}{The Hollow (n,vault)}{<138>*<128>$<138>*<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{bank}{}{1.000}{}
+E {547}{n}{n}{1}{0}{}{1.000}{}{0.00}
+E {553}{vault}{vault}{0}{0}{}{1.000}{}{0.00}
+
+R {552}{0}{<108>}{The Hollow (s)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {547}{s}{s}{4}{0}{}{1.000}{}{0.00}
+
+R {553}{0}{<118>}{}{ }{}{}{}{}{}{1.000}{}
+
+R {554}{0}{<088>}{The Hollow (w)}{<088>[<128>$<088>]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{shop}{}{1.000}{}
+E {549}{w}{w}{8}{0}{}{1.000}{}{0.00}
+
+R {555}{0}{<108>}{The Hollow (n)}{<108>[ ]<088>}{The cavern stretches away beneath the city, its immense vaulted ceiling lost in shadow above. The rough stone floor has been levelled in places, though natural outcrops and scattered pillars break up the space, forming smaller, sheltered areas. Magical lanterns hang from the walls and rocky formations, casting a muted glow across the cavern. Voices drift through the vast space, mingling with the faint, constant trickle of water somewhere in the darkness. Despite its natural origins, signs of habitation are everywhere, suggesting this place has long served as a refuge from the world above. }{Gloomrest}{}{dark}{}{1.000}{}
+E {549}{n}{n}{1}{0}{}{1.000}{}{0.00}

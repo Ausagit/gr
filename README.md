@@ -64,10 +64,14 @@ Create bin folder and copy scripts to it
 ```
 mkdir bin
 cp gr/scripts/* ~/bin/
+cd bin
+chmod +x tgr
+chmod +x trcx
 ```
 
 Save your GR password
 ```
+sudo apt install nano
 cd gr
 mkdir char
 mkdir logs

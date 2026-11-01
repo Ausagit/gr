@@ -77,6 +77,23 @@
     }
 }
 
+#alias {connect3} {
+    #regexp {%0} {%*,%*} {
+        #nop account_name,character_name;
+        #session {%0} {localhost} {3000};
+        #variable account_name {&1};
+        #send $account_name;
+        #textin gr/.pass;
+        #send &2;
+    } {
+        #nop just the account name;
+        #session {%0} {localhost} {3000};
+        #variable account_name {%0};
+        #send $account_name;
+        #textin gr/.pass;
+    }
+}
+
 #action {^Gloomrest welcomes you %*, %*!} {
     #format ses_name {%l} {%2};
     #format logfile {gr/logs/${ses_name}_%t.log} {%Y%m%d};

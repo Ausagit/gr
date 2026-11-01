@@ -43,6 +43,7 @@
 #variable terrains[flowers2]          {{col} {<178>} {sym} {<158>*<168>*<138>*<088>}};
 #variable terrains[forest]            {{col} {<228>} {sym} {<228>( *<088>}};
 #variable terrains[fountain]          {{col} {<148>} {sym} {<148>( )<088>}};
+#variable terrains[guild]             {{col} {<088>} {sym} {<088>[<128>G<088>]<088>}};
 #variable terrains[graveyard]         {{col} {<238>} {sym} {<238>. <178>+<088>}};
 #variable terrains[hallway]           {{col} {<268>} {sym} {<268>[ ]<088>}};
 #variable terrains[hell1]             {{col} {<218>} {sym} {<218>` <118>,<088>}};
